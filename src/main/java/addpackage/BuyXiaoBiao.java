@@ -1,5 +1,9 @@
 package addpackage;
 
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,37 +35,27 @@ public class BuyXiaoBiao {
 		dr.findElement(By.id("investSubmit")).click();
 		dr.navigate().to("http://testhf.irongbei.com/UserCenter/confirm?program=7039&account=1000&uvId=0&key=7b49fb1a83961a568e09af18e4747938");
 		dr.findElement(By.className("fzz_btn")).click();
-		Thread.sleep(10000);
+		dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	
 		
-//		Set<String> set = dr.getWindowHandles(); //创建set集合，即句柄数组
-//		Iterator<String> handles = set.iterator(); //迭代器取得所有set集合内容
-//
-//		while (handles.hasNext()) { //是否还存在句柄
-//		String sonHandle = handles.next(); //循环取得各个元素值
-//		System.out.print(sonHandle);
-//		dr.navigate().to(sonHandle);
-//	dr.switchTo().window(sonHandle); 
-		
-//		}
-//		String url= "http://testhf.irongbei.com/UserCenter/jxdoInvest";
-//		dr.navigate().to(url);
-//		
-//		String url2="https://test.credit2go.cn/escrow/p2p/page/bidapply";
-//		dr.navigate().to(url2);
-		dr.getCurrentUrl();
-		 System.out.println(dr.getCurrentUrl());
-		dr.navigate().to(dr.getCurrentUrl());	  
-		String url3=dr.getCurrentUrl();
-		System.out.println(url3);
-		dr.navigate().to(url3);
-//		dr.navigate().to("http://testhf.irongbei.com/UserCenter/jxdoInvest");
+		  String currentWindow = dr.getWindowHandle();  
+	        //得到所有窗口的句柄  
+	        Set<String> handles = dr.getWindowHandles();  
+	        Iterator<String> it = handles.iterator();  
+	        while(it.hasNext()){  
+	            String handle = it.next();  
+	            if(currentWindow.equals(handle)) continue;  
+	            WebDriver   window = dr.switchTo().window(handle);  
+	            System.out.println("title,url = "+window.getTitle()+","+window.getCurrentUrl());  
+	          String sss=window.getCurrentUrl();
+             dr.navigate().to(sss);
 	
 
-		dr.findElement(By.linkText("请输入6位数字交易密码")).clear();
-		dr.findElement(By.linkText("请输入6位数字交易密码")).sendKeys("123456");
-		dr.findElement(By.linkText("确 认")).click();
+		dr.findElement(By.xpath("//*[@id=\"pass\"]")).clear();
+		dr.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456");
+		dr.findElement(By.id("sub")).click();
 		Thread.sleep(3000);
-
+	 }
 		dr.quit();
 		
 		
