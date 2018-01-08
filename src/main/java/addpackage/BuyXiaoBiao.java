@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BuyXiaoBiao {
-	 public static void testPlan() throws Exception {
+	 public  void testPlan() throws Exception {
 			System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 			 WebDriver dr= new ChromeDriver();
 		dr.get("http://testhf.irongbei.com/UserLogin/index"); 
@@ -66,16 +66,5 @@ public class BuyXiaoBiao {
 		
 		
 }
-	 public static void main(String[] args) {
-		 
-		 try {
-			BuyXiaoBiao.testPlan();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 
-		 
-		 
-	 }
+	
 }

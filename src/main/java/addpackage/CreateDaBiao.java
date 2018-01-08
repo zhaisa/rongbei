@@ -3,6 +3,7 @@ package addpackage;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,10 +17,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 @Test
 public class CreateDaBiao {
-public  void createDaBiao() throws Exception {
+public  void createDaBiao(String zq,int mylength,int myyear,int mymonth,int myday) throws Exception {
 	 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 	 WebDriver dr= new ChromeDriver();
-dr.get("http://asset_admin.irongbei.com/admin/login"); 
+dr.get("http://rongbeiadmin.51dmoz.com/admin/login"); 
 
 //dr.manage().window().maximize();
 
@@ -73,7 +74,9 @@ int a=(int) (1000* Math.random());
     s3.selectByValue("9");//直融——车贷(消费金融)——等额本息					        
 
     Select s4= new Select(dr.findElement(By.id("template_id")));
-    s4.selectByVisibleText("模板6");//选择模板6
+ //   s4.selectByVisibleText("模板6");//选择模板6
+ //   s4.selectByValue("189");
+    Thread.sleep(1000);
     dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
     Thread.sleep(1000);
     String att="hello my world!!!!!";
@@ -86,9 +89,12 @@ int a=(int) (1000* Math.random());
     dr.findElement(By.id("rate")).sendKeys("8");//年利率8%
     dr.findElement(By.id("cre_rate")).clear();
     dr.findElement(By.id("cre_rate")).sendKeys("9");
-    dr.findElement(By.name("fixed_invest")).clear();
-    dr.findElement(By.name("fixed_invest")).sendKeys("0");//输入定投金额
-    dr.findElement(By.name("cycle")).sendKeys("12");//还款周期月
+    /**
+     * 大标没有定投
+     */
+//    dr.findElement(By.name("fixed_invest")).clear();
+//    dr.findElement(By.name("fixed_invest")).sendKeys("0");//输入定投金额
+    dr.findElement(By.name("cycle")).sendKeys(zq);//还款周期月
 
     JavascriptExecutor jse = (JavascriptExecutor) dr; 
             Boolean loaded;        
@@ -103,20 +109,23 @@ int a=(int) (1000* Math.random());
          * 加载jquery清楚readonly熟悉，然后给输入框输入时间
          */
 
-    Date date = new Date();//先获取当前日期
-    String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(date);//对日期进行格式化
+ //   Date date = new Date();//先获取当前日期
+    Calendar c=new GregorianCalendar();
+    c.set(myyear, mymonth, myday);
+    String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());//对日期进行格式化
     System.out.println(startDate);
     String changereadonly= "$('input[name=online_time]').attr(\"readonly\",false)";
     ((JavascriptExecutor) dr).executeScript(changereadonly);
     dr.findElement(By.name("online_time")).click();
     dr.findElement(By.name("online_time")).sendKeys(startDate);
 
-    Calendar cd = Calendar.getInstance();  
-    cd.add(Calendar.MONTH, 12);  
-    cd.set(2019,0,02);  //年月日  也可以具体到时分秒如calendar.set(2015, 10, 12,11,32,52); 
-    Date dt=cd.getTime();//date就是你需要的时间
-    System.out.println(dt);
-    String endDate= new SimpleDateFormat("yyyy-MM-dd hh:mm").format(cd.getTime());
+ //   Calendar cd = Calendar.getInstance();  
+    c.add(Calendar.MONTH, mylength);  
+ 
+    Date dt=c.getTime();//date就是你需要的时间
+   
+    String endDate= new SimpleDateFormat("yyyy-MM-dd hh:mm").format(dt);
+    System.out.println(endDate);
     dr.findElement(By.name("end_time")).click();
     dr.findElement(By.name("end_time")).sendKeys(endDate);
 

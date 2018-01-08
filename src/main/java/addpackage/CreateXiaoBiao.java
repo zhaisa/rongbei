@@ -117,6 +117,7 @@ s3.selectByValue("9");//直融——车贷(消费金融)——等额本息
 Select s4= new Select(dr.findElement(By.id("template_id")));
 s4.selectByVisibleText("模板6");//选择模板6
 dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
+
 Thread.sleep(1000);
 /**
  * 使用相对路径获取弹框的XPATH
