@@ -1,8 +1,11 @@
 package addpackage;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.FileHandler;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +16,18 @@ public class BuyXiaoBiao {
 			System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 			 WebDriver dr= new ChromeDriver();
 		dr.get("http://testhf.irongbei.com/UserLogin/index"); 
+		
+		 
+//	    File file = new File("D:/users/user.txt");
+//        String s = null;
+//        try {
+//            s = FileHandler.readAsString(file);
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//   
+		 
 		dr.findElement(By.id("user_name")).sendKeys("17409080002");
 		dr.findElement(By.id("user_password")).sendKeys("123456");
 		dr.findElement(By.id("qianlogin")).click();
