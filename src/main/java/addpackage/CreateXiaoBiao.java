@@ -88,7 +88,7 @@ dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm"
 int a=(int) (1000* Math.random());
 
 
-	String para="测试小标底层-翟"+a;
+	String para="asset测试小标底层-翟"+a;
 	System.out.println(para);
 	
 dr.navigate().to("http://asset_admin.irongbei.com/admin/Project/create");

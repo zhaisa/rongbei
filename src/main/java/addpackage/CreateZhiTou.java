@@ -26,7 +26,7 @@ public  void createZhiTou(String zq,int mylengh,int myyear,int mymonth,int myday
 	
 	 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 	 WebDriver dr= new ChromeDriver();
-dr.get("http://asset_admin.irongbei.com/admin/login"); 
+dr.get("http://rongbeiadmin.51dmoz.com/admin/login"); 
 
 //dr.manage().window().maximize();
 
@@ -85,13 +85,13 @@ dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
 //dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();//
 Thread.sleep(1000); //停止1秒钟
 dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
-int a=(int) (1000* Math.random());
+int a=(int) (10000* Math.random());
 
 
 	String para="测试直投底层-翟"+a;
 	System.out.println(para);
 	
-dr.navigate().to("http://asset_admin.irongbei.com/admin/Project/create");
+dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
 dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(para);
 dr.findElement(By.id("project_num")).sendKeys(para+1);
 //UUID uuid = UUID.randomUUID();
