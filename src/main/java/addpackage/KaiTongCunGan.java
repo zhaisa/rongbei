@@ -27,14 +27,14 @@ public class KaiTongCunGan {
 //		BufferedReader br = new BufferedReader (fr);
 //		String s=br.readLine();
 		
-		int lineNo =varzhai=0;
+		int lineNo =varzhai;
 		int i= 0;
 		int j=0;
 		String a = "";
 		String b="";
 		FileReader fr = null;
 		try {
-			fr = new FileReader("D:\\users\\usertext1.txt");
+			fr = new FileReader("D:\\users\\usertext1.txt");//读取用户名文件
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,7 +74,7 @@ public class KaiTongCunGan {
 		
 
 		try {
-			fr = new FileReader("D:\\users\\usercard.txt");
+			fr = new FileReader("D:\\users\\usercard.txt");//读取身份证号码文件
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,7 +127,7 @@ public class KaiTongCunGan {
 		dr.findElement(By.id("sub")).click();
 		Thread.sleep(1000);
 
-		
+		fr.close();
 		dr.close();
 		
 		dr.quit();

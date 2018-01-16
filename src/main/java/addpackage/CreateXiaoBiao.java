@@ -26,7 +26,7 @@ public  void createXiaoBiao(String zq,int mylength,int myyear,int mymonth,int my
 	
 	 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 	 WebDriver dr= new ChromeDriver();
-dr.get("http://asset_admin.irongbei.com/admin/login"); 
+dr.get("http://rongbeiadmin.51dmoz.com/admin/login"); 
 
 //dr.manage().window().maximize();
 
@@ -91,7 +91,7 @@ int a=(int) (1000* Math.random());
 	String para="asset测试小标底层-翟"+a;
 	System.out.println(para);
 	
-dr.navigate().to("http://asset_admin.irongbei.com/admin/Project/create");
+dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
 dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(para);
 dr.findElement(By.id("project_num")).sendKeys(para+1);
 //UUID uuid = UUID.randomUUID();
