@@ -85,10 +85,12 @@ dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
 //dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();//
 Thread.sleep(1000); //停止1秒钟
 dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
-int a=(int) (1000* Math.random());
+int a=(int) (10000* Math.random());
+
 
 
 	String para="asset测试小标底层-翟"+a;
+
 	System.out.println(para);
 	
 dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");

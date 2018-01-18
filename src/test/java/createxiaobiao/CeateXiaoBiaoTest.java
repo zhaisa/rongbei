@@ -6,9 +6,9 @@ public class CeateXiaoBiaoTest {
 public static void main(String[] args) throws Exception {
 	CreateXiaoBiao ct=new CreateXiaoBiao();
 			
-		for(int i=1;i<7;i++){
+		for(int i=1;i<2;i++){
 			try {
-				ct.createXiaoBiao("3", 3, 2018, 0, 16);
+				ct.createXiaoBiao("3", 3, 2018, 1, 17);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

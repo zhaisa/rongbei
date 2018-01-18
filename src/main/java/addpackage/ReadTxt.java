@@ -1,48 +1,78 @@
 package addpackage;
-
+/*
+ * 
+ * 
+ * 
+ * 将流数据放到list集合后，读取
+ */
 import java.io.BufferedReader;
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.io.FileHandler;
 
 
 public class ReadTxt {
 	public static void main(String[] args) {
-		ReadTxt rt=new ReadTxt();
 		try {
-			String sss=rt.readFS("D:\\users\\user.txt");
+			for(int i =0;i<22;i++)  {
+			readFS(i);
 			
- }
+ }}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			
 		}
 	}
 	
-	public  String readFS(String path) throws IOException {
-//File file = new File("D:\\users\\user.txt");
-		int lineNo = 1;
-		int i= 1;
-		String a = "";
+	public static  String readFS(int lineNo) throws IOException {
+		int i=0;
+		String a="";
+		FileReader fr = null;
+		try {
+			fr = new FileReader("D:\\users\\usertext1.txt");//读取用户名文件
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		List<String> list =new ArrayList<String>();
+		BufferedReader br=new BufferedReader(fr);
+		String line="";
+		try {
+			while ((line=br.readLine())!=null) {
+			
+				list.add(line);
+				
+			
+			
+			}
+		}
 		
-	File file = new File(path);
-
-FileReader fr=new FileReader(file);
-BufferedReader br = new BufferedReader (fr);
-String s="";
-while ((s=br.readLine())!=null) {
-	if(lineNo==i){
-		a=s;
-	}
-	i++;
-}
-System.out.println(s);
-return a;
-
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (br != null) {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.out.println("流关闭失败！");
+			}
+		}
+		
+		if(lineNo<list.size()) {
+			list.get(lineNo);
+		System.out.println(list.get(lineNo));	
+		}
+		if(lineNo>=list.size()) {
+			lineNo=lineNo-list.size();
+			list.get(lineNo);
+			System.out.println(list.get(lineNo));
+		}
+		
+		return list.get(lineNo);
+	
 	 }
 }
