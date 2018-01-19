@@ -16,9 +16,10 @@ import java.util.List;
 
 public class ReadTxt {
 	public static void main(String[] args) {
+		ReadTxt rt=new ReadTxt();
 		try {
 			for(int i =0;i<47;i++)  {
-			readFS(i);
+			rt.readFS("D:\\users\\usertext1.txt",i);
 			
  }}
 		catch (IOException e) {
@@ -28,12 +29,11 @@ public class ReadTxt {
 		}
 	}
 	
-	public static  String readFS(int lineNo) throws IOException {
-		int i=0;
-		String a="";
+	public  String readFS(String path,int lineNo) throws IOException {
+	
 		FileReader fr = null;
 		try {
-			fr = new FileReader("D:\\users\\usertext1.txt");//读取用户名文件
+			fr = new FileReader(path);//读取用户名文件"D:\\users\\usertext1.txt"
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -41,12 +41,8 @@ public class ReadTxt {
 		BufferedReader br=new BufferedReader(fr);
 		String line="";
 		try {
-			while ((line=br.readLine())!=null) {
-			
-				list.add(line);
-				
-			
-			
+			while ((line=br.readLine())!=null) {		
+				list.add(line);		
 			}
 		}
 		
@@ -61,7 +57,6 @@ public class ReadTxt {
 				System.out.println("流关闭失败！");
 			}
 		}
-	//	System.out.println(list.size());
 		
 		if(lineNo<list.size()) {
 			list.get(lineNo);
@@ -79,11 +74,7 @@ public class ReadTxt {
 		}
 			
 		}
-		
-	
-
-
-		
+				
 		return list.get(lineNo);
 	
 	 }

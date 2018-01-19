@@ -49,42 +49,19 @@ public class AddMoney {
 	dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Statistics/jxUserCapitalManage?sign=bf042569ae6d7d6bfeb78a2c4560d8af");
 	Thread.sleep(2000);
 	int lineNo =varzhai;
-	int i= 0;
-	String a = "";	
-	FileReader fr = null;
-	try {
-		fr = new FileReader("D:\\users\\usertext1.txt");//读取用户名文件
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	BufferedReader br=new BufferedReader(fr);
-	String line="";
-	try {
-		while ((line=br.readLine())!=null) {
-			if(lineNo==i){
-				a=line;
-			}
-			i++;
-		}
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	System.out.println(a);
-
+	ReadTxt rt=new ReadTxt();
+String a=rt.readFS("D:/users/usertext1.txt", lineNo);
 
 	dr.findElement(By.id("username")).sendKeys(a);
 	dr.findElement(By.id("userlistbutton")).click();
 	Thread.sleep(2000);
-	dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Statistics/jxUserCapitalManage?username=17409090010&mobile=&usercode=&orderStyle=1&sign=bf042569ae6d7d6bfeb78a2c4560d8af");
+	String url="http://rongbeiadmin.51dmoz.com/admin/Statistics/jxUserCapitalManage?username=";
+	String url2=a;
+	String url3="&mobile=&usercode=&orderStyle=1&sign=bf042569ae6d7d6bfeb78a2c4560d8af";
+	dr.navigate().to(url+url2+url3);
 	dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[2]/table/tbody/tr[2]/td[12]/a[1]")).click();
 	Thread.sleep(2000);
-//	dr.findElement(By.className("cd-bm-box")).findElement(By.id("money")).clear();
-//	dr.findElement(By.className("cd-bm-box")).findElement(By.id("money")).sendKeys("50000");
-//	dr.findElement(By.className("cd-bm-box")).findElement(By.name("operaPwd")).clear();
-//	dr.findElement(By.className("cd-bm-box")).findElement(By.name("operaPwd")).sendKeys("123456");
-//	dr.findElement(By.className("cd-bm-box")).findElement(By.id("moneyBtn")).click();
+
 	dr.findElement(By.xpath("//*[@id=\"money\"]")).clear();
 	dr.findElement(By.xpath("//*[@id=\"money\"]")).sendKeys("50000");
 	dr.findElement(By.xpath("//*[@id=\"operaPwd\"]")).clear();
@@ -92,11 +69,13 @@ public class AddMoney {
 	dr.findElement(By.xpath("//*[@id=\"moneyBtn\"]")).click();
 	
 	
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	
 	dr.switchTo().alert().accept();
 	Thread.sleep(2000);
 	
+	
+	dr.close();
 	dr.quit();
 	
 	

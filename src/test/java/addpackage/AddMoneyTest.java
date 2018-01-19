@@ -3,9 +3,9 @@ package addpackage;
 public class AddMoneyTest {
 	public static void main(String[] args) {
 		AddMoney am=new AddMoney();
-		for(int i=0;i<30;i++) {
+		for(int i=0;i<12;i++) {
 		try {
-			am.addMoney(0);
+			am.addMoney(i);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

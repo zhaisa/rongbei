@@ -89,7 +89,7 @@ int a=(int) (10000* Math.random());
 
 
 
-	String para="asset测试小标底层-翟"+a;
+	String para="测试小标底层-翟"+a;
 
 	System.out.println(para);
 	

@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BuyXiaoBiao {
-	 public  void testPlan() throws Exception {
+	 public  void testPlan(int lineNo) throws Exception {
 			System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 			 WebDriver dr= new ChromeDriver();
 		dr.get("http://testhf.irongbei.com/UserLogin/index"); 
@@ -27,8 +27,10 @@ public class BuyXiaoBiao {
 //            e.printStackTrace();
 //        }
 //   
+		ReadTxt rt=new ReadTxt();
+		String a=rt.readFS("D:/users/usertext1.txt", lineNo);
 		 
-		dr.findElement(By.id("user_name")).sendKeys("17409080002");
+		dr.findElement(By.id("user_name")).sendKeys(a);
 		dr.findElement(By.id("user_password")).sendKeys("123456");
 		dr.findElement(By.id("qianlogin")).click();
 		Thread.sleep(1000);
@@ -41,14 +43,14 @@ public class BuyXiaoBiao {
 //		sl.selectByVisibleText("投标中");
 		dr.findElement(By.xpath("//*[@id=\"statuschoose\"]/li[3]")).click();
 		dr.navigate().to("http://testhf.irongbei.com/index/plist?type=0&status=1&income=0&cycle=0&condition=close&payment=0");
-		dr.findElement(By.linkText("小标自动化购买-翟one")).click();
+		dr.findElement(By.linkText("测试小标底层（新手）-翟0318")).click();
 		dr.findElement(By.linkText("立即出借")).click();
-		dr.navigate().to("http://testhf.irongbei.com/index/pdetail?id=7039");
+		dr.navigate().to("http://testhf.irongbei.com/index/pdetail?id=7532");
 		dr.findElement(By.id("invest_account")).clear();
 		dr.findElement(By.id("invest_account")).click();
 		dr.findElement(By.id("invest_account")).sendKeys("1000");
 		dr.findElement(By.id("investSubmit")).click();
-		dr.navigate().to("http://testhf.irongbei.com/UserCenter/confirm?program=7039&account=1000&uvId=0&key=7b49fb1a83961a568e09af18e4747938");
+		dr.navigate().to("http://testhf.irongbei.com/UserCenter/confirm?program=7532&account=1000&uvId=0&key=1b812458c6f75577f99a9e211854587a");
 		dr.findElement(By.className("fzz_btn")).click();
 		dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	

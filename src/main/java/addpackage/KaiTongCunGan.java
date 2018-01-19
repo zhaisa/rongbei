@@ -124,7 +124,7 @@ public class KaiTongCunGan {
 		dr.findElement(By.xpath("//*[@id=\"encPin2\"]")).clear();
 		dr.findElement(By.xpath("//*[@id=\"encPin2\"]")).sendKeys("123456");
 		dr.findElement(By.id("sub")).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 		fr.close();
 		dr.close();
@@ -134,7 +134,7 @@ public class KaiTongCunGan {
 }
 
 	private static WebElement linkText(String string) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 }

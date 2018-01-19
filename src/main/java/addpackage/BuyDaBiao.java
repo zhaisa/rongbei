@@ -13,7 +13,7 @@ public class BuyDaBiao {
 	 WebDriver dr= new ChromeDriver();
 dr.get("http://asset.irongbei.com/UserLogin/index"); 
 ReadTxt rt=new ReadTxt();
-String username=rt.readFS(lineNo);
+String username=rt.readFS("D:\\users\\usertext1.txt",lineNo);
 dr.findElement(By.id("user_name")).sendKeys(username);
 dr.findElement(By.id("user_password")).sendKeys("123456");
 dr.findElement(By.id("qianlogin")).click();
@@ -22,7 +22,7 @@ dr.navigate().to("http://asset.irongbei.com/UserCenter/index");
 dr.findElement(By.xpath("//*[@id=\"irb-header\"]/div[2]/div/div[2]/ul/li[2]/a")).click();
 dr.navigate().to("http://asset.irongbei.com/index/fplist");
 dr.findElement(By.className("mai-btn")).click();
-dr.navigate().to("http://asset.irongbei.com/Index/fpdetail?id=26");
+dr.navigate().to("http://asset.irongbei.com/Index/fpdetail?id=30");
 dr.findElement(By.id("invest_account")).clear();
 dr.findElement(By.id("invest_account")).click();
 dr.findElement(By.id("invest_account")).sendKeys("100");
