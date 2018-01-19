@@ -1,8 +1,8 @@
-package CreateZT;
+package addpackage;
 
 import addpackage.CreateZhiTou;
 
-public class CreateZT {
+public class CreateZhiTouTest {
 	public static void main(String[] args) {
 		CreateZhiTou cz=new CreateZhiTou();
 		for(int i=1;i<11;i++){

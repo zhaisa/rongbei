@@ -1,8 +1,8 @@
-package CRDB;
+package addpackage;
 
 import addpackage.CreateDaBiao;
 
-public class createDB {
+public class CreateDaBiaoTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

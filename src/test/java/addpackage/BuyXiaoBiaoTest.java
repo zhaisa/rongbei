@@ -1,8 +1,8 @@
-package BuyXB;
+package addpackage;
 
 import addpackage.BuyXiaoBiao;
 
-public class BuyXiB {
+public class BuyXiaoBiaoTest {
 	public static void main(String[] args) {
 		BuyXiaoBiao bt= new BuyXiaoBiao();
 	for(int i=0;i<11;i++) {
