@@ -17,7 +17,7 @@ import java.util.List;
 public class ReadTxt {
 	public static void main(String[] args) {
 		try {
-			for(int i =0;i<22;i++)  {
+			for(int i =0;i<47;i++)  {
 			readFS(i);
 			
  }}
@@ -61,16 +61,28 @@ public class ReadTxt {
 				System.out.println("流关闭失败！");
 			}
 		}
+	//	System.out.println(list.size());
 		
 		if(lineNo<list.size()) {
 			list.get(lineNo);
 		System.out.println(list.get(lineNo));	
 		}
-		if(lineNo>=list.size()) {
-			lineNo=lineNo-list.size();
-			list.get(lineNo);
-			System.out.println(list.get(lineNo));
+		else{
+			
+			int j=lineNo/list.size();
+			for(int z=1;z<10000;z++) {
+			if(j>=z&&j<z+1) {
+				lineNo=lineNo-z*list.size();
+				list.get(lineNo);
+				System.out.println(list.get(lineNo));
+			}
 		}
+			
+		}
+		
+	
+
+
 		
 		return list.get(lineNo);
 	
