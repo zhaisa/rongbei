@@ -1,4 +1,6 @@
-package addpackage;
+package com.irongbei;
+
+import com.irongbei.KaiTongCunGan;
 
 public class kaitongcunguan {
 public static void main(String[] args) {

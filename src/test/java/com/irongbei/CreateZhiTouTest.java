@@ -1,6 +1,6 @@
-package addpackage;
+package com.irongbei;
 
-import addpackage.CreateZhiTou;
+import com.irongbei.CreateZhiTou;
 
 public class CreateZhiTouTest {
 	public static void main(String[] args) {

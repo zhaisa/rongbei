@@ -1,6 +1,6 @@
-package addpackage;
+package com.irongbei;
 
-import addpackage.BuyXiaoBiao;
+import com.irongbei.BuyXiaoBiao;
 
 public class BuyXiaoBiaoTest {
 	public static void main(String[] args) {

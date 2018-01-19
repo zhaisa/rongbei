@@ -1,6 +1,6 @@
-package addpackage;
+package com.irongbei;
 
-import addpackage.CreateXiaoBiao;
+import com.irongbei.CreateXiaoBiao;
 
 public class CeateXiaoBiaoTest {
 public static void main(String[] args) throws Exception {

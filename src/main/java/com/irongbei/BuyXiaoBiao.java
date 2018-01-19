@@ -1,4 +1,4 @@
-package addpackage;
+package com.irongbei;
 
 import java.io.File;
 import java.io.IOException;

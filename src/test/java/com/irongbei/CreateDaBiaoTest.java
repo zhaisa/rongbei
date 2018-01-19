@@ -1,6 +1,6 @@
-package addpackage;
+package com.irongbei;
 
-import addpackage.CreateDaBiao;
+import com.irongbei.CreateDaBiao;
 
 public class CreateDaBiaoTest {
 

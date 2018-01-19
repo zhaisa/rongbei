@@ -1,4 +1,6 @@
-package addpackage;
+package com.irongbei;
+
+import com.irongbei.AddMoney;
 
 public class AddMoneyTest {
 	public static void main(String[] args) {

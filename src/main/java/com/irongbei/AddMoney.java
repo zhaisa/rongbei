@@ -1,4 +1,4 @@
-package addpackage;
+package com.irongbei;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -1,6 +1,6 @@
-package addpackage;
+package com.irongbei;
 
-import addpackage.BuyDaBiao;
+import com.irongbei.BuyDaBiao;
 
 public class BuyDaBiaoJiHua {
 

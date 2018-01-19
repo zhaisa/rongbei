@@ -1,4 +1,4 @@
-package addpackage;
+package com.irongbei;
 
 import org.openqa.jetty.start.Main;
 import org.openqa.selenium.By;
