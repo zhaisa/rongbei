@@ -1,11 +1,11 @@
-package com.irongbei;
+package com.irongbeitest;
 
 import com.irongbei.BuyDaBiao;
 
-public class BuyDaBiaoJiHua {
+public class CreateBuyDaBiao {
 
 	public static void main(String[] args) {
-		for(int i=1;i<201;i++){
+		for(int i=1;i<510;i++){
 	try {
 		BuyDaBiao.testPlan(i);
 	} catch (Exception e) {

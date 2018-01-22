@@ -1,4 +1,4 @@
-package com.irongbei;
+package com.irongbeitest;
 
 import com.irongbei.BuyXiaoBiao;
 
