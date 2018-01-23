@@ -2,7 +2,7 @@ package com.irongbeitest;
 
 import com.irongbei.BuyDaBiao;
 
-public class CreateBuyDaBiao {
+public class BuyDaBiaoTest {
 
 	public static void main(String[] args) {
 		for(int i=1;i<510;i++){

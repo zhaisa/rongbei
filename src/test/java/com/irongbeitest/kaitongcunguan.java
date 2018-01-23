@@ -7,9 +7,8 @@ public static void main(String[] args) {
 	KaiTongCunGan kt=new KaiTongCunGan();
 	for(int i=0;i<99;i++) {
 	try {
-		kt.testPlan(i);
+		KaiTongCunGan.testPlan(i);
 	} catch (Exception e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 }
