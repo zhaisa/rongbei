@@ -18,13 +18,13 @@ public static void main(String[] args) {
 			e.printStackTrace();
 		}
 		try {
-			cxb.createXiaoBiao("3", 3, 2018, 3, 25);
+			cxb.createXiaoBiao("3", 3, 2018, 3, 25,i);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
 		try {
-			czt.createZhiTou("3", 3, 2018, 3, 25);
+			czt.createZhiTou("3", 3, 2018, 3, 25,i);
 		} catch (Exception e) {
 		
 			e.printStackTrace();

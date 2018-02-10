@@ -22,10 +22,12 @@ public class CreateXiaoBiao {
 	 
 		
 	
-public  void createXiaoBiao(String zq,int mylength,int myyear,int mymonth,int myday) throws Exception {
+public  void createXiaoBiao(String zq,int mylength,int myyear,int mymonth,int myday,int usernum) throws Exception {
 	
 	 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 	 WebDriver dr= new ChromeDriver();
+	 Calendar  c = new GregorianCalendar();
+	 c.set(myyear, mymonth, myday);
 dr.get("http://rongbeiadmin.51dmoz.com/admin/login"); 
 
 //dr.manage().window().maximize();
@@ -85,17 +87,16 @@ dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
 //dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();//
 Thread.sleep(1000); //停止1秒钟
 dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
-int a=(int) (10000* Math.random());
+String userunder=new SimpleDateFormat("yyyyMMdd").format(c.getTime());
+System.out.println(userunder);
+int a=usernum;
+String user="测试小标项目-翟"+userunder+"-"+a;
 
-
-
-	String para="测试小标底层-翟"+a;
-
-	System.out.println(para);
+	System.out.println(user);
 	
 dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
-dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(para);
-dr.findElement(By.id("project_num")).sendKeys(para+1);
+dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
+dr.findElement(By.id("project_num")).sendKeys(user+1);
 //UUID uuid = UUID.randomUUID();
 //System.out.println(uuid);
 String s = UUID.randomUUID().toString();
@@ -151,9 +152,8 @@ JavascriptExecutor jse = (JavascriptExecutor) dr;
      * 加载jquery清楚readonly熟悉，然后给输入框输入时间
      */
 
-Date date = new Date();//先获取当前日期
-Calendar  c = new GregorianCalendar();
-c.set(myyear, mymonth, myday);
+
+
 String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());//对日期进行格式化
 System.out.println(startDate);
 String changereadonly= "$('input[name=online_time]').attr(\"readonly\",false)";

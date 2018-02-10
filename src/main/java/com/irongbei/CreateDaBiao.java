@@ -20,6 +20,8 @@ public class CreateDaBiao {
 public  void createDaBiao(String zq,int mylength,int myyear,int mymonth,int myday) throws Exception {
 	 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");//这一步必不可少  
 	 WebDriver dr= new ChromeDriver();
+	 Calendar c=new GregorianCalendar();
+	    c.set(myyear, mymonth, myday);
 dr.get("http://rongbeiadmin.51dmoz.com/admin/login"); 
 
 //dr.manage().window().maximize();
@@ -53,15 +55,19 @@ dr.findElement(By.xpath(".//*[@id='right-box']/div[1]/span/a[1]")).click();
 dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();
 Thread.sleep(1000); //停止1秒钟
 dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
-int a=(int) (1000* Math.random());
 
 
-	String para="省心投计划底层-翟"+a;
-	System.out.println(para);
+String userunder=new SimpleDateFormat("yyyyMMdd").format(c.getTime());
+System.out.println(userunder);
+int a=1;
+String user="测试大标底层-翟"+userunder+a;
+a++;
+
+	System.out.println(user);
 	dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
 	Thread.sleep(2000);
-	dr.findElement(By.name("project_name")).sendKeys(para);
-    dr.findElement(By.id("project_num")).sendKeys(para+1);
+	dr.findElement(By.name("project_name")).sendKeys(user);
+    dr.findElement(By.id("project_num")).sendKeys(user+1);
  
   
     Select s2= new Select(dr.findElement(By.name("company_user_id")));
@@ -110,8 +116,7 @@ int a=(int) (1000* Math.random());
          */
 
  //   Date date = new Date();//先获取当前日期
-    Calendar c=new GregorianCalendar();
-    c.set(myyear, mymonth, myday);
+   
     String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());//对日期进行格式化
     System.out.println(startDate);
     String changereadonly= "$('input[name=online_time]').attr(\"readonly\",false)";
