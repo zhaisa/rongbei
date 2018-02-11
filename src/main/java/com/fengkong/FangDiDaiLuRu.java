@@ -3,6 +3,7 @@ package com.fengkong;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,14 @@ public class FangDiDaiLuRu {
         dr.findElement(By.id("password")).clear();
         dr.findElement(By.id("password")).sendKeys("123456");
         dr.findElement(By.id("login")).click();
+        try {
+    		Thread.sleep(2000);
+    	} catch (InterruptedException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	}
 		 dr.navigate().to("http://test-risk.irongbei.com//homeloan/add.html");
+	   dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		 dr.findElement(By.name("amountd")).sendKeys("100万");
 		 dr.findElement(By.name("termd")).sendKeys("24");
 		 dr.findElement(By.name("fkzyll")).sendKeys("18%");
@@ -35,14 +43,30 @@ public class FangDiDaiLuRu {
 		 dr.findElement(By.id("province")).click();
 		 Select s1=new Select(dr.findElement(By.id("province")));
 		 s1.selectByValue("110000");
+		 try {
+		 		Thread.sleep(2000);
+		 	} catch (InterruptedException e) {
+		 		// TODO Auto-generated catch block
+		 		e.printStackTrace();
+		 	}
 		 dr.findElement(By.id("city")).click();
 			Select city=new Select(dr.findElement(By.id("city")));
 			city.selectByValue("110100");
+			try {
+		 		Thread.sleep(2000);
+		 	} catch (InterruptedException e) {
+		 		// TODO Auto-generated catch block
+		 		e.printStackTrace();
+		 	}
 			dr.findElement(By.id("area")).click();
 			Select area=new Select(dr.findElement(By.id("area")));
 			area.selectByValue("110111");	
 		 dr.findElement(By.name("usaged")).sendKeys("资金周转");
 		 dr.findElement(By.name("hkly")).sendKeys("抵押还款");
+		 dr.findElement(By.name("Subsector")).click();
+		 Select ss=new Select(dr.findElement(By.name("Subsector")));
+		 
+		 ss.selectByValue("15、居民服务、修理和其他服务业");
 		 
 		 dr.findElement(By.name("name")).sendKeys("牧云"+time);
 		 dr.findElement(By.name("idcard")).sendKeys("110221198001019411");

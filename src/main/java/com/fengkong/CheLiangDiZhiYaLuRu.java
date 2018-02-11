@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CheLiangDiZhiYaLuRu {
 
-	public void luRu() {
+	public void luRu(String login) {
 		 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
 		 WebDriver dr= new ChromeDriver();
 		 Calendar cc=new GregorianCalendar();
@@ -26,7 +26,7 @@ public class CheLiangDiZhiYaLuRu {
 			e1.printStackTrace();
 		}
          dr.findElement(By.id("username")).clear();
-         dr.findElement(By.id("username")).sendKeys("lbtest");
+         dr.findElement(By.id("username")).sendKeys(login);
          dr.findElement(By.id("password")).clear();
          dr.findElement(By.id("password")).sendKeys("123456");
          dr.findElement(By.id("login")).click();
@@ -60,9 +60,21 @@ public class CheLiangDiZhiYaLuRu {
 		dr.findElement(By.id("province1")).click();
 		Select pro1= new Select(dr.findElement(By.id("province1")));
 		pro1.selectByValue("370000");
+		  try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1) {
+				
+				e1.printStackTrace();
+			}
 		dr.findElement(By.id("city1")).click();
 		Select city1=new Select(dr.findElement(By.id("city1")));
 		city1.selectByValue("370600");
+		  try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1) {
+				
+				e1.printStackTrace();
+			}
 		dr.findElement(By.id("area1")).click();
 		Select area1=new Select(dr.findElement(By.id("area1")));
 		area1.selectByValue("370681");	

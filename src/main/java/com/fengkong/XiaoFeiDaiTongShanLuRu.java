@@ -6,13 +6,12 @@ import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class XiaoFeiDaiLuRu {
-	public void luRu(String login){
+public class XiaoFeiDaiTongShanLuRu {
+	public void luRu(){
 		 System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
 		 WebDriver dr= new ChromeDriver();
 		 Calendar cc=new GregorianCalendar();
@@ -24,20 +23,20 @@ public class XiaoFeiDaiLuRu {
 			
 			e1.printStackTrace();
 		}
-       dr.findElement(By.id("username")).clear();
-       dr.findElement(By.id("username")).sendKeys(login);
-       dr.findElement(By.id("password")).clear();
-       dr.findElement(By.id("password")).sendKeys("123456");
-       dr.findElement(By.id("login")).click();
-       try {
+      dr.findElement(By.id("username")).clear();
+      dr.findElement(By.id("username")).sendKeys("tstest");
+      dr.findElement(By.id("password")).clear();
+      dr.findElement(By.id("password")).sendKeys("123456");
+      dr.findElement(By.id("login")).click();
+      try {
 		Thread.sleep(3000);
 	} catch (InterruptedException e) {
 		
 		e.printStackTrace();
 	}
-       dr.navigate().to("http://test-risk.irongbei.com/honloan/add.html");
-       dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-       dr.findElement(By.id("province")).click();
+      dr.navigate().to("http://test-risk.irongbei.com/honloan/add.html");
+      dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+      dr.findElement(By.id("province")).click();
 		 Select s1=new Select(dr.findElement(By.id("province")));
 		 s1.selectByValue("110000");
 		 try {
@@ -64,7 +63,7 @@ public class XiaoFeiDaiLuRu {
 		dr.findElement(By.name("usaged")).sendKeys("资金周转");	
 		dr.findElement(By.name("typed")).click();	
 		 Select s2=new Select(dr.findElement(By.name("typed")));
-		 s2.selectByValue("慧丽贷");
+		 s2.selectByValue("U贷通");
 		dr.findElement(By.name("amountd")).sendKeys("100万");	
 		dr.findElement(By.name("termd")).sendKeys("12");	
 		dr.findElement(By.name("fmoeny")).sendKeys("10万");	
