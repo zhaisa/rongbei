@@ -17,6 +17,7 @@ public class FangDiDaiLuRu {
 		 Calendar cc=new GregorianCalendar();
 			String time=new SimpleDateFormat("yyyyMMddhhmmss").format(cc.getTime());
 	     dr.get("http://test-risk.irongbei.com/"); 
+	    
 	     try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e1) {

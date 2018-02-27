@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -57,22 +58,22 @@ Thread.sleep(1000); //停止1秒钟
 dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 
 
-String userunder=new SimpleDateFormat("yyyyMMdd").format(c.getTime());
+String userunder=new SimpleDateFormat("yyyyMMddHHmmss").format(c.getTime());
 System.out.println(userunder);
-int a=1;
-String user="测试大标底层-翟"+userunder+a;
-a++;
+
+String user="测试大标底层-翟"+userunder;
+
 
 	System.out.println(user);
 	dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
 	Thread.sleep(2000);
 	dr.findElement(By.name("project_name")).sendKeys(user);
-    dr.findElement(By.id("project_num")).sendKeys(user+1);
+    dr.findElement(By.id("project_num")).sendKeys(user);
  
   
     Select s2= new Select(dr.findElement(By.name("company_user_id")));
 
-    s2.selectByValue("11546#6212461560000555037#1#11492");//选择翟测试账户的value
+    s2.selectByValue("14036#6212461560001004902#1#13710");//选择翟测试账户的value
 
     Select s3= new Select(dr.findElement(By.name("contract_type")));
 
@@ -81,17 +82,22 @@ a++;
 
     Select s4= new Select(dr.findElement(By.id("template_id")));
  //   s4.selectByVisibleText("模板6");//选择模板6
- //   s4.selectByValue("189");
-    Thread.sleep(1000);
-    dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
-    Thread.sleep(1000);
-    String att="hello my world!!!!!";
-    dr.findElement(By.xpath("//textarea[@value='']")).click();
-    dr.findElement(By.xpath("//textarea[@value='']")).clear();
-    dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att+a);
+   s4.selectByValue("295");//房抵贷
+dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+//    dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/div[3]/div[12]/select/option[78]")).click();
+//    Thread.sleep(1000);
+//    String att="hello my world!!!!!";
+//    dr.findElement(By.xpath("//textarea[@value='']")).click();
+//    dr.findElement(By.xpath("//textarea[@value='']")).clear();
+//    dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att);
+    dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
+    dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
+    dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
+    dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
+
     dr.findElement(By.linkText("确定")).click();
 
-    dr.findElement(By.id("p_sum")).sendKeys("1");//输入金额1万
+    dr.findElement(By.id("p_sum")).sendKeys("0.5");//输入金额1万
     dr.findElement(By.id("rate")).sendKeys("8");//年利率8%
     dr.findElement(By.id("cre_rate")).clear();
     dr.findElement(By.id("cre_rate")).sendKeys("9");
@@ -115,25 +121,27 @@ a++;
          * 加载jquery清楚readonly熟悉，然后给输入框输入时间
          */
 
- //   Date date = new Date();//先获取当前日期
+ 
    
     String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());//对日期进行格式化
     System.out.println(startDate);
     String changereadonly= "$('input[name=online_time]').attr(\"readonly\",false)";
     ((JavascriptExecutor) dr).executeScript(changereadonly);
-    dr.findElement(By.name("online_time")).click();
+   dr.findElement(By.name("online_time")).click();
     dr.findElement(By.name("online_time")).sendKeys(startDate);
 
- //   Calendar cd = Calendar.getInstance();  
+  
     c.add(Calendar.MONTH, mylength);  
  
     Date dt=c.getTime();//date就是你需要的时间
    
-    String endDate= new SimpleDateFormat("yyyy-MM-dd hh:mm").format(dt);
+    String endDate= new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dt);
     System.out.println(endDate);
+    String changereadonly1= "$('input[name=end_time]').attr(\"readonly\",false)";
+    ((JavascriptExecutor) dr).executeScript(changereadonly1);
     dr.findElement(By.name("end_time")).click();
     dr.findElement(By.name("end_time")).sendKeys(endDate);
-
+    dr.switchTo().defaultContent();
     //dr.findElement(By.xpath("//id[@value='']")).click();
     //dr.findElement(By.id("wrap")).findElement(By.className("qyzj-bm-btn")).click();
     //dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();
@@ -142,13 +150,15 @@ a++;
      */
     String changereadonly2= "$('#sub').click()";
     ((JavascriptExecutor) dr).executeScript(changereadonly2);
+   
+    dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     dr.switchTo().alert().accept();
 
-
-
-    Thread.sleep(1000);
-dr.close();
+// assertEaquls("添加成功";dr.findElement(By));
+Thread.sleep(5000);
     
+dr.close();
+dr.quit();    
     
     
     

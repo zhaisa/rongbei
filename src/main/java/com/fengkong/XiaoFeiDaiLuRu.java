@@ -191,9 +191,9 @@ public class XiaoFeiDaiLuRu {
 		dr.findElement(By.name("emergency_jt_zposit_1")).sendKeys("国际总裁");	
 		dr.findElement(By.name("emergency_jt_teach_1")).sendKeys("17409090012");	
 		
-		  dr.findElement(By.name("savetype")).click();
+	//	  dr.findElement(By.name("savetype")).click();
 			
-			
+		dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div/div/button[2]")).click();	
 			
 			dr.close();
 			dr.quit();

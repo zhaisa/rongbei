@@ -19,6 +19,7 @@ public class CheLiangDiZhiYaLuRu {
 		 Calendar cc=new GregorianCalendar();
 			String time=new SimpleDateFormat("yyyyMMddhhmmss").format(cc.getTime());
 	     dr.get("http://test-risk.irongbei.com/"); 
+	    
 	     try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e1) {
@@ -103,6 +104,9 @@ public class CheLiangDiZhiYaLuRu {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		dr.findElement(By.name("Subsector")).click();
+		Select ss=new Select(dr.findElement(By.name("Subsector")));
+		ss.selectByVisibleText("7、交通运输、仓储和邮政业");
 //		if(dr.findElement(By.linkText("法人信息")).isDisplayed()) {
 		dr.findElement(By.name("corporatename")).sendKeys("测试翟企业---"+time);
 		dr.findElement(By.name("bossname")).sendKeys("MRzhai");
@@ -123,9 +127,9 @@ public class CheLiangDiZhiYaLuRu {
 	//	dr.findElement(By.id("ossupppp")).click();
 	//	dr.findElement(By.id("selectfiles")).click();
 		
-		dr.findElement(By.name("savetype")).click();
+	//	dr.findElement(By.name("savetype")).click();  //保存
 		
-		
+		dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div/div/button[2]")).click();//提交
 		
 		dr.close();
 		dr.quit();

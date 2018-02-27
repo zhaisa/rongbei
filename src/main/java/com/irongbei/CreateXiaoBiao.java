@@ -87,7 +87,7 @@ dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
 //dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();//
 Thread.sleep(1000); //停止1秒钟
 dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
-String userunder=new SimpleDateFormat("yyyyMMdd").format(c.getTime());
+String userunder=new SimpleDateFormat("yyyyMMddmmss").format(c.getTime());
 System.out.println(userunder);
 int a=usernum;
 String user="测试小标项目-翟"+userunder+"-"+a;
@@ -110,12 +110,12 @@ sl.selectByValue("2");//选择等额本息1为先息后本2为等额本息3为�
 
 Select s2= new Select(dr.findElement(By.name("company_user_id")));
 
-s2.selectByValue("11546#6212461560000555037#1#11492");//选择翟测试账户的value
+s2.selectByValue("14036#6212461560001004902#1#13710");//选择翟测试账户的value
 
 Select s3= new Select(dr.findElement(By.name("contract_type")));
 
 
-s3.selectByValue("9");//直融——车贷(消费金融)——等额本息					        
+s3.selectByValue("3");//直融——车贷(消费金融)——等额本息					        
 
 Select s4= new Select(dr.findElement(By.id("template_id")));
 s4.selectByVisibleText("模板6");//选择模板6
@@ -126,9 +126,18 @@ Thread.sleep(1000);
  * 使用相对路径获取弹框的XPATH
  */
 String att="hello my world!!!!!";
+
 dr.findElement(By.xpath("//textarea[@value='']")).click();
 dr.findElement(By.xpath("//textarea[@value='']")).clear();
 dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att+a);
+
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[1]/p/input")).sendKeys("160m2");
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[2]/p/input")).sendKeys("三室两厅");
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[3]/p/input")).sendKeys("160万");
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[4]/p/input")).sendKeys("东三环");
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[2]/p/textarea")).sendKeys("暂无");
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[3]/p/textarea")).sendKeys("暂无");
+//dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[4]/p/textarea")).sendKeys("暂无");
 dr.findElement(By.linkText("确定")).click();
 
 dr.findElement(By.id("p_sum")).sendKeys("1");//输入金额1万

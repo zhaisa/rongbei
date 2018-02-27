@@ -1,10 +1,13 @@
 package com.irongbei;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -91,13 +94,13 @@ dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm"
 String userunder=new SimpleDateFormat("yyyyMMddhhmmss").format(c.getTime());
 System.out.println(userunder);
 
-String user="测试直投项目-翟风控"+userunder;
+String user="测试直投项目-翟"+userunder;
 
 	System.out.println(user);
 	
 dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
 dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
-dr.findElement(By.id("project_num")).sendKeys(user+1);
+dr.findElement(By.id("project_num")).sendKeys(user);
 //UUID uuid = UUID.randomUUID();
 //System.out.println(uuid);
 String s = UUID.randomUUID().toString();
@@ -105,31 +108,41 @@ dr.findElement(By.name("project_description")).sendKeys(s);
 dr.findElement(By.name("repayment")).sendKeys(s);
 dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
 
+Select sn=new Select(dr.findElement(By.id("xuanzh")));
+sn.selectByValue("3");//3为房抵贷
  Select sl= new Select(dr.findElement(By.name("real_payment")));
 
 sl.selectByValue("2");//选择等额本息1为先息后本2为等额本息3为一次性还本付息
 
 Select s2= new Select(dr.findElement(By.name("company_user_id")));
 
-s2.selectByValue("11546#6212461560000555037#1#11492");//选择翟测试账户的value
+s2.selectByValue("14036#6212461560001004902#1#13710");//选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
+
 
 Select s3= new Select(dr.findElement(By.name("contract_type")));
 
 
 s3.selectByValue("9");//直融——车贷(消费金融)——等额本息					        
-
-Select s4= new Select(dr.findElement(By.id("template_id")));
-s4.selectByVisibleText("模板6");//选择模板6
 dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
-Thread.sleep(1000);
+Select s4= new Select(dr.findElement(By.id("template_id")));
+//s4.selectByVisibleText("模板6");//选择模板6
+s4.selectByValue("295");//选择acai测试模板—房抵贷
+
+dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 /**
  * 使用相对路径获取弹框的XPATH
  */
-String att="hello my world!!!!!";
-dr.findElement(By.xpath("//textarea[@value='']")).click();
-dr.findElement(By.xpath("//textarea[@value='']")).clear();
-dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att+userunder);
+//String att="hello my world!!!!!";
+//dr.findElement(By.xpath("//textarea[@value='']")).click();
+//dr.findElement(By.xpath("//textarea[@value='']")).clear();
+//dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att+userunder);
+dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
+dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
+dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
+dr.findElement(By.className("tanchu")).findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
+
 dr.findElement(By.linkText("确定")).click();
+
 
 dr.findElement(By.id("p_sum")).sendKeys("1");//输入金额1万
 dr.findElement(By.id("rate")).sendKeys("8");//年利率8%
@@ -175,12 +188,13 @@ dr.findElement(By.name("end_time")).sendKeys(endDate);
  */
 String changereadonly2= "$('#sub').click()";
 ((JavascriptExecutor) dr).executeScript(changereadonly2);
+//dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+Thread.sleep(5000);
 dr.switchTo().alert().accept();
 
+Thread.sleep(3000);
 
-
-Thread.sleep(1000);
-
+dr.close();
 dr.quit();
   }
 

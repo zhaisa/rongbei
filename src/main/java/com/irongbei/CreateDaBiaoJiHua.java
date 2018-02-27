@@ -56,11 +56,11 @@ public class CreateDaBiaoJiHua {
 	dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/addFinancialPlan");
 	
 	
-	String userunder=new SimpleDateFormat("yyyyMMdd").format(c.getTime());
+	String userunder=new SimpleDateFormat("yyyyMMddmmss").format(c.getTime());
 	System.out.println(userunder);
-	int a=001;
-	String user="省心投理财计划-翟"+userunder+a;
-	a++;
+
+	String user="省心投理财计划-翟"+userunder;
+	
 	dr.findElement(By.name("plan_name")).sendKeys(user);
 	dr.findElement(By.name("plan_num")).sendKeys(user);
 	dr.findElement(By.name("financing_amount")).clear();

@@ -4,7 +4,7 @@ import com.fengkong.XiaoFeiDaiLuRu;
 
 public class XiaoFeiDaiTest {
 public static void main(String[] args) {
-	for(int i=0;i<20;i++) {
+	for(int i=0;i<5;i++) {
 	XiaoFeiDaiLuRu xfdlr=new XiaoFeiDaiLuRu();
 	xfdlr.luRu("zsphtest");//zsphtest,tstest
 	
