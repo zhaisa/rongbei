@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CheLiangShenHe {
-	public void shenHe() {
+	public void shenHe(int num) {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
@@ -21,12 +21,7 @@ public class CheLiangShenHe {
 		Calendar cc = new GregorianCalendar();
 		String time = new SimpleDateFormat("yyyyMMddhhmmss").format(cc.getTime());
 		dr.get("http://test-management.irongbei.com");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-
-			e1.printStackTrace();
-		}
+		dr.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		dr.findElement(By.id("username")).clear();
 		dr.findElement(By.id("username")).sendKeys("rmstest2");
 		dr.findElement(By.id("password")).clear();
@@ -47,7 +42,7 @@ public class CheLiangShenHe {
 		for (int r = 0; r < trlist.size(); r++) {
 			String trText = trlist.get(r).getText();
 			String[] myname = trText.split(" ");
-			String myname1 = myname[3];
+			String myname1 = myname[2];
 			if (trText.contains("牧云")) {
 				url1.add(myname1);
 			}
@@ -55,8 +50,10 @@ public class CheLiangShenHe {
 		}
 		for (int z = 0; z < url1.size(); z++) {
 			System.out.println(url1.get(z));
+
 		}
-		String name = url1.get(0);
+		System.out.println(url1.size());
+		String name = url1.get(num);
 		for (int r = 0; r < trlist.size(); r++) {
 			String trText1 = trlist.get(r).getText();
 			if (trText1.contains(name)) {
@@ -79,16 +76,43 @@ public class CheLiangShenHe {
 		List<WebElement> trlist1 = dr
 				.findElements(By.xpath("/html/body/div/div/div[2]/form/div/dl[1]/dd/div[1]/table/tbody/tr"));
 
-		for (int r = 0; r < trlist1.size(); r++) {
-			String trtext = trlist1.get(r).getText();
-			System.out.println(trtext);
-			if (trtext.contains("否")) {
-				String name1 = dr.findElement(By.linkText("否")).getTagName();
-				System.out.println(name1);
-			}
-		}
+		List<WebElement> radio1 = dr.findElements(By.name("sfz"));
+		radio1.get(0).click();
+		List<WebElement> radio2 = dr.findElements(By.name("businesslicenser"));
+		radio2.get(1).click();
+		List<WebElement> radio3 = dr.findElements(By.name("lxfs"));
+		radio3.get(0).click();
+		List<WebElement> radio4 = dr.findElements(By.name("blacklistindustryr"));
+		radio4.get(1).click();
+		List<WebElement> radio5 = dr.findElements(By.name("registrationr"));
+		radio5.get(0).click();
+		List<WebElement> radio6 = dr.findElements(By.name("carbookr"));
+		radio6.get(1).click();
+		List<WebElement> radio7 = dr.findElements(By.name("carphoner"));
+		radio7.get(0).click();
+		List<WebElement> radio8 = dr.findElements(By.name("situationr"));
+		radio8.get(0).click();
 
-		// dr.close();
-		// dr.quit();
+		dr.findElement(By.name("sfzr")).sendKeys("门前大桥下");
+		dr.findElement(By.name("businesslicense")).sendKeys("游过一群鸭");
+		dr.findElement(By.name("lxfsr")).sendKeys("快来快来数一数");
+		dr.findElement(By.name("blacklistindustry")).sendKeys("二四六七八");
+		dr.findElement(By.name("registration")).sendKeys("小丫小二郎");
+		dr.findElement(By.name("carbook")).sendKeys("背着书包尚学堂");
+		dr.findElement(By.name("carphoner7")).sendKeys("不怕太阳晒");
+		dr.findElement(By.name("situation")).sendKeys("只怕先生说我懒压");
+		dr.findElement(By.name("zlshjlvalue")).sendKeys("this is a first!!");
+
+		dr.findElement(By.name("fkzyll_zy")).sendKeys("28%");
+		dr.findElement(By.name("fkzyvalue_zy")).sendKeys("this is a second!!!");
+
+		dr.findElement(By.name("button")).click();
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		dr.close();
+		dr.quit();
 	}
 }

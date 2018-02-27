@@ -43,9 +43,9 @@ public class CheLiangDiZhiYaLuRu {
 		dr.findElement(By.name("cooperid")).click();
 		Select danbaogongsi = new Select(dr.findElement(By.name("cooperid")));
 		danbaogongsi.selectByVisibleText("久鼎");
-		dr.findElement(By.id("province")).click();
-		Select pro = new Select(dr.findElement(By.id("province")));
-		pro.selectByValue("370000");
+		// dr.findElement(By.id("province")).click();
+		// Select pro = new Select(dr.findElement(By.id("province")));
+		// pro.selectByValue("370000");
 		// dr.findElement(By.id("city")).click();
 		// Select city=new Select(dr.findElement(By.id("city")));
 		// city.selectByValue("330500");
@@ -114,23 +114,30 @@ public class CheLiangDiZhiYaLuRu {
 		dr.findElement(By.name("registeredcapital")).sendKeys("100000000000000000000000000000000");
 		dr.findElement(By.name("registeredarea")).sendKeys("皇后大道");
 
-		dr.findElement(By.name("carname")).sendKeys("路虎");
-		dr.findElement(By.name("cartape")).sendKeys("RANGERIVER");
-		dr.findElement(By.name("carcolor")).sendKeys("yellow");
-		dr.findElement(By.name("carnumber")).sendKeys("1987900---1-11-1---1");
-		dr.findElement(By.name("carengine")).sendKeys("LU---1----2----2---3---3--33-3-3-");
+		dr.findElement(By.id("carname_1")).sendKeys("路虎");
+		dr.findElement(By.id("cartape_1")).sendKeys("RANGERIVER");
+		dr.findElement(By.id("carcolor_1")).sendKeys("yellow");
+		dr.findElement(By.id("carnumber_1")).sendKeys("1987900---1-11-1---1");
+		dr.findElement(By.id("carengine_1")).sendKeys("LU---1----2----2---3---3--33-3-3-");
 
-		dr.findElement(By.name("carbuydate")).sendKeys(time);
-		dr.findElement(By.name("carkm")).sendKeys("10000");
-		dr.findElement(By.name("cartransfer")).sendKeys("3");
-		dr.findElement(By.name("carmoney")).sendKeys("832492");
+		dr.findElement(By.id("carbuydate_1")).sendKeys(time);
+		dr.findElement(By.id("carkm_1")).sendKeys("10000");
+		dr.findElement(By.id("cartransfer_1")).sendKeys("3");
+		dr.findElement(By.id("carmoney_1")).sendKeys("832492");
 		// dr.findElement(By.id("ossupppp")).click();
 		// dr.findElement(By.id("selectfiles")).click();
 
 		// dr.findElement(By.name("savetype")).click(); //保存
 
 		dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div/div/button[2]")).click();// 提交
-
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+   
+    		  
 		dr.close();
 		dr.quit();
 
