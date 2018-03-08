@@ -75,6 +75,9 @@ public class CheLiangShenHe {
 
 		List<WebElement> trlist1 = dr
 				.findElements(By.xpath("/html/body/div/div/div[2]/form/div/dl[1]/dd/div[1]/table/tbody/tr"));
+		
+
+		
 
 		List<WebElement> radio1 = dr.findElements(By.name("sfz"));
 		radio1.get(0).click();
@@ -91,7 +94,7 @@ public class CheLiangShenHe {
 		List<WebElement> radio7 = dr.findElements(By.name("carphoner"));
 		radio7.get(0).click();
 		List<WebElement> radio8 = dr.findElements(By.name("situationr"));
-		radio8.get(0).click();
+		radio8.get(1).click();
 
 		dr.findElement(By.name("sfzr")).sendKeys("门前大桥下");
 		dr.findElement(By.name("businesslicense")).sendKeys("游过一群鸭");
@@ -114,5 +117,10 @@ public class CheLiangShenHe {
 		}
 		dr.close();
 		dr.quit();
+	}
+
+	private void conRadio() {
+		// TODO Auto-generated method stub
+		
 	}
 }

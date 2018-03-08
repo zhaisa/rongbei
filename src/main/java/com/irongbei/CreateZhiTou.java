@@ -122,7 +122,7 @@ public class CreateZhiTou {
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
 		s3.selectByValue("9");// 直融——车贷(消费金融)——等额本息
-		dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
+//		dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
 		// s4.selectByVisibleText("模板6");//选择模板6
 		s4.selectByValue("295");// 选择acai测试模板—房抵贷

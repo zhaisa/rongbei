@@ -123,13 +123,14 @@ public class CreateDaBiao {
 		 * 加载jquery清楚readonly熟悉，然后给输入框输入时间
 		 */
 
-		String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());// 对日期进行格式化
+		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);
-		dr.findElement(By.name("online_time")).click();
+	//	dr.findElement(By.name("online_time")).click();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
-
+		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        dr.switchTo().defaultContent();
 		c.add(Calendar.MONTH, mylength);
 
 		Date dt = c.getTime();// date就是你需要的时间
@@ -138,8 +139,9 @@ public class CreateDaBiao {
 		System.out.println(endDate);
 		String changereadonly1 = "$('input[name=end_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly1);
-		dr.findElement(By.name("end_time")).click();
+//		dr.findElement(By.name("end_time")).click();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
+		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.switchTo().defaultContent();
 		// dr.findElement(By.xpath("//id[@value='']")).click();
 		// dr.findElement(By.id("wrap")).findElement(By.className("qyzj-bm-btn")).click();
