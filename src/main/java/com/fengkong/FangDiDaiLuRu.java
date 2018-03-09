@@ -3,6 +3,7 @@ package com.fengkong;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -40,6 +41,8 @@ public class FangDiDaiLuRu {
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.findElement(By.name("amountd")).sendKeys("100万");
 		dr.findElement(By.name("termd")).sendKeys("24");
+	//	Random rr=new Random();
+	
 		dr.findElement(By.name("fkzyll")).sendKeys("18%");
 		dr.findElement(By.name("source")).sendKeys("牧云小小" + time);
 		dr.findElement(By.id("province")).click();
@@ -48,7 +51,6 @@ public class FangDiDaiLuRu {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		dr.findElement(By.id("city")).click();
@@ -57,7 +59,6 @@ public class FangDiDaiLuRu {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		dr.findElement(By.id("area")).click();
@@ -103,9 +104,10 @@ public class FangDiDaiLuRu {
 		Select s4 = new Select(dr.findElement(By.name("dycshgc")));
 		s4.selectByValue("二抵");
 		dr.findElement(By.name("dyje")).sendKeys("1200万");
+		dr.findElement(By.name("remark"));
 
-		dr.findElement(By.name("savetype")).click();
-
+//		dr.findElement(By.name("savetype")).click();
+        dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div[2]/div/button[2]")).click();
 		dr.close();
 		dr.quit();
 
