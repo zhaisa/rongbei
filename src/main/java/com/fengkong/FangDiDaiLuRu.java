@@ -79,13 +79,13 @@ public class FangDiDaiLuRu {
 
 		dr.findElement(By.name("loantype")).click();
 		Select s3 = new Select(dr.findElement(By.name("loantype")));
-		s3.selectByValue("企业贷");
+		s3.selectByValue("个人贷");//企业贷
 		dr.findElement(By.name("iphone")).sendKeys("17409090094");
 
-		dr.findElement(By.name("corporatename")).sendKeys("融泰浩元有限公司");
-		dr.findElement(By.name("bossname")).sendKeys("吴晓晖、司书甲、陈晨");
-		dr.findElement(By.name("registeredcapital")).sendKeys("2亿");
-		dr.findElement(By.name("registeredarea")).sendKeys("朝阳门SOHO");
+//		dr.findElement(By.name("corporatename")).sendKeys("融泰浩元有限公司");
+//		dr.findElement(By.name("bossname")).sendKeys("吴晓晖、司书甲、陈晨");
+//		dr.findElement(By.name("registeredcapital")).sendKeys("2亿");
+//		dr.findElement(By.name("registeredarea")).sendKeys("朝阳门SOHO");
 
 		dr.findElement(By.name("gjrname")).sendKeys("无");
 		dr.findElement(By.name("fqzh")).sendKeys("FCZ2018022008908X");
@@ -106,8 +106,8 @@ public class FangDiDaiLuRu {
 		dr.findElement(By.name("dyje")).sendKeys("1200万");
 		dr.findElement(By.name("remark"));
 
-//		dr.findElement(By.name("savetype")).click();
-        dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div[2]/div/button[2]")).click();
+		dr.findElement(By.name("savetype")).click();
+  //      dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div[2]/div/button[2]")).click();
 		dr.close();
 		dr.quit();
 

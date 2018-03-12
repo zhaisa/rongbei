@@ -44,7 +44,7 @@ public class FangDiDaiShenHe {
 			List<WebElement> td = row.findElements(By.tagName("td"));
 			System.out.println(td.get(0).getText());
 			for (WebElement col : td) {
-				if (trText.contains("牧云20180309") && col.getText().equals("初审待审")) {
+				if (trText.contains("牧云20180312") && col.getText().equals("初审待审")) {
 
 					listmap.put("借款编号", td.get(0).getText());
 					listmap.put("合作机构", td.get(1).getText());
@@ -68,6 +68,7 @@ public class FangDiDaiShenHe {
 
 		}
 		System.out.println(listmap.values());
+		System.out.println(listmap.keySet());
 		for (WebElement row : trlist) {
 			String trText1 = row.getText();
 			if (trText1.contains((CharSequence) listmap.get("姓名"))) {
@@ -118,7 +119,7 @@ public class FangDiDaiShenHe {
 		System.out.println("上述复选项是否被点中：" + isSelected8);
 		List<WebElement> radio9 = dr.findElements(By.name("dsfcxr"));
 		radio9.get(1).click();
-		boolean isSelected9 = radio9.get(0).isSelected();// 判断上述复选项是否被点中
+		boolean isSelected9 = radio9.get(1).isSelected();// 判断上述复选项是否被点中
 		System.out.println("上述复选项是否被点中：" + isSelected9);
 		List<WebElement> radio10 = dr.findElements(By.name("xhzpr"));
 		radio10.get(0).click();
@@ -144,8 +145,7 @@ public class FangDiDaiShenHe {
 		dr.findElement(By.name("fkzydyl_zy")).sendKeys("38%");
 		dr.findElement(By.name("fkzgvalue_zy")).sendKeys("the lastest news");
 		dr.findElement(By.xpath("/html/body/div/div/div[2]/form/div/dl[2]/div[2]/div/input[5]")).click();
-		
-		
+
 		dr.close();
 		dr.quit();
 	}
