@@ -104,10 +104,10 @@ public class CreateZhiTou {
 		dr.findElement(By.id("project_num")).sendKeys(user);
 		// UUID uuid = UUID.randomUUID();
 		// System.out.println(uuid);
-		String s = UUID.randomUUID().toString();
-		dr.findElement(By.name("project_description")).sendKeys(s);
-		dr.findElement(By.name("repayment")).sendKeys(s);
-		dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
+//		String s = UUID.randomUUID().toString();
+//		dr.findElement(By.name("project_description")).sendKeys(s);
+//		dr.findElement(By.name("repayment")).sendKeys(s);
+//		dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
 
 		Select sn = new Select(dr.findElement(By.id("xuanzh")));
 		sn.selectByValue("3");// 3为房抵贷

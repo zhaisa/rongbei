@@ -63,7 +63,7 @@ public class ReadTxt {
 		} else {
 
 			int j = lineNo / list.size();
-			for (int z = 1; z < 10000; z++) {
+			for (int z = 1; z < lineNo; z++) {
 				if (j >= z && j < z + 1) {
 					lineNo = lineNo - z * list.size();
 					list.get(lineNo);
