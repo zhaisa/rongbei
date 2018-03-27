@@ -36,14 +36,11 @@ public class CreateZhiTou {
 		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
 
 		// dr.manage().window().maximize();
+		LoginPage lp = new LoginPage(dr);
+		lp.username.sendKeys("测试专用管理员");
+		lp.password.sendKeys("123456");
+		lp.loginclick.click();
 
-		WebElement element = dr.findElement(By.name("username"));
-
-		element.sendKeys("测试专用管理员");
-		WebElement element1 = dr.findElement(By.name("password"));
-		element1.sendKeys("123456");
-		WebElement element2 = dr.findElement(By.className("login-btn"));
-		element2.click();
 		Thread.sleep(2000);
 		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
@@ -104,10 +101,10 @@ public class CreateZhiTou {
 		dr.findElement(By.id("project_num")).sendKeys(user);
 		// UUID uuid = UUID.randomUUID();
 		// System.out.println(uuid);
-//		String s = UUID.randomUUID().toString();
-//		dr.findElement(By.name("project_description")).sendKeys(s);
-//		dr.findElement(By.name("repayment")).sendKeys(s);
-//		dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
+		// String s = UUID.randomUUID().toString();
+		// dr.findElement(By.name("project_description")).sendKeys(s);
+		// dr.findElement(By.name("repayment")).sendKeys(s);
+		// dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
 
 		Select sn = new Select(dr.findElement(By.id("xuanzh")));
 		sn.selectByValue("3");// 3为房抵贷
@@ -122,7 +119,7 @@ public class CreateZhiTou {
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
 		s3.selectByValue("9");// 直融——车贷(消费金融)——等额本息
-//		dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
+		// dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
 		// s4.selectByVisibleText("模板6");//选择模板6
 		s4.selectByValue("295");// 选择acai测试模板—房抵贷

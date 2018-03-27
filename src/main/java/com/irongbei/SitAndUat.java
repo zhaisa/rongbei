@@ -70,17 +70,21 @@ public void sit(int varzhai) throws IOException {
 
 	dr.findElement(By.id("username")).sendKeys(a);
 	dr.findElement(By.id("userlistbutton")).click();
-	
-	
+	try {
+		Thread.sleep(1000);
+	} catch (InterruptedException e) {
+		
+		e.printStackTrace();
+	}
 	WebElement we = dr.findElement(By.xpath(".//*[@id='right-box']/div[2]/div[2]/table/tbody"));
 	List<WebElement> trlist = we.findElements(By.tagName("tr"));
 	List<String> url2 = new ArrayList<String>();
 	Map<String,String> listmap = new HashMap();
 	for (WebElement row : trlist) {
 		String trText = row.getText();
-		System.out.println(trText);
+//		System.out.println(trText);
 		List<WebElement> td = row.findElements(By.tagName("td"));
-		System.out.println(td.get(0).getText());
+		System.out.println(td.get(7).getText());
 		for (WebElement col : td) {
 			listmap.put("用户ID", td.get(0).getText());
 			listmap.put("用户名", td.get(1).getText());  
@@ -92,6 +96,7 @@ public void sit(int varzhai) throws IOException {
 		}
 
 	}
+	System.out.println("============放入map的数据========");
 	System.out.println(listmap.values());
 //	System.out.println(listmap.keySet());
 	List<String> sit =new ArrayList();
@@ -108,7 +113,7 @@ public void sit(int varzhai) throws IOException {
 		sit.add(a);
 		
 		
-	}else {
+	}else{
 		uat.add(a);
 	}
 	for(int j=0;j<sit.size();j++) {
@@ -121,7 +126,8 @@ public void sit(int varzhai) throws IOException {
 		System.out.println(uat.get(z));
 		bw1.write("\r\n"+uat.get(z));
 	}
-
+bw1.flush();
+bw.flush();
 	dr.quit();
 	bw1.close();
 	fw1.close();
