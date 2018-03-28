@@ -176,6 +176,8 @@ public class CreateZhiTou {
 
 		String endDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());
 		System.out.println(endDate);
+		String endattr = "$('input[name=end_time]').attr(\"readonly\",false)";
+		((JavascriptExecutor) dr).executeScript(endattr);
 		dr.findElement(By.name("end_time")).click();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 

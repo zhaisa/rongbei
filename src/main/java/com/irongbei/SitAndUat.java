@@ -89,11 +89,7 @@ public void sit(int varzhai) throws IOException {
 			listmap.put("用户ID", td.get(0).getText());
 			listmap.put("用户名", td.get(1).getText());  
 			listmap.put("江西账户可用余额", td.get(7).getText());	          
-			
-			
-			
-
-		}
+	}
 
 	}
 	System.out.println("============放入map的数据========");

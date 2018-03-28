@@ -80,15 +80,11 @@ public class ZhiTouPage {
 		select(contractmodel, 1);
 		select("295", selectmodel);// size-8
 		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
-
+		List<WebElement> list = dr.findElements(By.xpath("//input[@class='tc-name text-style']"));
+		list.get(0).sendKeys("东风北桥");
+		list.get(1).sendKeys("三室两厅");
+		list.get(2).sendKeys("160平米");
+		list.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
 		psum.sendKeys("1");// 金额1万
 		historyrate.sendKeys("8");// 历史年化利率
@@ -104,7 +100,7 @@ public class ZhiTouPage {
 		starttime.sendKeys(startDate);
 		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		c.add(Calendar.MONTH, 3);
-        
+
 		String endDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());
 		System.out.println(endDate);
 		String endattr = "$('input[name=end_time]').attr(\"readonly\",false)";
@@ -143,7 +139,7 @@ public class ZhiTouPage {
 		ss.selectByIndex(index);
 		String text = list.get(index).getText();
 		System.out.println(list.size());
-		System.out.println(text);
+	//	System.out.println(text);
 	}
 
 	public void select(WebElement w, String text) {
@@ -152,7 +148,7 @@ public class ZhiTouPage {
 		ss.selectByVisibleText(text);
 		for (int i = 0; i < list.size(); i++) {
 			String text1 = list.get(i).getText();
-			System.out.println(text1);
+	//		System.out.println(text1);
 		}
 	}
 
