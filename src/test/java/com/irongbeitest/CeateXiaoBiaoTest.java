@@ -8,7 +8,7 @@ public class CeateXiaoBiaoTest {
 
 		for (int i = 0; i <2; i++) {
 			try {
-				ct.createXiaoBiao("3", 3, 2018, 2, 8, i);
+				ct.createXiaoBiao("3", 3, 2018, 2, 28, i);
 			} catch (Exception e) {
 
 				e.printStackTrace();

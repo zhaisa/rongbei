@@ -72,7 +72,7 @@ public class CreateDaBiao {
 
 		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 
-		s2.selectByValue("14036#6212461560001004902#1#13710");// 选择翟测试账户的value
+		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
 
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.UUID;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -99,45 +99,50 @@ public class CreateXiaoBiao {
 		dr.findElement(By.id("project_num")).sendKeys(user + 1);
 		// UUID uuid = UUID.randomUUID();
 		// System.out.println(uuid);
-		String s = UUID.randomUUID().toString();
-		dr.findElement(By.name("project_description")).sendKeys(s);
-		dr.findElement(By.name("repayment")).sendKeys(s);
-		dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[5]/div[1]/input[2]")).click();
+		// String s = UUID.randomUUID().toString();
+		// dr.findElement(By.name("project_description")).sendKeys(s);
+		// dr.findElement(By.name("repayment")).sendKeys(s);
+		// dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
+		List<WebElement> list=dr.findElements(By.name("is_bottom_project"));
+		list.get(1).click();
 		Select sl = new Select(dr.findElement(By.name("real_payment")));
 
 		sl.selectByValue("2");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
 
 		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 
-		s2.selectByValue("14036#6212461560001004902#1#13710");// 选择翟测试账户的value
+		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
 
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
 		s3.selectByValue("3");// 直融——车贷(消费金融)——等额本息
 
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
-		s4.selectByVisibleText("模板6");// 选择模板6
-		dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
+		s4.selectByValue("295");// 选择acai测试模板—房抵贷
+		Thread.sleep(3000);
+		dr.findElement(By.className("tanchu"))
+				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
+		dr.findElement(By.className("tanchu"))
+				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
+		dr.findElement(By.className("tanchu"))
+				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
+		dr.findElement(By.className("tanchu"))
+				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
 
-		Thread.sleep(1000);
-		/**
-		 * 使用相对路径获取弹框的XPATH
-		 */
-		String att = "hello my world!!!!!";
-
-		dr.findElement(By.xpath("//textarea[@value='']")).click();
-		dr.findElement(By.xpath("//textarea[@value='']")).clear();
-		dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att + a);
-
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[1]/p/input")).sendKeys("160m2");
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[2]/p/input")).sendKeys("三室两厅");
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[3]/p/input")).sendKeys("160万");
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[1]/div[4]/p/input")).sendKeys("东三环");
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[2]/p/textarea")).sendKeys("暂无");
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[3]/p/textarea")).sendKeys("暂无");
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div/div[2]/div/div[2]/div[4]/p/textarea")).sendKeys("暂无");
 		dr.findElement(By.linkText("确定")).click();
+
+//		Thread.sleep(1000);
+//		/**
+//		 * 使用相对路径获取弹框的XPATH
+//		 */
+//		String att = "hello my world!!!!!";
+//
+//		dr.findElement(By.xpath("//textarea[@value='']")).click();
+//		dr.findElement(By.xpath("//textarea[@value='']")).clear();
+//		dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att + a);
+
+	
+		
 
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%

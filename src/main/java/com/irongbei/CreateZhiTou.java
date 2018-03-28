@@ -142,7 +142,7 @@ public class CreateZhiTou {
 				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
 
 		dr.findElement(By.linkText("确定")).click();
-
+		Thread.sleep(1000);
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
@@ -170,7 +170,7 @@ public class CreateZhiTou {
 		((JavascriptExecutor) dr).executeScript(changereadonly);
 		dr.findElement(By.name("online_time")).click();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
-
+		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// Calendar cd = Calendar.getInstance();
 		c.add(Calendar.MONTH, mylengh);
 
