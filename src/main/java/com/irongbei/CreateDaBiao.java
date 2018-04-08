@@ -69,7 +69,8 @@ public class CreateDaBiao {
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
-
+        Select s1=new Select(dr.findElement(By.name("real_payment")));
+        s1.selectByValue("2");
 		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 
 		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value

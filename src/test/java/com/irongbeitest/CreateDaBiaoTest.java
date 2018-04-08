@@ -6,10 +6,10 @@ public class CreateDaBiaoTest {
 
 	public static void main(String[] args) {
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 2; i++) {
 			CreateDaBiao cdb = new CreateDaBiao();
 			try {
-				cdb.createDaBiao("3", 3, 2018, 3, 28);// 周期为3个月，时间间隔设置为3,2018年3月5号
+				cdb.createDaBiao("6", 6, 2018, 7, 29);// 周期为3个月，时间间隔设置为3,2018年3月5号
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

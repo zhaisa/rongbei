@@ -22,6 +22,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
+import com.irongbeipages.LoginPage;
+
 @Test
 public class CreateZhiTou {
 
@@ -30,24 +32,14 @@ public class CreateZhiTou {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
-
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
 		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
-
-		// dr.manage().window().maximize();
+		dr.manage().window().maximize();
 		LoginPage lp = new LoginPage(dr);
-		lp.username.sendKeys("测试专用管理员");
-		lp.password.sendKeys("123456");
-		lp.loginclick.click();
-
+		lp.login("测试专用管理员", "123456");
 		Thread.sleep(2000);
-		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
-		// WebElement
-		// element3=dr.findElement(By.xpath(".//*[@id='header']/div[2]/div[2]/div/span[5]/a/b[1]"));
-		// JavascriptExecutor js = (JavascriptExecutor) dr;
-		// String value = (String)js.executeScript("return $('element3').val();");
 		String obj1 = element3.getText().trim();
 		System.out.println(obj1);
 		String obj = "欢迎登录融贝网管理后台";
@@ -61,32 +53,7 @@ public class CreateZhiTou {
 		dr.findElement(By.xpath("//*[@id=\"left-nav\"]/ul/li[3]/span/a")).click();
 		dr.findElement(By.xpath(".//*[@id='left-nav']/ul/li[3]/ul/li[1]/a")).click();
 		dr.findElement(By.xpath(".//*[@id='right-box']/div[1]/span/a[1]")).click();
-		/**
-		 * 
-		 * 尝试alert
-		 */
-		// Alert alert = dr.switchTo().alert();//定位altert弹出的提示的
-		// alert.getText();
-
-		/**
-		 * 
-		 * 尝试句柄
-		 */
-		// Set<String> handles = dr.getWindowHandles();
-		// handles.remove(dr.getWindowHandle());//去掉当前句柄
-		// dr.switchTo().window(handles.iterator().next());
-		// WebDriver popup = null;
-		// popup.findElement(By.id("Check2")).click();
-		// popup.findElement(By.id("pro_bottom_confirm")).click();
-		/**
-		 * 
-		 * 添加小标或者直投
-		 */
-		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
-		/**
-		 * 添加大标
-		 */
-		// dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();//
+		
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 		String userunder = new SimpleDateFormat("yyyyMMddhhmmss").format(c.getTime());
@@ -114,8 +81,8 @@ public class CreateZhiTou {
 
 		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 
-		s2.selectByValue("14036#6212461560001004902#1#13710");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
-
+		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
+//兰州中盛：sit环境的企业户    14036#6212461560001004902#1#13710
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
 		s3.selectByValue("9");// 直融——车贷(消费金融)——等额本息
@@ -124,23 +91,11 @@ public class CreateZhiTou {
 		// s4.selectByVisibleText("模板6");//选择模板6
 		s4.selectByValue("295");// 选择acai测试模板—房抵贷
 		Thread.sleep(3000);
-		// dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		/**
-		 * 使用相对路径获取弹框的XPATH
-		 */
-		// String att="hello my world!!!!!";
-		// dr.findElement(By.xpath("//textarea[@value='']")).click();
-		// dr.findElement(By.xpath("//textarea[@value='']")).clear();
-		// dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att+userunder);
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
-
+		List<WebElement> list = dr.findElements(By.xpath("//input[@class='tc-name text-style']"));
+		list.get(0).sendKeys("东风北桥");
+		list.get(1).sendKeys("三室两厅");
+		list.get(2).sendKeys("160平米");
+		list.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
@@ -171,22 +126,14 @@ public class CreateZhiTou {
 		dr.findElement(By.name("online_time")).click();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
 		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		// Calendar cd = Calendar.getInstance();
 		c.add(Calendar.MONTH, mylengh);
 
 		String endDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());
 		System.out.println(endDate);
 		String endattr = "$('input[name=end_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(endattr);
-		dr.findElement(By.name("end_time")).click();
+		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
-
-		// dr.findElement(By.xpath("//id[@value='']")).click();
-		// dr.findElement(By.id("wrap")).findElement(By.className("qyzj-bm-btn")).click();
-		// dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();
-		/*
-		 * 无法通过页面获取点击状态，通过jquery获取到指定位置，点击
-		 */
 		String changereadonly2 = "$('#sub').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		// dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -207,7 +154,6 @@ public class CreateZhiTou {
 	}
 
 	private static void jQueryLoaded() {
-		// TODO Auto-generated method stub
 
 	}
 

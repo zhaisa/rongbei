@@ -76,4 +76,28 @@ public class ReadTxt {
 		return list.get(lineNo);
 
 	}
+
+	public String readFS(String path) throws IOException {
+		FileReader fr = null;
+		int line=1;
+		try {
+			fr = new FileReader(path);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		BufferedReader br = new BufferedReader(fr);
+		List<String> list=new ArrayList();
+		
+		while (null != br.readLine()) {
+		list.add(br.readLine());
+		line++;
+		}
+
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
+		br.close();
+		return line+">>>>>>>>>>>>>>>>>>>>>";
+		
+	}
 }

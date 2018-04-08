@@ -1,4 +1,4 @@
-package com.irongbei;
+package com.irongbeipages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
