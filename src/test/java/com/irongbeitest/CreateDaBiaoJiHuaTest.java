@@ -7,7 +7,7 @@ public class CreateDaBiaoJiHuaTest {
 		CreateDaBiaoJiHua cdbjh = new CreateDaBiaoJiHua();
 		for (int i = 0; i < 1; i++) {
 			try {
-				cdbjh.createDaBiaoJiHua("3", 2018,7, 29);
+				cdbjh.createDaBiaoJiHua("3", 2018, 4, 25);
 			} catch (Exception e) {
 
 				e.printStackTrace();

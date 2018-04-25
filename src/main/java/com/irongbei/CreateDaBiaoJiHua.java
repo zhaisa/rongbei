@@ -53,10 +53,10 @@ public class CreateDaBiaoJiHua {
 		dr.findElement(By.linkText("添加计划")).click();
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/addFinancialPlan");
 
-		String userunder = new SimpleDateFormat("yyyyMMddmmss").format(c.getTime());
+		String userunder = new SimpleDateFormat("yyMMddss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "省心投理财计划-翟" + userunder;
+		String user = "省心投债权组成" + userunder;//省心投理财计划-翟
 
 		dr.findElement(By.name("plan_name")).sendKeys(user);
 		dr.findElement(By.name("plan_num")).sendKeys(user);
@@ -98,12 +98,16 @@ public class CreateDaBiaoJiHua {
 		Thread.sleep(3000);
 		String changereadonly2 = "$('#submit').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		dr.switchTo().alert().accept();
 
 		// assertEquals("添加计划", dr.findElement(By.linkText("添加计划")));
-		Thread.sleep(1000);
-		dr.close();
+		Thread.sleep(2000);
+		dr.switchTo().alert().accept();
+		Thread.sleep(2000);
+//		dr.switchTo().alert().accept();
+//		Thread.sleep(2000);
+		
 		dr.quit();
 	}
 }

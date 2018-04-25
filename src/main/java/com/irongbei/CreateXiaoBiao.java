@@ -115,7 +115,7 @@ public class CreateXiaoBiao {
 
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
-		s3.selectByValue("3");// 直融——车贷(消费金融)——等额本息
+		s3.selectByValue("31");// 直融——车贷(消费金融)——等额本息
 
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
 		s4.selectByValue("295");// 选择acai测试模板—房抵贷

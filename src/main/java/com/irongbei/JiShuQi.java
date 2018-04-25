@@ -4,31 +4,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JiShuQi {
-
 	public static void main(String[] args) {
-		for (int i = 0; i < 10; i++) {
-			jiShuQi(i);
-		}
+		for(int i=0;i<10;i++) {
+		JiShuQi.jiShuQi();
+	} }
+	private static int count;
+	private static int sum;
+    boolean flag=false;
+	public int getCount() {
+		return count;
 	}
 
-	public static int jiShuQi(int number) {
-		int j = 0;
-		j++;
-		List list = new ArrayList();
-		for (int i = 0; i < j; i++) {
-			list.add(i);
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+
+	public static int jiShuQi() {
+//初始化数据
+		List<Integer> list=new ArrayList();
+	for(int i=1;i<2<<32;i++) {
+		list.add(i);
+	}
+		for(int z=1;z<list.size();z++) {
+			count=list.get(z);
 		}
+		
+	System.out.println(list.get(0));	
+		return count;
+		
+	}
 
-		if (j < list.size()) {
-			list.get(number);
-			System.out.println(list.get(number));
-			list.remove(number);
-		}
-		if (number > list.size()) {
-
-		}
-
-		return (Integer) list.get(number);
-
+	public JiShuQi() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 }

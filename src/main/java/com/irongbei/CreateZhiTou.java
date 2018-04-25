@@ -1,12 +1,9 @@
 package com.irongbei;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -16,11 +13,9 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 
 import com.irongbeipages.LoginPage;
 
@@ -35,7 +30,7 @@ public class CreateZhiTou {
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
 		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
-		dr.manage().window().maximize();
+//		dr.manage().window().maximize();
 		LoginPage lp = new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
 		Thread.sleep(2000);
@@ -59,7 +54,7 @@ public class CreateZhiTou {
 		String userunder = new SimpleDateFormat("yyyyMMddhhmmss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "测试直投项目-翟" + userunder;
+		String user = "测试直投项目-凤" + userunder;
 
 		System.out.println(user);
 
@@ -81,11 +76,11 @@ public class CreateZhiTou {
 
 		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 
-		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
-//兰州中盛：sit环境的企业户    14036#6212461560001004902#1#13710
+		s2.selectByValue("14236#6212461390000002453#1#14097");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
+//兰州中盛：sit环境的企业户    14036#6212461560001004902#1#13710   //汪汪9855#6212461390000202301#1#13815 //其他14262#6212461390000082547#1#13815
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
-		s3.selectByValue("9");// 直融——车贷(消费金融)——等额本息
+		s3.selectByValue("31");// 直融——房贷(消费金融)——等额本息
 		// dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
 		// s4.selectByVisibleText("模板6");//选择模板6
@@ -101,7 +96,7 @@ public class CreateZhiTou {
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
-		dr.findElement(By.id("cre_rate")).sendKeys("9");
+		dr.findElement(By.id("cre_rate")).sendKeys("12");
 		dr.findElement(By.name("fixed_invest")).clear();
 		dr.findElement(By.name("fixed_invest")).sendKeys("0");// 输入定投金额
 		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
@@ -137,7 +132,7 @@ public class CreateZhiTou {
 		String changereadonly2 = "$('#sub').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		// dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		dr.switchTo().alert().accept();
 		Thread.sleep(3000);
 		String ss1 = dr.switchTo().alert().getText();
@@ -147,7 +142,7 @@ public class CreateZhiTou {
 		} else {
 			System.out.println("----->添加失败！");
 		}
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		dr.close();
 		dr.quit();

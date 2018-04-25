@@ -4,8 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -16,9 +20,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateXiaoBiaoQianDuan {
-	public void createXiaoBiaoQianDuan(int myyear, int mymonth, int mydate, int mylen) {
+	public void createXiaoBiaoQianDuan(int myyear, int mymonth, int mydate, int mylen) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
+				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		// c.set(myyear, mymonth, myday);
@@ -50,9 +54,9 @@ public class CreateXiaoBiaoQianDuan {
 		}
 		System.out.println("Page title is: " + dr.getTitle());
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		dr.findElement(By.linkText("标准化项目管理")).click();
+		dr.findElement(By.linkText("小标项目管理")).click();
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
-		dr.findElement(By.linkText("添加标准项目")).click();
+		dr.findElement(By.linkText("添加小标项目")).click();
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/standardpadd");
 		dr.findElement(By.name("bottom_project_id")).click();
 		Select s1 = new Select(dr.findElement(By.name("bottom_project_id")));
@@ -60,7 +64,7 @@ public class CreateXiaoBiaoQianDuan {
 		List list1 = new ArrayList();
 		for (int i = 0; i < list.size(); i++) {
 			String arr = list.get(i).getText();
-			if (arr.contains("测试小标项目-翟20180307")) {
+			if (arr.contains("测试小标项目-翟20180425")) {
 				list1.add(arr);
 			}
 		}
@@ -81,7 +85,7 @@ public class CreateXiaoBiaoQianDuan {
 		//
 		// }
 		dr.findElement(By.name("rate")).clear();
-		dr.findElement(By.name("rate")).sendKeys("7");
+		dr.findElement(By.name("rate")).sendKeys("12");
 		dr.findElement(By.name("cycle")).sendKeys("3");
 
 		String deltime = "$('#end_time').attr(\"readonly\",false)";
@@ -94,15 +98,12 @@ public class CreateXiaoBiaoQianDuan {
 
 		dr.findElement(By.id("end_time")).sendKeys(endDate);
 		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		dr.switchTo().defaultContent();
-
+		// dr.switchTo().defaultContent();
+		Thread.sleep(1000);
 		dr.findElement(By.linkText("确认无误，提交")).click();
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Thread.sleep(3000);
 		dr.switchTo().alert().accept();
+		Thread.sleep(3000);
 		String ss1 = dr.switchTo().alert().getText();
 		String ss2 = "添加成功!";
 		if (ss1.contains(ss2)) {
@@ -110,13 +111,46 @@ public class CreateXiaoBiaoQianDuan {
 		} else if (ss1.isEmpty()) {
 			System.out.println("----->添加失败！");
 		}
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		dr.switchTo().alert().accept();
+		Thread.sleep(2000);
+		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
+		WebElement tbody = dr.findElement(By.xpath("//table/tbody"));
+		List<WebElement> tr = tbody.findElements(By.tagName("tr"));
+		Map<String, String> map = new HashMap();
+		for (WebElement row : tr) {
+			String trtext = row.getText();
+			List<WebElement> td = row.findElements(By.tagName("td"));
+			for (WebElement col : td) {
+				String tdtext = col.getText();
+				System.out.println(col.getText());
+				if (trtext.contains("测试小标项目-翟20180425") && tdtext.equals("未审核")) {
+					map.put("项目名称", td.get(0).getText());
+					map.put("审核是否通过", td.get(7).getText());
+					map.put("操作", td.get(9).getText());
+
+				}
+			}
+		}
+		Set set = map.keySet();
+		Iterator it = set.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		}
 
-		dr.close();
-		dr.quit();
+		for (WebElement row : tr) {
+			String trtext1 = row.getText();
+			if (trtext1.contains("测试小标项目-翟20180417") && map.get("审核是否通过").equals("未审核")) {
+				dr.findElement(By.partialLinkText("审核")).click();
+				Thread.sleep(2000);
+				dr.switchTo().alert().accept();
+				Thread.sleep(2000);
+				dr.switchTo().alert().accept();
+			}
+
+		}
+
+		 dr.close();
+		 dr.quit();
 	}
 }

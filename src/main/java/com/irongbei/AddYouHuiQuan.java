@@ -28,6 +28,7 @@ public class AddYouHuiQuan {
 		dr.findElement(By.xpath("//input[@value=\"添加\"]")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.name("vName")).sendKeys("优惠券-翟专用");
+		Thread.sleep(1000);
 		Select ss = new Select(dr.findElement(By.id("vType")));
 		List<WebElement> list = ss.getOptions();
 		System.out.println(list.get(1).getText());

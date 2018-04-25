@@ -4,23 +4,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MyWebDriver {
-private WebDriver driver;
+private WebDriver dr;
+
+public MyWebDriver(WebDriver dr) {
+	super();
+	this.dr = dr;
+	
+}
+
+public MyWebDriver() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
 public WebDriver getDr() {
-	return driver;
+	return dr;
 }
 
 public void setDr(WebDriver dr) {
-	this.driver = dr;
+	this.dr = dr;
 }
-public  void creatChromeDriver() {
-	WebDriver driver = null;
-	System.setProperty("webdriver.chrome.driver",
-			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
-		driver = new ChromeDriver();
-	
 
-	
-}
 
 
 }

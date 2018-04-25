@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -59,10 +60,10 @@ public class CreateDaBiao {
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 
-		String userunder = new SimpleDateFormat("yyyyMMddHHmmss").format(c.getTime());
+		String userunder = new SimpleDateFormat("yyMMddss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "测试大标底层-翟" + userunder;
+		String user = "省心投债权底层" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
@@ -77,30 +78,19 @@ public class CreateDaBiao {
 
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
-		s3.selectByValue("9");// 直融——车贷(消费金融)——等额本息
+		s3.selectByValue("31");// 直融——车贷(消费金融)——等额本息
 
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
 		// s4.selectByVisibleText("模板6");//选择模板6
 		s4.selectByValue("295");// 房抵贷
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		// dr.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/div[3]/div[12]/select/option[78]")).click();
-		// Thread.sleep(1000);
-		// String att="hello my world!!!!!";
-		// dr.findElement(By.xpath("//textarea[@value='']")).click();
-		// dr.findElement(By.xpath("//textarea[@value='']")).clear();
-		// dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att);
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
-
+		List<WebElement> list = dr.findElements(By.xpath("//input[@class='tc-name text-style']"));
+		list.get(0).sendKeys("东风北桥");
+		list.get(1).sendKeys("三室两厅");
+		list.get(2).sendKeys("160平米");
+		list.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
-
-		dr.findElement(By.id("p_sum")).sendKeys("0.5");// 输入金额1万
+		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
 		dr.findElement(By.id("cre_rate")).sendKeys("9");
@@ -153,7 +143,8 @@ public class CreateDaBiao {
 		String changereadonly2 = "$('#sub').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 
-		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+//		dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		dr.switchTo().alert().accept();
 
 		// assertEaquls("添加成功";dr.findElement(By));
