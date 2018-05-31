@@ -15,7 +15,7 @@ public void buyZhiTou() throws InterruptedException {
 	WebDriver dr = new ChromeDriver();
 	dr.get("http://testhf.irongbei.com/UserLogin/index");
 	dr.findElement(By.id("user_name")).clear();
-	dr.findElement(By.id("user_name")).sendKeys("17409090029");
+	dr.findElement(By.id("user_name")).sendKeys("17409090042");
 	dr.findElement(By.id("user_password")).clear();
 	dr.findElement(By.id("user_password")).sendKeys("123456");
 	dr.findElement(By.id("qianlogin")).click();
@@ -32,9 +32,10 @@ public void buyZhiTou() throws InterruptedException {
 	String url=hurl+id;
 	dr.navigate().to(url);
 	dr.findElement(By.id("invest_account")).clear();
-	dr.findElement(By.id("invest_account")).sendKeys("1000");
+	dr.findElement(By.id("invest_account")).sendKeys("100");
+	Thread.sleep(1000);
 	dr.findElement(By.id("investSubmit")).click();
-	dr.navigate().to("http://testhf.irongbei.com/UserCenter/confirm?program=8706&account=1000&uvId=0&key=3d8d3766c471cb69a463e2b40921cb97&isuse=0");
+	dr.navigate().to("http://testhf.irongbei.com/UserCenter/confirm?program=9132&account=100&uvId=0&key=5715c1b1a1c2b3bd0b3529abb2b94921&isuse=0");
 	dr.findElement(By.className("magBtn")).click();
 	dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
@@ -50,11 +51,13 @@ public void buyZhiTou() throws InterruptedException {
 		System.out.println("title,url = " + window.getTitle() + "," + window.getCurrentUrl());
 		String sss = window.getCurrentUrl();
 		dr.navigate().to(sss);
-
+        Thread.sleep(1000);
 		dr.findElement(By.xpath("//*[@id=\"pass\"]")).clear();
 		dr.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456");
 		dr.findElement(By.id("sub")).click();
 		Thread.sleep(3000);
+		
+		
 	}
 	dr.quit();
 	

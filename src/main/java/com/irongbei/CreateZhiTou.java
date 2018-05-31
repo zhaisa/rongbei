@@ -29,10 +29,15 @@ public class CreateZhiTou {
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
-//		dr.manage().window().maximize();
-		LoginPage lp = new LoginPage(dr);
-		lp.login("测试专用管理员", "123456");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
+		dr.manage().window().maximize();
+		WebElement element = dr.findElement(By.name("username"));
+
+		element.sendKeys("测试专用管理员");
+		WebElement element1 = dr.findElement(By.name("password"));
+		element1.sendKeys("123456");
+		WebElement element2 = dr.findElement(By.className("login-btn"));
+		element2.click();
 		Thread.sleep(2000);
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 		String obj1 = element3.getText().trim();
@@ -44,30 +49,22 @@ public class CreateZhiTou {
 			System.out.println("登录失败 " + "");
 		}
 		System.out.println("Page title is: " + dr.getTitle());
-
-		dr.findElement(By.xpath("//*[@id=\"left-nav\"]/ul/li[3]/span/a")).click();
-		dr.findElement(By.xpath(".//*[@id='left-nav']/ul/li[3]/ul/li[1]/a")).click();
-		dr.findElement(By.xpath(".//*[@id='right-box']/div[1]/span/a[1]")).click();
-		
+		dr.findElement(By.linkText("项目管理")).click();
+		Thread.sleep(1000);
+		dr.findElement(By.partialLinkText("添加项目")).click();
+		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 		String userunder = new SimpleDateFormat("yyyyMMddhhmmss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "测试直投项目-凤" + userunder;
+		String user = "测试直投项目-翟" + userunder;
 
 		System.out.println(user);
 
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/create");
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
-		// UUID uuid = UUID.randomUUID();
-		// System.out.println(uuid);
-		// String s = UUID.randomUUID().toString();
-		// dr.findElement(By.name("project_description")).sendKeys(s);
-		// dr.findElement(By.name("repayment")).sendKeys(s);
-		// dr.findElement(By.name("project_riskcontrol")).sendKeys(s);
-
 		Select sn = new Select(dr.findElement(By.id("xuanzh")));
 		sn.selectByValue("3");// 3为房抵贷
 		Select sl = new Select(dr.findElement(By.name("real_payment")));
@@ -76,10 +73,10 @@ public class CreateZhiTou {
 
 		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 
-		s2.selectByValue("14236#6212461390000002453#1#14097");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
+		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
 //兰州中盛：sit环境的企业户    14036#6212461560001004902#1#13710   //汪汪9855#6212461390000202301#1#13815 //其他14262#6212461390000082547#1#13815
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
-
+        Thread.sleep(2000);
 		s3.selectByValue("31");// 直融——房贷(消费金融)——等额本息
 		// dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
@@ -123,12 +120,13 @@ public class CreateZhiTou {
 		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		c.add(Calendar.MONTH, mylengh);
 
-		String endDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());
+		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());
 		System.out.println(endDate);
 		String endattr = "$('input[name=end_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(endattr);
 		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
+		Thread.sleep(1000);
 		String changereadonly2 = "$('#sub').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		// dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -142,7 +140,7 @@ public class CreateZhiTou {
 		} else {
 			System.out.println("----->添加失败！");
 		}
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		dr.close();
 		dr.quit();

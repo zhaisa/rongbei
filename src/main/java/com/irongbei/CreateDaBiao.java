@@ -20,13 +20,13 @@ import org.testng.annotations.Test;
 
 @Test
 public class CreateDaBiao {
-	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday) throws Exception {
+	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -38,7 +38,7 @@ public class CreateDaBiao {
 		WebElement element2 = dr.findElement(By.className("login-btn"));
 		element2.click();
 		Thread.sleep(2000);
-		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
+		// dr.get("http://dev-admin.irongbei.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 		// WebElement
 		// element3=dr.findElement(By.xpath(".//*[@id='header']/div[2]/div[2]/div/span[5]/a/b[1]"));
@@ -53,9 +53,12 @@ public class CreateDaBiao {
 			System.out.println("登录失败 " + "");
 		}
 		System.out.println("Page title is: " + dr.getTitle());
-		dr.findElement(By.xpath("//*[@id=\"left-nav\"]/ul/li[3]/span/a")).click();
-		dr.findElement(By.xpath(".//*[@id='left-nav']/ul/li[3]/ul/li[1]/a")).click();
-		dr.findElement(By.xpath(".//*[@id='right-box']/div[1]/span/a[1]")).click();
+//		dr.findElement(By.xpath("//*[@id=\"left-nav\"]/ul/li[3]/span/a")).click();
+//		dr.findElement(By.xpath(".//*[@id='left-nav']/ul/li[3]/ul/li[1]/a")).click();
+//		dr.findElement(By.xpath(".//*[@id='right-box']/div[1]/span/a[1]")).click();
+		dr.findElement(By.linkText("项目管理")).click();
+		Thread.sleep(1000);
+		dr.findElement(By.partialLinkText("添加项目")).click();
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
@@ -66,7 +69,7 @@ public class CreateDaBiao {
 		String user = "省心投债权底层" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/editProject");
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
@@ -90,10 +93,10 @@ public class CreateDaBiao {
 		list.get(2).sendKeys("160平米");
 		list.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
-		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
+		dr.findElement(By.id("p_sum")).sendKeys(money);// 输入金额1万
 		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
-		dr.findElement(By.id("cre_rate")).sendKeys("9");
+		dr.findElement(By.id("cre_rate")).sendKeys("15");
 		/**
 		 * 大标没有定投
 		 */

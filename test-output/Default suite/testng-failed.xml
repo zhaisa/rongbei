@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.irongbei.NewCreateZhiTouTest">
+      <class name="com.irongbei.AddUerCreditTest">
         <methods>
-          <include name="createZhiTou"/>
+          <include name="addUserCredit"/>
         </methods>
-      </class> <!-- com.irongbei.NewCreateZhiTouTest -->
+      </class> <!-- com.irongbei.AddUerCreditTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

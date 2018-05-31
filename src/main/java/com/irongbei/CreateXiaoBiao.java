@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +21,7 @@ import org.testng.annotations.Test;
 @Test
 public class CreateXiaoBiao {
 
-	public void createXiaoBiao(String zq, int mylength, int myyear, int mymonth, int myday, int usernum)
+	public void createXiaoBiao(String zq, int mylength, int myyear, int mymonth, int myday)
 			throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
@@ -28,7 +29,7 @@ public class CreateXiaoBiao {
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -40,7 +41,7 @@ public class CreateXiaoBiao {
 		WebElement element2 = dr.findElement(By.className("login-btn"));
 		element2.click();
 		Thread.sleep(2000);
-		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
+		// dr.get("http://dev-admin.irongbei.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 		// WebElement
 		// element3=dr.findElement(By.xpath(".//*[@id='header']/div[2]/div[2]/div/span[5]/a/b[1]"));
@@ -89,14 +90,14 @@ public class CreateXiaoBiao {
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 		String userunder = new SimpleDateFormat("yyyyMMddmmss").format(c.getTime());
 		System.out.println(userunder);
-		int a = usernum;
-		String user = "测试小标项目-翟" + userunder + "-" + a;
+	
+		String user = "测试小标项目-翟" + userunder ;
 
 		System.out.println(user);
 
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/create");
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
-		dr.findElement(By.id("project_num")).sendKeys(user + 1);
+		dr.findElement(By.id("project_num")).sendKeys(user );
 		// UUID uuid = UUID.randomUUID();
 		// System.out.println(uuid);
 		// String s = UUID.randomUUID().toString();
@@ -131,19 +132,6 @@ public class CreateXiaoBiao {
 
 		dr.findElement(By.linkText("确定")).click();
 
-//		Thread.sleep(1000);
-//		/**
-//		 * 使用相对路径获取弹框的XPATH
-//		 */
-//		String att = "hello my world!!!!!";
-//
-//		dr.findElement(By.xpath("//textarea[@value='']")).click();
-//		dr.findElement(By.xpath("//textarea[@value='']")).clear();
-//		dr.findElement(By.xpath("//textarea[@value='']")).sendKeys(att + a);
-
-	
-		
-
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
@@ -171,14 +159,18 @@ public class CreateXiaoBiao {
 		((JavascriptExecutor) dr).executeScript(changereadonly);
 		dr.findElement(By.name("online_time")).click();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
-
+		Thread.sleep(1000);
+		
+        Actions action =new Actions(dr);
+        action.moveToElement(dr.findElement(By.name("end_time"))).click();
+        action.perform();
 		// Calendar cd = Calendar.getInstance();
 		c.add(Calendar.MONTH, mylength);
 
 		Date dt = c.getTime();// date就是你需要的时间
 		System.out.println(dt);
-		String endDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());
-		dr.findElement(By.name("end_time")).click();
+		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());
+//		dr.findElement(By.name("end_time")).click();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 
 		// dr.findElement(By.xpath("//id[@value='']")).click();
@@ -192,7 +184,7 @@ public class CreateXiaoBiao {
 		dr.switchTo().alert().accept();
 
 		Thread.sleep(1000);
-
+        dr.close();
 		dr.quit();
 	}
 

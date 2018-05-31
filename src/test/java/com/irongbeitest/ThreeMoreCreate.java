@@ -12,13 +12,13 @@ public class ThreeMoreCreate {
 		for (int i = 0; i < 2; i++) {
 
 			try {
-				cdb.createDaBiao("3", 3, 2018, 3, 25);
+				cdb.createDaBiao("3", 3, 2018, 3, 25, "1");
 			} catch (Exception e) {
 
 				e.printStackTrace();
 			}
 			try {
-				cxb.createXiaoBiao("3", 3, 2018, 3, 25, i);
+				cxb.createXiaoBiao("3", 3, 2018, 3, 25);
 			} catch (Exception e) {
 
 				e.printStackTrace();

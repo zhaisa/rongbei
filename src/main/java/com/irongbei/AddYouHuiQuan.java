@@ -32,7 +32,7 @@ public class AddYouHuiQuan {
 		Select ss = new Select(dr.findElement(By.id("vType")));
 		List<WebElement> list = ss.getOptions();
 		System.out.println(list.get(1).getText());
-		ss.selectByVisibleText(list.get(1).getText());// 1为现金券，2为加息券，3为奖励金券4为现实加息券
+		ss.selectByIndex(1);;// 1为现金券，2为加息券，3为奖励金券4为现实加息券
 		dr.findElement(By.name("availableDays")).sendKeys("10");// 优惠券天数
 		Select ss1 = new Select(dr.findElement(By.name("vLimitType")));
 		List<WebElement> list2 = ss1.getOptions();

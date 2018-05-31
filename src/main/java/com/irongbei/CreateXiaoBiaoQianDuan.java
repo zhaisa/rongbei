@@ -20,13 +20,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateXiaoBiaoQianDuan {
-	public void createXiaoBiaoQianDuan(int myyear, int mymonth, int mydate, int mylen) throws InterruptedException {
+	public void createXiaoBiaoQianDuan(int myyear, int mymonth, int mydate, int mylen,String project) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
+		
 		// c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -55,16 +56,16 @@ public class CreateXiaoBiaoQianDuan {
 		System.out.println("Page title is: " + dr.getTitle());
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.findElement(By.linkText("小标项目管理")).click();
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Standardproject/index");
 		dr.findElement(By.linkText("添加小标项目")).click();
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/standardpadd");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Standardproject/standardpadd");
 		dr.findElement(By.name("bottom_project_id")).click();
 		Select s1 = new Select(dr.findElement(By.name("bottom_project_id")));
 		List<WebElement> list = s1.getOptions();
 		List list1 = new ArrayList();
 		for (int i = 0; i < list.size(); i++) {
 			String arr = list.get(i).getText();
-			if (arr.contains("测试小标项目-翟20180425")) {
+			if (arr.contains(project)) {
 				list1.add(arr);
 			}
 		}
@@ -94,8 +95,8 @@ public class CreateXiaoBiaoQianDuan {
 		Calendar cc = new GregorianCalendar();
 		cc.set(myyear, mymonth, mydate);
 		cc.add(Calendar.MONTH, mylen);
-		String endDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(cc.getTime());
-
+		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cc.getTime());
+         Thread.sleep(2000);
 		dr.findElement(By.id("end_time")).sendKeys(endDate);
 		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// dr.switchTo().defaultContent();
@@ -114,7 +115,7 @@ public class CreateXiaoBiaoQianDuan {
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
 		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Standardproject/index");
 		WebElement tbody = dr.findElement(By.xpath("//table/tbody"));
 		List<WebElement> tr = tbody.findElements(By.tagName("tr"));
 		Map<String, String> map = new HashMap();
@@ -124,7 +125,7 @@ public class CreateXiaoBiaoQianDuan {
 			for (WebElement col : td) {
 				String tdtext = col.getText();
 				System.out.println(col.getText());
-				if (trtext.contains("测试小标项目-翟20180425") && tdtext.equals("未审核")) {
+				if (trtext.contains(project) && tdtext.equals("未审核")) {
 					map.put("项目名称", td.get(0).getText());
 					map.put("审核是否通过", td.get(7).getText());
 					map.put("操作", td.get(9).getText());
@@ -140,7 +141,7 @@ public class CreateXiaoBiaoQianDuan {
 
 		for (WebElement row : tr) {
 			String trtext1 = row.getText();
-			if (trtext1.contains("测试小标项目-翟20180417") && map.get("审核是否通过").equals("未审核")) {
+			if (trtext1.contains(project) && map.get("审核是否通过").equals("未审核")) {
 				dr.findElement(By.partialLinkText("审核")).click();
 				Thread.sleep(2000);
 				dr.switchTo().alert().accept();

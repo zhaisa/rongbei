@@ -1,10 +1,7 @@
 package com.irongbei;
 
-import static org.testng.Assert.assertEquals;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.openqa.selenium.By;
@@ -13,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateDaBiaoJiHua {
@@ -23,7 +21,7 @@ public class CreateDaBiaoJiHua {
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
 
 		WebElement element = dr.findElement(By.name("username"));
 
@@ -49,21 +47,25 @@ public class CreateDaBiaoJiHua {
 		dr.findElement(By.linkText("省心投管理")).click();
 		String aaa = "$('#计划列表').click";
 		((JavascriptExecutor) dr).executeScript(aaa);
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/index");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/FinancialPlan/index");
 		dr.findElement(By.linkText("添加计划")).click();
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/addFinancialPlan");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/FinancialPlan/addFinancialPlan");
 
-		String userunder = new SimpleDateFormat("yyMMddss").format(c.getTime());
+		String userunder = new SimpleDateFormat("yyMMddSS").format(c.getTime());
 		System.out.println(userunder);
 
 		String user = "省心投债权组成" + userunder;//省心投理财计划-翟
 
 		dr.findElement(By.name("plan_name")).sendKeys(user);
 		dr.findElement(By.name("plan_num")).sendKeys(user);
+		Select s1 = new Select(dr.findElement(By.id("lock_time")));
+
+		s1.selectByValue(zq);// 选择省心投的期限1,3,6,9,12,锁定期
+
 		dr.findElement(By.name("financing_amount")).clear();
 		dr.findElement(By.name("financing_amount")).sendKeys("1");// 融资金额
-		dr.findElement(By.name("rate")).clear();
-		dr.findElement(By.name("rate")).sendKeys("8");// 利率自带%
+		dr.findElement(By.id("rate")).clear();
+		dr.findElement(By.id("rate")).sendKeys("8");// 利率自带%
 
 		JavascriptExecutor jse = (JavascriptExecutor) dr;
 		Boolean loaded;
@@ -78,24 +80,29 @@ public class CreateDaBiaoJiHua {
 		 * 加载jquery清楚readonly熟悉，然后给输入框输入时间
 		 */
 
-		String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(c.getTime());// 对日期进行格式化
+		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(c.getTime());// 对日期进行格式化
 		System.out.println(startDate);
 
 		String sxsj = "$('input[name=predict_online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(sxsj);
 
-		dr.findElement(By.xpath("//*[@id=\"predict_online_time\"]")).click();
+//		dr.findElement(By.xpath("//*[@id=\"predict_online_time\"]")).click();
 		dr.findElement(By.xpath("//*[@id=\"predict_online_time\"]")).sendKeys(startDate);
+		Thread.sleep(2000);
+//		dr.findElement(By.name("lock_end_time")).click();
+
+		Actions action=new Actions(dr);
+		WebElement we=dr.findElement(By.className("user-com"));
+		action.moveToElement(we).click();
+		action.perform();
 		dr.findElement(By.xpath("//*[@id=\"full_time\"]")).clear();
 		dr.findElement(By.xpath("//*[@id=\"full_time\"]")).sendKeys("1");// 募集期
-		dr.findElement(By.xpath("//*[@id=\"lock_time\"]")).click();
+		
 
-		Select s1 = new Select(dr.findElement(By.id("lock_time")));
-
-		s1.selectByValue(zq);// 选择省心投的期限1,3,6,9,12,锁定期
-
-		dr.findElement(By.name("lock_end_time")).click();
-		Thread.sleep(3000);
+         WebElement we1=dr.findElement(By.id("predict_lock_time"));
+         action.moveToElement(we1).click();
+         action.perform();
+		Thread.sleep(1000);
 		String changereadonly2 = "$('#submit').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		Thread.sleep(1000);
