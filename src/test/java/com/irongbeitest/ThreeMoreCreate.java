@@ -24,7 +24,7 @@ public class ThreeMoreCreate {
 				e.printStackTrace();
 			}
 			try {
-				czt.createZhiTou("3", 3, 2018, 3, 25, i);
+				czt.createZhiTou("3", 3, 2018, 3, 25);
 			} catch (Exception e) {
 
 				e.printStackTrace();

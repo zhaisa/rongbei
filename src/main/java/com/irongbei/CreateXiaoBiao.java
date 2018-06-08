@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -109,10 +110,26 @@ public class CreateXiaoBiao {
 		Select sl = new Select(dr.findElement(By.name("real_payment")));
 
 		sl.selectByValue("2");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
+//
+//		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
+//
+//		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[18]/span/span[1]/span/span[2]")).click();
+		Thread.sleep(2000);
+		WebElement we = dr.findElement(By.className("select2-search__field"));
 
-		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
+		Actions action = new Actions(dr);
+		action.moveToElement(we).click();
+		
+		action.sendKeys("uat测试账户壹");
+		action.moveToElement(we).perform();
 
-		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
+		Thread.sleep(3000);
+		action.sendKeys(Keys.DOWN);
+		action.sendKeys(Keys.ENTER);
+		action.perform();
+
+		Thread.sleep(2000);
 
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
@@ -131,14 +148,14 @@ public class CreateXiaoBiao {
 				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
 
 		dr.findElement(By.linkText("确定")).click();
-
+		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
-		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
+//		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
 		dr.findElement(By.id("cre_rate")).sendKeys("9");
 		dr.findElement(By.name("fixed_invest")).clear();
 		dr.findElement(By.name("fixed_invest")).sendKeys("0");// 输入定投金额
-		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
+		
 
 		JavascriptExecutor jse = (JavascriptExecutor) dr;
 		Boolean loaded;
@@ -153,7 +170,7 @@ public class CreateXiaoBiao {
 		 * 加载jquery清楚readonly熟悉，然后给输入框输入时间
 		 */
 
-		String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());// 对日期进行格式化
+		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);
@@ -161,9 +178,9 @@ public class CreateXiaoBiao {
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
 		Thread.sleep(1000);
 		
-        Actions action =new Actions(dr);
-        action.moveToElement(dr.findElement(By.name("end_time"))).click();
-        action.perform();
+        Actions action2 =new Actions(dr);
+        action2.moveToElement(dr.findElement(By.name("end_time"))).click();
+        action2.perform();
 		// Calendar cd = Calendar.getInstance();
 		c.add(Calendar.MONTH, mylength);
 

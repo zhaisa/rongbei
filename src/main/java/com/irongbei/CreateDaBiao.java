@@ -9,10 +9,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -75,10 +77,25 @@ public class CreateDaBiao {
 		dr.findElement(By.id("project_num")).sendKeys(user);
         Select s1=new Select(dr.findElement(By.name("real_payment")));
         s1.selectByValue("2");
-		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
+//		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
+//
+//		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[10]/span/span[1]/span/span[2]")).click();
+		Thread.sleep(2000);
+		WebElement we = dr.findElement(By.className("select2-search__field"));
 
-		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
+		Actions action = new Actions(dr);
+		action.moveToElement(we).click();
+		
+		action.sendKeys("uat测试账户壹");
+		action.moveToElement(we).perform();
 
+		Thread.sleep(3000);
+		action.sendKeys(Keys.DOWN);
+		action.sendKeys(Keys.ENTER);
+		action.perform();
+
+		Thread.sleep(2000);
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
 
 		s3.selectByValue("31");// 直融——车贷(消费金融)——等额本息
@@ -93,8 +110,10 @@ public class CreateDaBiao {
 		list.get(2).sendKeys("160平米");
 		list.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
+		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
 		dr.findElement(By.id("p_sum")).sendKeys(money);// 输入金额1万
-		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
+		Thread.sleep(1000);
+//		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
 		dr.findElement(By.id("cre_rate")).sendKeys("15");
 		/**
@@ -102,7 +121,7 @@ public class CreateDaBiao {
 		 */
 		// dr.findElement(By.name("fixed_invest")).clear();
 		// dr.findElement(By.name("fixed_invest")).sendKeys("0");//输入定投金额
-		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
+	
 
 		JavascriptExecutor jse = (JavascriptExecutor) dr;
 		Boolean loaded;

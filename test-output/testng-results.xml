@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="71" started-at="2018-05-22T12:36:15Z" finished-at="2018-05-22T12:36:15Z">
+  <suite name="Default suite" duration-ms="87" started-at="2018-06-08T02:20:02Z" finished-at="2018-06-08T02:20:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="71" started-at="2018-05-22T12:36:15Z" finished-at="2018-05-22T12:36:15Z">
-      <class name="com.irongbei.AddUerCreditTest">
-        <test-method status="FAIL" signature="addUserCredit()[pri:0, instance:com.irongbei.AddUerCreditTest@754ba872]" name="addUserCredit" duration-ms="16" started-at="2018-05-22T20:36:15Z" finished-at="2018-05-22T20:36:15Z">
+    <test name="Default test" duration-ms="87" started-at="2018-06-08T02:20:02Z" finished-at="2018-06-08T02:20:03Z">
+      <class name="com.irongbeitest.NewRegisterTest">
+        <test-method status="FAIL" signature="register()[pri:0, instance:com.irongbeitest.NewRegisterTest@754ba872]" name="register" duration-ms="16" started-at="2018-06-08T10:20:02Z" finished-at="2018-06-08T10:20:03Z">
           <exception class="java.lang.RuntimeException">
             <message>
               <![CDATA[Test not implemented]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.RuntimeException: Test not implemented
-	at com.irongbei.AddUerCreditTest.addUserCredit(AddUerCreditTest.java:9)
+	at com.irongbeitest.NewRegisterTest.register(NewRegisterTest.java:9)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -45,8 +45,8 @@
           </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addUserCredit -->
-      </class> <!-- com.irongbei.AddUerCreditTest -->
+        </test-method> <!-- register -->
+      </class> <!-- com.irongbeitest.NewRegisterTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

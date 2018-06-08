@@ -55,7 +55,8 @@ public class AddMoney {
 		String url2 = a;
 		String url3 = "&mobile=&usercode=&orderStyle=1&sign=bf042569ae6d7d6bfeb78a2c4560d8af";
 		dr.navigate().to(url + url2 + url3);
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[2]/table/tbody/tr[2]/td[12]/a[1]")).click();
+		Thread.sleep(1000);
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[2]/table/tbody/tr[2]/td[13]/a[1]")).click();
 		Thread.sleep(2000);
 
 		dr.findElement(By.xpath("//*[@id=\"money\"]")).clear();

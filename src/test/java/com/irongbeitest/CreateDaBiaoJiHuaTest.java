@@ -5,9 +5,9 @@ import com.irongbei.CreateDaBiaoJiHua;
 public class CreateDaBiaoJiHuaTest {
 	public static void main(String[] args) {
 		CreateDaBiaoJiHua cdbjh = new CreateDaBiaoJiHua();
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 1; i++) {
 			try {
-				cdbjh.createDaBiaoJiHua("3", 2018, 4, 28);
+				cdbjh.createDaBiaoJiHua("3", 2018, 10, 30);
 			} catch (Exception e) {
 
 				e.printStackTrace();

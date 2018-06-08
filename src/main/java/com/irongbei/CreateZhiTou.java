@@ -8,29 +8,29 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.irongbeipages.LoginPage;
-
 @Test
 public class CreateZhiTou {
 
-	public void createZhiTou(String zq, int mylengh, int myyear, int mymonth, int myday, int usernum) throws Exception {
+	public void createZhiTou(String zq, int mylengh, int myyear, int mymonth, int myday) throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
-		dr.manage().window().maximize();
+		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		// dr.manage().window().maximize();
 		WebElement element = dr.findElement(By.name("username"));
 
 		element.sendKeys("测试专用管理员");
@@ -62,7 +62,7 @@ public class CreateZhiTou {
 
 		System.out.println(user);
 
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/create");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
 		Select sn = new Select(dr.findElement(By.id("xuanzh")));
@@ -71,12 +71,24 @@ public class CreateZhiTou {
 
 		sl.selectByValue("2");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
 
-		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[18]/span/span[1]/span/span[2]")).click();
+		Thread.sleep(2000);
+		WebElement we = dr.findElement(By.className("select2-search__field"));
 
-		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择测试授权的value--13861#6212461560000255356#1#13710，目前只有他能用，增加一个企业-sit翟企业成功14025#6212461560001005032#1#12827
-//兰州中盛：sit环境的企业户    14036#6212461560001004902#1#13710   //汪汪9855#6212461390000202301#1#13815 //其他14262#6212461390000082547#1#13815
+		Actions action = new Actions(dr);
+		action.moveToElement(we).click();
+		
+		action.sendKeys("uat测试账户壹");
+		action.moveToElement(we).perform();
+
+		Thread.sleep(3000);
+		action.sendKeys(Keys.DOWN);
+		action.sendKeys(Keys.ENTER);
+		action.perform();
+
+		Thread.sleep(5000);
 		Select s3 = new Select(dr.findElement(By.name("contract_type")));
-        Thread.sleep(2000);
+		Thread.sleep(2000);
 		s3.selectByValue("31");// 直融——房贷(消费金融)——等额本息
 		// dr.findElement(By.xpath("//*[@id=\"template_id\"]/option[16]")).click();
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
@@ -90,13 +102,15 @@ public class CreateZhiTou {
 		list.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
 		Thread.sleep(1000);
+         dr.findElement(By.id("cycle")).sendKeys(zq);
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
-		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
+	//	dr.findElement(By.id("rate")).clear();
+		Thread.sleep(1000);
+	//	dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
 		dr.findElement(By.id("cre_rate")).sendKeys("12");
 		dr.findElement(By.name("fixed_invest")).clear();
 		dr.findElement(By.name("fixed_invest")).sendKeys("0");// 输入定投金额
-		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
 
 		JavascriptExecutor jse = (JavascriptExecutor) dr;
 		Boolean loaded;
@@ -111,7 +125,7 @@ public class CreateZhiTou {
 		 * 加载jquery清楚readonly熟悉，然后给输入框输入时间
 		 */
 
-		String startDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(c.getTime());// 对日期进行格式化
+		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);

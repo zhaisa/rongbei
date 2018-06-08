@@ -23,7 +23,7 @@ public class AddUerCredit {
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Voucher/userVoucher");
 		Thread.sleep(1000);
 		dr.findElement(By.id("give")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		dr.findElement(By.name("username1")).clear();
 		dr.findElement(By.name("username1")).sendKeys(userp);
 		Select ss1 = new Select(dr.findElement(By.name("vType")));

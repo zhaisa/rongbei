@@ -75,6 +75,7 @@ public class CreateXiaoBiaoQianDuan {
 		}
 		String sa = (String) list1.get(0);
 		s1.selectByVisibleText(sa);
+		Thread.sleep(5000);
 		dr.switchTo().defaultContent();
 		// Random r = new Random();
 		// int start = (int) (Math.random() *list1.size());
@@ -85,9 +86,10 @@ public class CreateXiaoBiaoQianDuan {
 		// s1.selectByIndex(index);// 根据上面随机生成的下拉选项的index，点击这个选项
 		//
 		// }
-		dr.findElement(By.name("rate")).clear();
-		dr.findElement(By.name("rate")).sendKeys("12");
 		dr.findElement(By.name("cycle")).sendKeys("3");
+//		dr.findElement(By.id("rate")).clear();
+//		dr.findElement(By.id("rate")).sendKeys("12");
+		
 
 		String deltime = "$('#end_time').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(deltime);
@@ -141,6 +143,10 @@ public class CreateXiaoBiaoQianDuan {
 
 		for (WebElement row : tr) {
 			String trtext1 = row.getText();
+			List<WebElement> td = row.findElements(By.tagName("td"));
+			for (WebElement col : td) {
+				String tdtext = col.getText();
+				System.out.println(col.getText());
 			if (trtext1.contains(project) && map.get("审核是否通过").equals("未审核")) {
 				dr.findElement(By.partialLinkText("审核")).click();
 				Thread.sleep(2000);
@@ -148,7 +154,7 @@ public class CreateXiaoBiaoQianDuan {
 				Thread.sleep(2000);
 				dr.switchTo().alert().accept();
 			}
-
+			}
 		}
 
 		 dr.close();

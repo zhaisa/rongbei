@@ -64,6 +64,7 @@ public class CreateDaBiaoJiHua {
 
 		dr.findElement(By.name("financing_amount")).clear();
 		dr.findElement(By.name("financing_amount")).sendKeys("1");// 融资金额
+		Thread.sleep(1000);
 		dr.findElement(By.id("rate")).clear();
 		dr.findElement(By.id("rate")).sendKeys("8");// 利率自带%
 
