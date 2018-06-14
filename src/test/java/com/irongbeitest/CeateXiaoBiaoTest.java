@@ -10,9 +10,9 @@ public class CeateXiaoBiaoTest {
 		CreateXiaoBiao ct = new CreateXiaoBiao();
 Calendar cc =new GregorianCalendar();
 cc.set(Calendar.MONTH, 0);
-		for (int i = 0; i <1; i++) {
+		for (int i = 0; i <6; i++) {
 			try {
-				ct.createXiaoBiao("3", 3, 2018, 8, 3);
+				ct.createXiaoBiao("3", 3, 2018, 5, 14);
 			} catch (Exception e) {
 
 				e.printStackTrace();
