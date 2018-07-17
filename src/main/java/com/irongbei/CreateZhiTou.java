@@ -70,8 +70,9 @@ public class CreateZhiTou {
 		Select sl = new Select(dr.findElement(By.name("real_payment")));
 
 		sl.selectByValue("2");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
-
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[18]/span/span[1]/span/span[2]")).click();
+         Thread.sleep(1000);
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]")).click();
+		//*[@id="right-box"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 

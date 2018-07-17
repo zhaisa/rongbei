@@ -27,7 +27,7 @@ public class AddZhouZhouSheng {
 		WebDriver dr = new ChromeDriver();
 		Calendar cc=new GregorianCalendar();
 		cc.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		dr.get("http://rongbeiadmin.51dmoz.com//admin/login");
 		LoginPage lp = new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
 		dr.findElement(By.linkText("项目管理")).click();
@@ -36,7 +36,7 @@ public class AddZhouZhouSheng {
 		Thread.sleep(2000);
 		dr.findElement(By.id("Check1")).click();
 		dr.findElement(By.id("pro_bottom_confirm")).click();
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/editProject?pjType=weekrise");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com//admin/Project/editProject?pjType=weekrise");
 		String time=new SimpleDateFormat("HHmmss").format(cc.getTime());
 		
 		String name="测试周周升项目-"+time;
@@ -48,7 +48,8 @@ public class AddZhouZhouSheng {
 		ss1.selectByVisibleText(list.get(0).getText());
 		Select ss2=new Select(dr.findElement(By.name("real_payment")));//还款方式
 		List<WebElement> list2=ss2.getOptions();
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[10]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]")).click();
+		//*[@id="right-box"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 
@@ -93,7 +94,7 @@ public class AddZhouZhouSheng {
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);
-	//	dr.findElement(By.name("online_time")).click();
+		dr.findElement(By.name("online_time")).clear();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         dr.switchTo().defaultContent();
@@ -105,7 +106,7 @@ public class AddZhouZhouSheng {
 		System.out.println(endDate);
 		String changereadonly1 = "$('input[name=end_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly1);
-//		dr.findElement(By.name("end_time")).click();
+		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.switchTo().defaultContent();
@@ -123,7 +124,7 @@ public class AddZhouZhouSheng {
 		dr.switchTo().alert().accept();
 
 		// assertEaquls("添加成功";dr.findElement(By));
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		dr.close();
 		dr.quit();

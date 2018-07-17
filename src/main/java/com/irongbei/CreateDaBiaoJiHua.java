@@ -21,7 +21,7 @@ public class CreateDaBiaoJiHua {
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
 
 		WebElement element = dr.findElement(By.name("username"));
 
@@ -47,9 +47,9 @@ public class CreateDaBiaoJiHua {
 		dr.findElement(By.linkText("省心投管理")).click();
 		String aaa = "$('#计划列表').click";
 		((JavascriptExecutor) dr).executeScript(aaa);
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/FinancialPlan/index");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/index");
 		dr.findElement(By.linkText("添加计划")).click();
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/FinancialPlan/addFinancialPlan");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/addFinancialPlan");
 
 		String userunder = new SimpleDateFormat("yyMMddSS").format(c.getTime());
 		System.out.println(userunder);

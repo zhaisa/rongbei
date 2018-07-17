@@ -28,7 +28,7 @@ public void changePhone(String phone,String distphone) throws Exception {
 	dr.findElement(By.id("userlistbutton")).click();
 	Thread.sleep(2000);
 	dr.findElement(By.linkText("[查看]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	dr.findElement(By.partialLinkText("[用户修改手机号")).click();
 	Thread.sleep(2000);
 	dr.findElement(By.id("mobile1")).clear();

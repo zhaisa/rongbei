@@ -30,7 +30,7 @@ public class CreateXiaoBiao {
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -42,7 +42,7 @@ public class CreateXiaoBiao {
 		WebElement element2 = dr.findElement(By.className("login-btn"));
 		element2.click();
 		Thread.sleep(2000);
-		// dr.get("http://dev-admin.irongbei.com/admin/Index/index");
+		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 		// WebElement
 		// element3=dr.findElement(By.xpath(".//*[@id='header']/div[2]/div[2]/div/span[5]/a/b[1]"));
@@ -82,7 +82,7 @@ public class CreateXiaoBiao {
 		 * 
 		 * 添加小标或者直投
 		 */
-		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
+		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check3")).click();
 		/**
 		 * 添加大标
 		 */
@@ -96,7 +96,7 @@ public class CreateXiaoBiao {
 
 		System.out.println(user);
 
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/create");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user );
 		// UUID uuid = UUID.randomUUID();
@@ -114,7 +114,7 @@ public class CreateXiaoBiao {
 //		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 //
 //		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[18]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]")).click();
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 

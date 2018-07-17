@@ -20,7 +20,7 @@ public class KaiTongCunGan {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://dev-test.irongbei.com/UserLogin/index");
+		dr.get("http://testhf.irongbei.com/UserLogin/index");
 
 		// File file = new File("D:\\users\\usertext.txt");
 		//
@@ -59,16 +59,16 @@ public class KaiTongCunGan {
 		dr.findElement(By.id("user_password")).sendKeys("123456");
 		dr.findElement(By.id("qianlogin")).click();
 		Thread.sleep(2000);
-		dr.navigate().to("http://dev-test.irongbei.com/UserCenter/index");
+		dr.navigate().to("http://testhf.irongbei.com/UserCenter/index");
 
 		// if(linkText("开通江西银行存管账户").isDisplayed()) {
 		// dr.close();
 		// }
 		dr.findElement(By.linkText("开通江西银行存管账户")).click();
-		dr.navigate().to("http://dev-test.irongbei.com/UserCenter/jxaccount");
+		dr.navigate().to("http://testhf.irongbei.com/UserCenter/jxaccount");
 		dr.findElement(By.id("realname")).clear();
-		dr.findElement(By.id("realname")).sendKeys("测试刘");
-		dr.findElement(By.id("usercode")).clear();
+		dr.findElement(By.id("realname")).sendKeys("测试翟");
+		
 
 //		try {
 //			fr = new FileReader("D:\\users\\usercard.txt");// 读取身份证号码文件
@@ -90,7 +90,7 @@ public class KaiTongCunGan {
 //			e.printStackTrace();
 //		}
 //		System.out.println(b);
-
+		dr.findElement(By.id("usercode")).clear();
 		dr.findElement(By.id("usercode")).sendKeys(usercard);
 //		dr.findElement(By.id("bankcard")).clear();
 //		dr.findElement(By.id("bankcard")).sendKeys("6228481234567890001");
@@ -100,6 +100,7 @@ public class KaiTongCunGan {
 //		Thread.sleep(2000);
 //		dr.findElement(By.id("phoneyz")).clear();
 //		dr.findElement(By.id("phoneyz")).sendKeys("111111");
+
 		dr.findElement(By.linkText("同意并开通银行存管账户")).click();
 
 		dr.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);

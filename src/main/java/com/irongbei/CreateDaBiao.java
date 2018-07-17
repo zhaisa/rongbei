@@ -28,7 +28,7 @@ public class CreateDaBiao {
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -40,7 +40,7 @@ public class CreateDaBiao {
 		WebElement element2 = dr.findElement(By.className("login-btn"));
 		element2.click();
 		Thread.sleep(2000);
-		// dr.get("http://dev-admin.irongbei.com/admin/Index/index");
+		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 		// WebElement
 		// element3=dr.findElement(By.xpath(".//*[@id='header']/div[2]/div[2]/div/span[5]/a/b[1]"));
@@ -61,7 +61,7 @@ public class CreateDaBiao {
 		dr.findElement(By.linkText("项目管理")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.partialLinkText("添加项目")).click();
-		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check1")).click();
+		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 
@@ -71,13 +71,13 @@ public class CreateDaBiao {
 		String user = "省心投债权底层" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/editProject");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
         Select s1=new Select(dr.findElement(By.name("real_payment")));
         s1.selectByValue("2");
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[10]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]")).click();
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 

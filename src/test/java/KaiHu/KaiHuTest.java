@@ -7,9 +7,9 @@ import com.irongbei.SetSecret;
 
 public class KaiHuTest {
 public static void main(String[] args) throws Exception {
-	String phone="17409040023";
-	String usercard="420101198101016359";
-	String bankcard="6222021128174336411";
+	String phone="17409040035";
+	String usercard="420101198101015399";
+	String bankcard="6222020864005216496";
 	 ChangePhone cp=new ChangePhone();
 	 KaiTongCunGan kt = new KaiTongCunGan();
 	 SetSecret ss=new SetSecret();
@@ -18,7 +18,7 @@ public static void main(String[] args) throws Exception {
 	 cp.changePhone(phone,"18701473018");
 	 Thread.sleep(1000);
 	 //开通存管
-	 KaiTongCunGan.testPlan(phone,usercard,bankcard);//手机号，身份证，银行卡号
+	 KaiTongCunGan.testPlan(phone.trim(),usercard.trim(),bankcard.trim());//手机号，身份证，银行卡号j
 	 Thread.sleep(1000);
 	 //设置交易密码
 	 ss.setSecret(phone,usercard);
