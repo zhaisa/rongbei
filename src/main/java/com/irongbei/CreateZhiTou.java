@@ -71,8 +71,10 @@ public class CreateZhiTou {
 
 		sl.selectByValue("2");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
          Thread.sleep(1000);
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[6]/div[6]/span/span[1]/span/span[2]")).click();
+
 		//*[@id="right-box"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]
+		//*[@id="right-box"]/div[2]/div[6]/div[6]/span/span[1]/span/span[2]
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 
@@ -131,6 +133,7 @@ public class CreateZhiTou {
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);
 		dr.findElement(By.name("online_time")).click();
+		dr.findElement(By.name("online_time")).clear();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
 		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		c.add(Calendar.MONTH, mylengh);

@@ -114,7 +114,7 @@ public class CreateXiaoBiao {
 //		Select s2 = new Select(dr.findElement(By.name("company_user_id")));
 //
 //		s2.selectByValue("14262#6212461390000082547#1#13815");// 选择翟测试账户的value
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[6]/div[6]/span/span[1]/span/span[2]")).click();
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 

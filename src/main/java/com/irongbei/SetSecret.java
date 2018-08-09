@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SetSecret {
-	public void setSecret(String userphone,String usercard) throws InterruptedException {
+	public void setSecret(String userphone,String usercard,String backtime) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
@@ -25,7 +25,7 @@ public class SetSecret {
 		dr.findElement(By.id("resend")).click();
 		Thread.sleep(2000);
 		dr.findElement(By.id("pyzm")).clear();
-		dr.findElement(By.id("pyzm")).sendKeys("081718");// 后台时间
+		dr.findElement(By.id("pyzm")).sendKeys(backtime);// 后台时间
 		dr.findElement(By.linkText("确定")).click();
 		dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// 得到所有窗口的句柄

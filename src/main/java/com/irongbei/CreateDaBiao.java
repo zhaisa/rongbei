@@ -137,7 +137,7 @@ public class CreateDaBiao {
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);
-	//	dr.findElement(By.name("online_time")).click();
+		dr.findElement(By.name("online_time")).clear();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         dr.switchTo().defaultContent();
@@ -149,7 +149,7 @@ public class CreateDaBiao {
 		System.out.println(endDate);
 		String changereadonly1 = "$('input[name=end_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly1);
-//		dr.findElement(By.name("end_time")).click();
+		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.switchTo().defaultContent();

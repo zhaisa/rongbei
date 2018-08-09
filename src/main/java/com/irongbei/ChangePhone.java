@@ -29,7 +29,7 @@ public void changePhone(String phone,String distphone) throws Exception {
 	Thread.sleep(2000);
 	dr.findElement(By.linkText("[查看]")).click();
 	Thread.sleep(2000);
-	dr.findElement(By.partialLinkText("[用户修改手机号")).click();
+	dr.findElement(By.partialLinkText("[用户修改手机号")).click();//uat 为认证开户的：[用户修改手机号
 	Thread.sleep(2000);
 	dr.findElement(By.id("mobile1")).clear();
 	dr.findElement(By.id("mobile1")).sendKeys(distphone);

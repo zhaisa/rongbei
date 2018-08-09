@@ -19,10 +19,11 @@ public class AddUerCredit {
 		LoginPage lp = new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
 		dr.findElement(By.linkText("优惠券管理")).click();
-		dr.findElement(By.partialLinkText("优惠券管理")).click();
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Voucher/userVoucher");
-		Thread.sleep(1000);
-		dr.findElement(By.id("give")).click();
+		Thread.sleep(2000);
+		dr.findElement(By.partialLinkText("发放优惠券")).click();
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Voucher/userVoucherImport");
+//		Thread.sleep(1000);
+//		dr.findElement(By.id("give")).click();
 		Thread.sleep(2000);
 		dr.findElement(By.name("username1")).clear();
 		dr.findElement(By.name("username1")).sendKeys(userp);
@@ -39,6 +40,7 @@ public class AddUerCredit {
 			ss2.selectByVisibleText("翟专用加息券");
 			dr.findElement(By.name("value")).clear();
 			dr.findElement(By.name("value")).sendKeys("3");
+			
 		
 		}
 		if (credit.equals(list1.get(0).getText())) {
@@ -52,12 +54,12 @@ public class AddUerCredit {
 		}
 		if(credit.equals(list1.get(2).getText())) {
 			ss1.selectByVisibleText(credit);
-//			Select ss3 = new Select(dr.findElement(By.name("vId")));
-//			List<WebElement> list3 = ss3.getOptions();
-//			ss3.selectByVisibleText(credit);
+			Select ss3 = new Select(dr.findElement(By.name("vId")));
+			List<WebElement> list3 = ss3.getOptions();
+			ss3.selectByVisibleText("翟-限时加息券");
 			Thread.sleep(1000);
 			dr.findElement(By.name("value")).clear();
-			dr.findElement(By.name("value")).sendKeys("10");
+			dr.findElement(By.name("value")).sendKeys("3");
 		}
 
 		dr.findElement(By.name("source")).clear();
@@ -70,6 +72,12 @@ public class AddUerCredit {
 		if (dr.switchTo().alert().getText().equals("操作成功！")) {
 			System.out.println("添加成功！");
 		}
+		dr.switchTo().alert().accept();
+		Thread.sleep(2000);
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Voucher/checkUserVoucher");
+		dr.findElement(By.partialLinkText("通过审核")).click();
+		dr.switchTo().alert().accept();
+		Thread.sleep(1000);
 		dr.close();
 		dr.quit();
 	}

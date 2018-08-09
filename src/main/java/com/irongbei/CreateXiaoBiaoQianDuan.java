@@ -99,6 +99,7 @@ public class CreateXiaoBiaoQianDuan {
 		cc.add(Calendar.MONTH, mylen);
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cc.getTime());
          Thread.sleep(2000);
+         dr.findElement(By.id("end_time")).clear();
 		dr.findElement(By.id("end_time")).sendKeys(endDate);
 		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// dr.switchTo().defaultContent();
