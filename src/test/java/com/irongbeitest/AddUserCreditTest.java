@@ -4,8 +4,8 @@ import com.irongbei.AddUerCredit;
 
 public class AddUserCreditTest {
 public static void main(String[] args) throws InterruptedException {
-String phone="17409040045";
-int j=10;
+String phone="17409040058";
+int j=20;
 	
 //	for(int i=0;i<j;i++) {
 //	AddUerCredit ac=new AddUerCredit();
