@@ -27,7 +27,7 @@ public class CreateXiaoBiaoQianDuan {
 		Calendar c = new GregorianCalendar();
 		
 		// c.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -56,9 +56,9 @@ public class CreateXiaoBiaoQianDuan {
 		System.out.println("Page title is: " + dr.getTitle());
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.findElement(By.linkText("小标项目管理")).click();
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Standardproject/index");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
 		dr.findElement(By.linkText("添加小标项目")).click();
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Standardproject/standardpadd");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/standardpadd");
 		dr.findElement(By.name("bottom_project_id")).click();
 		Select s1 = new Select(dr.findElement(By.name("bottom_project_id")));
 		List<WebElement> list = s1.getOptions();
@@ -118,7 +118,7 @@ public class CreateXiaoBiaoQianDuan {
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
 		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Standardproject/index");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
 		WebElement tbody = dr.findElement(By.xpath("//table/tbody"));
 		List<WebElement> tr = tbody.findElements(By.tagName("tr"));
 		Map<String, String> map = new HashMap();
@@ -154,6 +154,7 @@ public class CreateXiaoBiaoQianDuan {
 				dr.switchTo().alert().accept();
 				Thread.sleep(2000);
 				dr.switchTo().alert().accept();
+				Thread.sleep(1000);
 			}
 			}
 		}

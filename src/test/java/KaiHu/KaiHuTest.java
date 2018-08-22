@@ -17,10 +17,10 @@ public class KaiHuTest {
 public static void main(String[] args) throws Exception {
 	Logger logger=Logger.getLogger(KaiHuTest.class);
 	BasicConfigurator.configure();
-//	 PropertyConfigurator.configure("config/log4j.properties");
+//	 PropertyConfigurator.configure("./src/main/resources/log4j.properties");
 	logger.setLevel(Level.INFO);
 	NewUserCardAndBankCard nc=new NewUserCardAndBankCard();
-	String phone="17409040073";
+	String phone="17409040075";
 	String usercard=nc.Calculate();
 	String bankcard=nc.getBankAccount();
 	logger.info("手机号码："+phone);
@@ -39,7 +39,7 @@ public static void main(String[] args) throws Exception {
 	 KaiTongCunGan.testPlan(phone,usercard,bankcard);//手机号，身份证，银行卡号j
 	 Thread.sleep(1000);
 	 //设置交易密码
-	 ss.setSecret(phone,usercard,"082118");
+	 ss.setSecret(phone,usercard,"102118");
 	 Thread.sleep(1000);
 	 //解放原来的手机号
 	 cp1.changePhoneBack(phone);

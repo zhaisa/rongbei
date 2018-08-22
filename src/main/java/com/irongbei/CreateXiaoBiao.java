@@ -90,6 +90,7 @@ public class CreateXiaoBiao {
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 		String userunder = new SimpleDateFormat("yyyyMMddmmss").format(c.getTime());
+	
 		System.out.println(userunder);
 	
 		String user = "测试小标项目-翟" + userunder ;
@@ -138,24 +139,21 @@ public class CreateXiaoBiao {
 		Select s4 = new Select(dr.findElement(By.id("template_id")));
 		s4.selectByValue("295");// 选择acai测试模板—房抵贷
 		Thread.sleep(3000);
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[1]/p/input")).sendKeys("东风北桥北路");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[2]/p/input")).sendKeys("三室两厅");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[3]/p/input")).sendKeys("160平米");
-		dr.findElement(By.className("tanchu"))
-				.findElement(By.xpath("//*[@id=\"template_data\"]/div[2]/div/div[4]/p/input")).sendKeys("3000000元");
-
+		List<WebElement> list1 = dr.findElements(By.xpath("//input[@class='tc-name text-style']"));
+		list1.get(0).sendKeys("东风北桥");
+		list1.get(1).sendKeys("三室两厅");
+		list1.get(2).sendKeys("160平米");
+		list1.get(3).sendKeys("3000000元");
 		dr.findElement(By.linkText("确定")).click();
+		Thread.sleep(1000);
 		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 //		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
-		dr.findElement(By.id("cre_rate")).sendKeys("9");
+		dr.findElement(By.id("cre_rate")).sendKeys("15");
 		dr.findElement(By.name("fixed_invest")).clear();
 		dr.findElement(By.name("fixed_invest")).sendKeys("0");// 输入定投金额
-		
+		Thread.sleep(1000);
 
 		JavascriptExecutor jse = (JavascriptExecutor) dr;
 		Boolean loaded;
@@ -170,26 +168,27 @@ public class CreateXiaoBiao {
 		 * 加载jquery清楚readonly熟悉，然后给输入框输入时间
 		 */
 
-		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
-		System.out.println(startDate);
-		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
-		((JavascriptExecutor) dr).executeScript(changereadonly);
-		dr.findElement(By.name("online_time")).click();
-		dr.findElement(By.name("online_time")).sendKeys(startDate);
-		Thread.sleep(1000);
-		
-        Actions action2 =new Actions(dr);
-        action2.moveToElement(dr.findElement(By.name("end_time"))).click();
-        action2.perform();
-		// Calendar cd = Calendar.getInstance();
-		c.add(Calendar.MONTH, mylength);
-
-		Date dt = c.getTime();// date就是你需要的时间
-		System.out.println(dt);
-		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());
-//		dr.findElement(By.name("end_time")).click();
-		dr.findElement(By.name("end_time")).sendKeys(endDate);
-
+//		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
+//		System.out.println(startDate);
+//		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
+//		((JavascriptExecutor) dr).executeScript(changereadonly);
+//		dr.findElement(By.name("online_time")).clear();
+//		dr.findElement(By.name("online_time")).sendKeys(startDate);
+//		Thread.sleep(1000);
+//		
+//        Actions action2 =new Actions(dr);
+//        action2.moveToElement(dr.findElement(By.name("end_time"))).click();
+//        action2.perform();
+//		// Calendar cd = Calendar.getInstance();
+//		c.add(Calendar.MONTH, mylength);
+//
+//		Date dt = c.getTime();// date就是你需要的时间
+//		System.out.println(dt);
+//		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());
+//		dr.findElement(By.name("end_time")).clear();
+//		dr.findElement(By.name("end_time")).sendKeys(endDate);
+//		Thread.sleep(1000);
+//        dr.switchTo().defaultContent();
 		// dr.findElement(By.xpath("//id[@value='']")).click();
 		// dr.findElement(By.id("wrap")).findElement(By.className("qyzj-bm-btn")).click();
 		// dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();
