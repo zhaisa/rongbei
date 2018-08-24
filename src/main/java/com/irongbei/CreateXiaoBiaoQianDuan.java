@@ -132,32 +132,35 @@ public class CreateXiaoBiaoQianDuan {
 					map.put("项目名称", td.get(0).getText());
 					map.put("审核是否通过", td.get(7).getText());
 					map.put("操作", td.get(9).getText());
-
+					dr.findElement(By.linkText("[审核]")).click();
+					Thread.sleep(2000);
+					dr.switchTo().alert().accept();
+					Thread.sleep(2000);
+					dr.switchTo().alert().accept();
 				}
 			}
 		}
-		Set set = map.keySet();
-		Iterator it = set.iterator();
-		while (it.hasNext()) {
-			System.out.println(it.next() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-		}
+//		Set set = map.keySet();
+//		Iterator it = set.iterator();
+//		while (it.hasNext()) {
+//			System.out.println(it.next() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//		}
 
-		for (WebElement row : tr) {
-			String trtext1 = row.getText();
-			List<WebElement> td = row.findElements(By.tagName("td"));
-			for (WebElement col : td) {
-				String tdtext = col.getText();
-				System.out.println(col.getText());
-			if (trtext1.contains(project) && map.get("审核是否通过").equals("未审核")) {
-				dr.findElement(By.partialLinkText("审核")).click();
-				Thread.sleep(2000);
-				dr.switchTo().alert().accept();
-				Thread.sleep(2000);
-				dr.switchTo().alert().accept();
-				Thread.sleep(1000);
-			}
-			}
-		}
+//		for (WebElement row : tr) {
+//			String trtext1 = row.getText();
+//			List<WebElement> td = row.findElements(By.tagName("td"));
+//			for (WebElement col : td) {
+////				String tdtext = col.getText();
+////				System.out.println(col.getText());
+//			if (trtext1.contains(project) && map.get("审核是否通过").equals("未审核")) {
+//				dr.findElement(By.linkText("[审核]")).click();
+//				Thread.sleep(2000);
+//				dr.switchTo().alert().accept();
+//				Thread.sleep(2000);
+//				dr.switchTo().alert().accept();
+//			}
+//			}
+//		}
 
 		 dr.close();
 		 dr.quit();

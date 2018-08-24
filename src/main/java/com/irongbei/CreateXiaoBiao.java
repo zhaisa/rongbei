@@ -92,11 +92,11 @@ public class CreateXiaoBiao {
 		String userunder = new SimpleDateFormat("yyyyMMddmmss").format(c.getTime());
 	
 		System.out.println(userunder);
-	
+
 		String user = "测试小标项目-翟" + userunder ;
 
 		System.out.println(user);
-
+  
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user );

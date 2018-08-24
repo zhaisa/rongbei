@@ -16,11 +16,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GetPicture {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		GetPicture gp=new GetPicture();
 		OcrDemo oc=new OcrDemo();
 		gp.getPicture();
-		oc.readPicture("E:/Vame/img/test.jpg");
+		Thread.sleep(2000);
+		oc.readPicture("E:/Vame/img/test.png");
 		
 	}
 public void getPicture() {
@@ -59,7 +60,7 @@ public void getPicture() {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  
-	
-	
+	dr.close();
+	dr.quit();
 }
 }
