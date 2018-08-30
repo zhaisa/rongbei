@@ -12,7 +12,7 @@ public static void main(String[] args) throws InterruptedException, IOException 
 //	for(int i=0;i<30;i++) {
 //	String readname = rt.readFS("D:\\users\\user.txt", i);
 //	String phone = readname;
-	sq.shouQuan("17409040096");
+	sq.shouQuan("17409040108");
 	
 //}
 }

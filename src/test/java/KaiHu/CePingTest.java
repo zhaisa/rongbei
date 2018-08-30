@@ -1,10 +1,20 @@
 package KaiHu;
 
+import java.io.IOException;
+
 import com.irongbei.CePing;
+import com.irongbei.ReadTxt;
 
 public class CePingTest {
-public static void main(String[] args) throws InterruptedException {
+public static void main(String[] args) throws InterruptedException, IOException {
 	CePing cp=new CePing();
-	cp.cePing("17409040083");
+	ReadTxt rt = new ReadTxt();
+	for (int i = 0; i < 10; i++) {
+	String readname = rt.readFS("D:\\users\\userphone.txt", i);
+	String phone = readname;
+//	String phone="17409040084";
+	cp.cePing(phone);
+	
+}
 }
 }

@@ -147,6 +147,17 @@ public class CreateXiaoBiao {
 		dr.findElement(By.linkText("确定")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.name("cycle")).sendKeys(zq);// 还款周期月
+		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
+		System.out.println(startDate);
+		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
+		((JavascriptExecutor) dr).executeScript(changereadonly);
+		dr.findElement(By.name("online_time")).clear();
+		dr.findElement(By.name("online_time")).sendKeys(startDate);
+		Thread.sleep(2000);
+		
+        Actions action2 =new Actions(dr);
+        action2.moveToElement(dr.findElement(By.name("end_time"))).click();
+        action2.perform();
 		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 //		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
@@ -168,17 +179,7 @@ public class CreateXiaoBiao {
 		 * 加载jquery清楚readonly熟悉，然后给输入框输入时间
 		 */
 
-//		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());// 对日期进行格式化
-//		System.out.println(startDate);
-//		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
-//		((JavascriptExecutor) dr).executeScript(changereadonly);
-//		dr.findElement(By.name("online_time")).clear();
-//		dr.findElement(By.name("online_time")).sendKeys(startDate);
-//		Thread.sleep(1000);
-//		
-//        Actions action2 =new Actions(dr);
-//        action2.moveToElement(dr.findElement(By.name("end_time"))).click();
-//        action2.perform();
+	
 //		// Calendar cd = Calendar.getInstance();
 //		c.add(Calendar.MONTH, mylength);
 //

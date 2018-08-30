@@ -12,7 +12,7 @@ Calendar cc =new GregorianCalendar();
 cc.set(Calendar.MONTH, 0);
 		for (int i = 0; i <2; i++) {
 			try {
-				ct.createXiaoBiao("6", 6, 2018, 10, 24);//String zq, int mylength, int myyear, int mymonth, int myday
+				ct.createXiaoBiao("6", 6, 2018, 8, 1);//String zq, int mylength, int myyear, int mymonth, int myday
 			} catch (Exception e) {
 
 				e.printStackTrace();

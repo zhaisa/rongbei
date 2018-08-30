@@ -20,17 +20,17 @@ public class KaiHuTest {
 			// PropertyConfigurator.configure("./src/main/resources/log4j.properties");
 			logger.setLevel(Level.INFO);
 			NewUserCardAndBankCard nc = new NewUserCardAndBankCard();
-//			ReadTxt rt = new ReadTxt();
-//			String readname = rt.readFS("D:\\users\\user.txt", i);
-//			String phone = readname;
-			String phone="17409040081";
+			ReadTxt rt = new ReadTxt();
+			String readname = rt.readFS("D:\\users\\user.txt", i);
+			String phone = readname;
+//			String phone="17409040081";
 			String usercard = nc.Calculate();
 			String bankcard = nc.getBankAccount();
 			logger.info("手机号码：" + phone);
 			logger.info("身份证号码：" + usercard);
 			logger.info("银行卡号：" + bankcard);
-			System.out.println(usercard);
-			System.out.println(bankcard);
+//			System.out.println(usercard);
+//			System.out.println(bankcard);
 			ChangePhone cp = new ChangePhone();
 			KaiTongCunGan kt = new KaiTongCunGan();
 			SetSecret ss = new SetSecret();
@@ -43,8 +43,8 @@ public class KaiHuTest {
 			KaiTongCunGan.testPlan(phone, usercard, bankcard);// 手机号，身份证，银行卡号j
 			Thread.sleep(1000);
 			// 设置交易密码
-			ss.setSecret(phone, usercard, "102718");
-			Thread.sleep(1000);
+//			ss.setSecret(phone, usercard, "120418",bankcard);
+//			Thread.sleep(1000);
 			// 解放原来的手机号
 			cp1.changePhoneBack(phone);
 			System.out.println(phone);

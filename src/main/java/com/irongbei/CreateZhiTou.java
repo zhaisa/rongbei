@@ -69,7 +69,7 @@ public class CreateZhiTou {
 		sn.selectByValue("3");// 3为房抵贷
 		Select sl = new Select(dr.findElement(By.name("real_payment")));
 
-		sl.selectByValue("2");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
+		sl.selectByValue("1");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
          Thread.sleep(1000);
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[6]/div[6]/span/span[1]/span/span[2]")).click();
 

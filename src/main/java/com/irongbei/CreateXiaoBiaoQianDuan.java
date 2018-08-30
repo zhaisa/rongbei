@@ -99,11 +99,11 @@ public class CreateXiaoBiaoQianDuan {
 		cc.add(Calendar.MONTH, mylen);
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cc.getTime());
          Thread.sleep(2000);
-         dr.findElement(By.id("end_time")).clear();
+        dr.findElement(By.id("end_time")).clear();
 		dr.findElement(By.id("end_time")).sendKeys(endDate);
 		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// dr.switchTo().defaultContent();
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
 		dr.findElement(By.linkText("确认无误，提交")).click();
 		Thread.sleep(3000);
 		dr.switchTo().alert().accept();
@@ -127,7 +127,7 @@ public class CreateXiaoBiaoQianDuan {
 			List<WebElement> td = row.findElements(By.tagName("td"));
 			for (WebElement col : td) {
 				String tdtext = col.getText();
-				System.out.println(col.getText());
+				System.out.println(tdtext);
 				if (trtext.contains(project) && tdtext.equals("未审核")) {
 					map.put("项目名称", td.get(0).getText());
 					map.put("审核是否通过", td.get(7).getText());
@@ -135,11 +135,21 @@ public class CreateXiaoBiaoQianDuan {
 					dr.findElement(By.linkText("[审核]")).click();
 					Thread.sleep(2000);
 					dr.switchTo().alert().accept();
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 					dr.switchTo().alert().accept();
+					Thread.sleep(1000);
+					dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
+					Thread.sleep(1000);
 				}
 			}
 		}
+	//	 dr.close();
+		 if (dr == null) {
+		        return;
+		    }
+		 dr.quit();
+	}
+}
 //		Set set = map.keySet();
 //		Iterator it = set.iterator();
 //		while (it.hasNext()) {
@@ -161,8 +171,6 @@ public class CreateXiaoBiaoQianDuan {
 //			}
 //			}
 //		}
-
-		 dr.close();
-		 dr.quit();
-	}
-}
+		
+		
+	

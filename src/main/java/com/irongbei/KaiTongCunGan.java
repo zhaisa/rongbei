@@ -118,8 +118,20 @@ public class KaiTongCunGan {
 			String sss = window.getCurrentUrl();
 			dr.navigate().to(sss);
 			Thread.sleep(4000);
+//			if(dr.findElement(By.linkText("开户参数不能有空")).isDisplayed()||dr.findElement(By.linkText("该身份证号已使用")).isDisplayed()) {
+//				break;
+//			}else {
+			if(dr.findElement(By.id("smsBtn")).isDisplayed()) {
+		    
 		    dr.findElement(By.id("BIND_CARD_NO")).clear();
 		    dr.findElement(By.id("BIND_CARD_NO")).sendKeys(bankcard);
+		    dr.findElement(By.id("IDNO")).clear();
+		    dr.findElement(By.id("IDNO")).sendKeys(usercard);
+		    dr.findElement(By.id("encPin1")).clear();
+		    dr.findElement(By.id("encPin1")).sendKeys("121121");
+		    dr.findElement(By.id("encPin2")).clear();
+		    dr.findElement(By.id("encPin2")).sendKeys("121121");
+		    
 		    dr.findElement(By.id("smsBtn")).click();
 		    System.out.println("请输入验证码：");
 		    Scanner scan=new Scanner(System.in);
@@ -133,12 +145,15 @@ public class KaiTongCunGan {
 		    dr.findElement(By.id("mainAcceptIpt")).click();
 			dr.findElement(By.id("sub")).click();
 			Thread.sleep(8000);
+		    }else {
+		    	continue;
 		    }
 		  
 //			fr.close();
 			dr.close();
 
 			dr.quit();
+			}
 		}
 	}
 }
