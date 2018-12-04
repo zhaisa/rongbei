@@ -67,11 +67,16 @@ public class ReadTxt {
 				if (j >= z && j < z + 1) {
 					lineNo = lineNo - z * list.size();
 					list.get(lineNo);
+					if(list.get(lineNo)==null) {
+						break;
+						
+					}
 					System.out.println(list.get(lineNo));
 				}
 			}
 
 		}
+		
 
 		return list.get(lineNo);
 

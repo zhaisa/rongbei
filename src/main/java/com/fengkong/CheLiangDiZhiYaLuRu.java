@@ -13,20 +13,21 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CheLiangDiZhiYaLuRu {
 
-	public void luRu(String nm) {
+	public void luRu(String name) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
 		WebDriver dr = new ChromeDriver();
 		Calendar cc = new GregorianCalendar();
 		String time = new SimpleDateFormat("yyyyMMddhhmmss").format(cc.getTime());
-
+		dr.get("http://test-risk.irongbei.com/");
+		dr.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		dr.findElement(By.id("username")).clear();
-		dr.findElement(By.id("username")).sendKeys("name");
+		dr.findElement(By.id("username")).sendKeys(name);
 		dr.findElement(By.id("password")).clear();
-		dr.findElement(By.id("password")).sendKeys("passw");
+		dr.findElement(By.id("password")).sendKeys("123456");
+		dr.findElement(By.id("verify")).sendKeys("8888");
 		dr.findElement(By.id("login")).click();
-		
-		
+        Thread.sleep(2000);
 		dr.navigate().to("http://test-risk.irongbei.com/index/main.html");
 		dr.switchTo().frame("leftmenu");
 		dr.findElement(By.cssSelector("dt")).click();
@@ -128,11 +129,10 @@ public class CheLiangDiZhiYaLuRu {
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
-			
+
 			e.printStackTrace();
 		}
-   
-    		  
+
 		dr.close();
 		dr.quit();
 

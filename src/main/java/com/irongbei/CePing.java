@@ -24,7 +24,7 @@ public void cePing(String phone) throws InterruptedException {
 	Thread.sleep(1000);
 	dr.navigate().to("http://testhf.irongbei.com/UserCenter/userinfo");
 	Thread.sleep(2000);
-	dr.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div/div[5]/ul/li[9]/span[3]/a")).click();
+	dr.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div/div[5]/ul/li[10]/span[3]/a")).click();
 	Thread.sleep(1000);
 	GetNextHandle gnh=new GetNextHandle();
 	gnh.getNextHandle(dr);
@@ -51,7 +51,7 @@ public void cePing(String phone) throws InterruptedException {
 		}
 	}
 	dr.findElement(By.linkText("提交")).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	dr.close();
 	dr.quit();
 }

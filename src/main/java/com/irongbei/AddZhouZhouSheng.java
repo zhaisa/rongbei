@@ -56,7 +56,7 @@ public class AddZhouZhouSheng {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("uat测试账户壹");
+		action.sendKeys("水火不容18101169572");//水火不容18101169572 //汪汪迁移企业测试有限公司
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);

@@ -28,6 +28,7 @@ public class QiCheXiaoFeiJinRongLuRu {
 		dr.findElement(By.id("username")).sendKeys(login);// jrtest,ycwytest,yctest
 		dr.findElement(By.id("password")).clear();
 		dr.findElement(By.id("password")).sendKeys("123456");
+		dr.findElement(By.id("verify")).sendKeys("8888");
 		dr.findElement(By.id("login")).click();
 		try {
 			Thread.sleep(1000);
@@ -63,9 +64,9 @@ public class QiCheXiaoFeiJinRongLuRu {
 		dr.findElement(By.id("city")).click();
 		Select city = new Select(dr.findElement(By.id("city")));
 		city.selectByValue("110100");
-		dr.findElement(By.id("area")).click();
-		Select area = new Select(dr.findElement(By.id("area")));
-		area.selectByValue("110111");
+//		dr.findElement(By.id("area")).click();
+//		Select area = new Select(dr.findElement(By.id("area")));
+//		area.selectByValue("110111");
 		dr.findElement(By.name("beixzhu2")).sendKeys("无业流民街");
 
 		dr.findElement(By.name("gzdwe1")).sendKeys("云车有限公司");

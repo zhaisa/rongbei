@@ -26,13 +26,8 @@ public class CreateXiaoBiaoQianDuan {
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		
-		// c.set(myyear, mymonth, myday);
 		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
-
-		// dr.manage().window().maximize();
-
 		WebElement element = dr.findElement(By.name("username"));
-
 		element.sendKeys("测试专用管理员");
 		WebElement element1 = dr.findElement(By.name("password"));
 		element1.sendKeys("123456");
@@ -77,20 +72,7 @@ public class CreateXiaoBiaoQianDuan {
 		s1.selectByVisibleText(sa);
 		Thread.sleep(5000);
 		dr.switchTo().defaultContent();
-		// Random r = new Random();
-		// int start = (int) (Math.random() *list1.size());
-		// if(start<list1.size()) {
-		// int index = r.nextInt(list1.size() -start
-		// );//生成一个随机数，范围是list的个数
-		// System.out.println(index);
-		// s1.selectByIndex(index);// 根据上面随机生成的下拉选项的index，点击这个选项
-		//
-		// }
 		dr.findElement(By.name("cycle")).sendKeys("3");
-//		dr.findElement(By.id("rate")).clear();
-//		dr.findElement(By.id("rate")).sendKeys("12");
-		
-
 		String deltime = "$('#end_time').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(deltime);
 
@@ -101,9 +83,6 @@ public class CreateXiaoBiaoQianDuan {
          Thread.sleep(2000);
         dr.findElement(By.id("end_time")).clear();
 		dr.findElement(By.id("end_time")).sendKeys(endDate);
-		// dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		// dr.switchTo().defaultContent();
-//		Thread.sleep(1000);
 		dr.findElement(By.linkText("确认无误，提交")).click();
 		Thread.sleep(3000);
 		dr.switchTo().alert().accept();
@@ -132,45 +111,29 @@ public class CreateXiaoBiaoQianDuan {
 					map.put("项目名称", td.get(0).getText());
 					map.put("审核是否通过", td.get(7).getText());
 					map.put("操作", td.get(9).getText());
-					dr.findElement(By.linkText("[审核]")).click();
-					Thread.sleep(2000);
-					dr.switchTo().alert().accept();
-					Thread.sleep(1000);
-					dr.switchTo().alert().accept();
-					Thread.sleep(1000);
-					dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Standardproject/index");
-					Thread.sleep(1000);
+				
+			
 				}
+
 			}
 		}
-	//	 dr.close();
-		 if (dr == null) {
-		        return;
-		    }
+	
+		for (WebElement row : tr) {
+			if(row.getText().contains(project)&&map.get("操作").equals("未审核"))  {
+				dr.findElement(By.linkText("[审核]")).click();
+				//			Thread.sleep(2000);
+							dr.switchTo().alert().accept();
+							Thread.sleep(2000);
+							dr.switchTo().alert().accept();
+							Thread.sleep(1000);
+							break;
+				
+			}
+		}
+
 		 dr.quit();
+		
 	}
 }
-//		Set set = map.keySet();
-//		Iterator it = set.iterator();
-//		while (it.hasNext()) {
-//			System.out.println(it.next() + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-//		}
 
-//		for (WebElement row : tr) {
-//			String trtext1 = row.getText();
-//			List<WebElement> td = row.findElements(By.tagName("td"));
-//			for (WebElement col : td) {
-////				String tdtext = col.getText();
-////				System.out.println(col.getText());
-//			if (trtext1.contains(project) && map.get("审核是否通过").equals("未审核")) {
-//				dr.findElement(By.linkText("[审核]")).click();
-//				Thread.sleep(2000);
-//				dr.switchTo().alert().accept();
-//				Thread.sleep(2000);
-//				dr.switchTo().alert().accept();
-//			}
-//			}
-//		}
-		
-		
 	

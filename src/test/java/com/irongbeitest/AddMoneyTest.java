@@ -5,7 +5,7 @@ import com.irongbei.AddMoney;
 public class AddMoneyTest {
 	public static void main(String[] args) {
 		AddMoney am = new AddMoney();
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 10; i++) {
 			try {
 				am.addMoney(i);
 			} catch (Exception e) {

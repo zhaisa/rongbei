@@ -28,6 +28,7 @@ public class FangDiDaiShenHe {
 		dr.findElement(By.id("username")).sendKeys("hometest2");
 		dr.findElement(By.id("password")).clear();
 		dr.findElement(By.id("password")).sendKeys("123456");
+		dr.findElement(By.id("verify")).sendKeys("8888");
 		dr.findElement(By.id("login")).click();
 		dr.navigate().to("http://test-management.irongbei.com/index/main.html");
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);

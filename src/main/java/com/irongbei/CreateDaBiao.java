@@ -61,14 +61,14 @@ public class CreateDaBiao {
 		dr.findElement(By.linkText("项目管理")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.partialLinkText("添加项目")).click();
-		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check2")).click();
+		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check3")).click();
 		Thread.sleep(1000); // 停止1秒钟
 		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
 
 		String userunder = new SimpleDateFormat("yyMMddss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "省心投债权底层" + userunder;//测试大标底层-翟
+		String user = "1.0省心投底层" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
@@ -84,7 +84,7 @@ public class CreateDaBiao {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("uat测试账户壹");
+		action.sendKeys("汪汪迁移企业测试有限公司");
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);

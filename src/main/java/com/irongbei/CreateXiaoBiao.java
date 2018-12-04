@@ -19,6 +19,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.rongbei.util.ReadFromTable;
+
 @Test
 public class CreateXiaoBiao {
 
@@ -122,7 +124,7 @@ public class CreateXiaoBiao {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("uat测试账户壹");
+		action.sendKeys("汪汪迁移企业测试有限公司");
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -200,7 +202,14 @@ public class CreateXiaoBiao {
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		dr.switchTo().alert().accept();
 
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		dr.switchTo().alert().accept();
+		Thread.sleep(3000);
+		   dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/project/index");
+		   Thread.sleep(3000);
+	        ReadFromTable rft=new ReadFromTable();
+	        rft.readFromTable(dr, "//table/tbody", user);
+	        Thread.sleep(3000);
         dr.close();
 		dr.quit();
 	}

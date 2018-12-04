@@ -54,7 +54,7 @@ public class CreateDaBiaoJiHua {
 		String userunder = new SimpleDateFormat("yyMMddSS").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "省心投债权组成" + userunder;//省心投理财计划-翟
+		String user = "1.0省心投" + userunder;//省心投理财计划-翟
 
 		dr.findElement(By.name("plan_name")).sendKeys(user);
 		dr.findElement(By.name("plan_num")).sendKeys(user);

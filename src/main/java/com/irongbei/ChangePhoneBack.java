@@ -30,12 +30,12 @@ public void changePhoneBack(String phone) throws InterruptedException {
 	dr.findElement(By.linkText("[查看]")).click();
 	Thread.sleep(1000);
 //	dr.findElement(By.partialLinkText("[修改并认证通过]")).click();
-	dr.findElement(By.xpath("html/body/div[5]/div/div[2]/p[4]/span[3]/a[1]")).click();
+	dr.findElement(By.xpath("html/body/div[5]/div/div[2]/p[4]/span[3]/a[2]")).click();
 	dr.findElement(By.id("mobile1")).clear();
 	dr.findElement(By.id("mobile1")).sendKeys(phone);
-	dr.findElement(By.id("resend")).click();
-	Thread.sleep(2000);
-	dr.findElement(By.id("yzphone")).sendKeys("111111");
+//	dr.findElement(By.id("resend")).click();
+//	Thread.sleep(2000);
+//	dr.findElement(By.id("yzphone")).sendKeys("111111");
 	Thread.sleep(2000);
 	dr.findElement(By.linkText("确定")).click();
 	Thread.sleep(2000);

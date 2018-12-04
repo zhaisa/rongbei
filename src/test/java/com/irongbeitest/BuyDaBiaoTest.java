@@ -5,9 +5,17 @@ import com.irongbei.BuyDaBiao;
 public class BuyDaBiaoTest {
 
 	public static void main(String[] args) {
-		for (int i = 1; i < 3; i++) {
+		int Projectid=305;
+		String user="17409040132";
+		String price1="2000";
+		String price2="3000";
+		String price3="5000";
+		String leixing="3";//先息后本
+		for (int i = 1; i < 2; i++) {
 			try {
-				BuyDaBiao.testPlan(160,"1000","b3871efb44927ef9b0dd1e953206ff7a");//id,account,key
+				BuyDaBiao.testPlan(Projectid,price1,leixing,user);//id,account,key,3为本息复投，4为先息后本
+				BuyDaBiao.testPlan(Projectid,price2,leixing,user);
+				BuyDaBiao.testPlan(Projectid,price3,leixing,user);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
