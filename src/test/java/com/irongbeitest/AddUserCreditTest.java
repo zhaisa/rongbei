@@ -4,8 +4,8 @@ import com.irongbei.AddUerCredit;
 
 public class AddUserCreditTest {
 public static void main(String[] args) throws InterruptedException {
-String phone="17409040212";
-int j=3;
+String phone="17409040221";
+int j=5;
 AddUerCredit ac=new AddUerCredit();
 	for(int i=0;i<j;i++) {
 	
@@ -21,12 +21,12 @@ AddUerCredit ac=new AddUerCredit();
 	 * 现金券 加息券 限时加息券 减免券
 	 */
 }
-	for(int i=0;i<j;i++) {
-	
-	ac.addUserCredit(phone,"限时加息券");
-	/*
-	 * 现金券 加息券 限时加息券 减免券
-	 */
-}
+//	for(int i=0;i<j;i++) {
+//	
+//	ac.addUserCredit(phone,"限时加息券");
+//	/*
+//	 * 现金券 加息券 限时加息券 减免券
+//	 */
+//}
 }
 }

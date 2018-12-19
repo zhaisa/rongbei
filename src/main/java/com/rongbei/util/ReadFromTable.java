@@ -34,8 +34,8 @@ public void readFromTable(WebDriver dr,String xpath,String projectname) throws I
 		if(row.getText().contains(projectname))  {
 			dr.findElement(By.linkText("［标的注册］")).click();
 						Thread.sleep(2000);
-						dr.findElement(By.linkText("确认")).click();
-						Thread.sleep(2000);
+//						dr.findElement(By.linkText("确认")).click();
+//						Thread.sleep(2000);
 						dr.findElement(By.linkText("［上线］")).click();
 						dr.switchTo().alert().accept();
 						Thread.sleep(2000);
