@@ -48,8 +48,9 @@ public class AddZhouZhouSheng {
 		ss1.selectByVisibleText(list.get(0).getText());
 		Select ss2=new Select(dr.findElement(By.name("real_payment")));//还款方式
 		List<WebElement> list2=ss2.getOptions();
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]")).click();
 		//*[@id="right-box"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]
+		//*[@id="right-box"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]/b
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 
@@ -108,8 +109,10 @@ public class AddZhouZhouSheng {
 		((JavascriptExecutor) dr).executeScript(changereadonly1);
 		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
+		dr.findElement(By.name("credit_number")).sendKeys(startDate);
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.switchTo().defaultContent();
+		
 		// dr.findElement(By.xpath("//id[@value='']")).click();
 		// dr.findElement(By.id("wrap")).findElement(By.className("qyzj-bm-btn")).click();
 		// dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();

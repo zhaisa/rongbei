@@ -10,9 +10,9 @@ public class CreateZhiTouTest {
 		CreateZhiTou cz = new CreateZhiTou();
 		Calendar c = new GregorianCalendar();
 		
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i < 3; i++) {
 			try {
-				cz.createZhiTou("3", 3, 2018, 10, 19);// 周期、间隔、开始日期
+				cz.createZhiTou("3", 3, 2019, 0, 4);// 周期、间隔、开始日期
 
 			} catch (Exception e) {
 				e.printStackTrace();

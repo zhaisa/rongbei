@@ -18,7 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class FangDiDaiLuRu {
-	public void luRu() throws InterruptedException {
+	public void luRu(String yidi,String zongjia) throws InterruptedException {
 		int rad = (int) (36 * Math.random());
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
@@ -144,17 +144,18 @@ public class FangDiDaiLuRu {
 		dr.findElement(By.name("zcgd")).sendKeys("16层");
 		dr.findElement(By.name("fwjznd")).sendKeys("90年代");
 
-		dr.findElement(By.name("zjpg")).sendKeys("1600万");
+		dr.findElement(By.name("zjpg")).sendKeys(zongjia);//总价评估
 		dr.findElement(By.name("dycshgc")).click();
 		Select s4 = new Select(dr.findElement(By.name("dycshgc")));
 		s4.selectByValue("二抵");
-		dr.findElement(By.name("dyje")).sendKeys("1200万");
+		dr.findElement(By.name("dyje")).sendKeys(yidi);//一低余额
 
 		dr.findElement(By.name("remark")).sendKeys("hellokitty!!!");
 		;
 
-		dr.findElement(By.name("savetype")).click();
-		// dr.findElement(By.xpath("/html/body/div[1]/div/div[2]/form/div/div[2]/div/button[2]")).click();
+//		dr.findElement(By.name("savetype")).click();
+		dr.findElement(By.xpath("/html/body/div/div/div[2]/form/div/div[3]/div/button[2]")).click();
+		//*[@id="savetype"]
 		dr.close();
 		dr.quit();
 

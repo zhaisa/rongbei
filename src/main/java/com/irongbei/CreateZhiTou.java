@@ -60,7 +60,7 @@ public class CreateZhiTou {
 		String userunder = new SimpleDateFormat("yyyyMMddhhmmss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "测试直投项目-翟" + userunder;
+		String user = "直投埋点-翟" + userunder;
 
 		System.out.println(user);
 
@@ -73,8 +73,9 @@ public class CreateZhiTou {
 
 		sl.selectByValue("1");// 选择等额本息1为先息后本2为等额本息3为一次性还本付息
          Thread.sleep(1000);
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[6]/div[6]/span/span[1]/span/span[2]")).click();
-
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[6]/div[7]/span/span[1]/span/span[2]")).click();
+		
+		//*[@id="right-box"]/div[2]/div[6]/div[7]/span/span[1]/span/span[2]/b
 		//*[@id="right-box"]/div[2]/div[4]/div[19]/span/span[1]/span/span[2]
 		//*[@id="right-box"]/div[2]/div[6]/div[6]/span/span[1]/span/span[2]
 		Thread.sleep(2000);
@@ -160,6 +161,7 @@ public class CreateZhiTou {
 		} else {
 			System.out.println("----->添加失败！");
 		}
+		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
 		   dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/project/index");
 	        ReadFromTable rft=new ReadFromTable();

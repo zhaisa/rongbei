@@ -12,6 +12,7 @@ public class BuyDaBiao {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
+		dr.get("http://testhf.irongbei.com/?version=2");
 		dr.get("http://testhf.irongbei.com/UserLogin/index");
 		// ReadTxt rt = new ReadTxt();
 		// String username = rt.readFS("D:\\users\\usertext1.txt", lineNo);
@@ -34,6 +35,7 @@ public class BuyDaBiao {
 		dr.findElement(By.id("invest_account")).clear();
 		dr.findElement(By.id("invest_account")).click();
 		dr.findElement(By.id("invest_account")).sendKeys(account);
+		dr.findElement(By.xpath("//*[@id=\"irb-content\"]/div/div/div[1]/div/div[2]/div/div[7]/div/img")).click();
 		dr.findElement(By.id("investSubmit")).click();
 		Thread.sleep(3000);
 //		ElementIsAppear eia = new ElementIsAppear();
@@ -51,7 +53,7 @@ public class BuyDaBiao {
 //	dr.findElement(By.linkText("暂不使用")).click();
 			GetNextHandle gnh = new GetNextHandle();
 			gnh.getNextHandle(dr);
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			dr.findElement(By.className("magBtn")).click();
 			Thread.sleep(1000);
 //}

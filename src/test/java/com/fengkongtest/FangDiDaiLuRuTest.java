@@ -18,10 +18,10 @@ public class FangDiDaiLuRuTest {
 		// PropertyConfigurator.configure("./src/main/resources/log4j.properties");
 		logger.setLevel(Level.INFO);	
 		
-	for(int i=0;i<5;i++) {
+	for(int i=0;i<1;i++) {
 	
 	FangDiDaiLuRu fdd=new FangDiDaiLuRu();
-	fdd.luRu();
+	fdd.luRu("900000","1000000");//一低余额，总估价金额
 	System.out.println(i);
 //	logger.info(i);
 	try {

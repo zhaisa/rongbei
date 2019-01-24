@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 public class ReadFromTable {
 public void readFromTable(WebDriver dr,String xpath,String projectname) throws InterruptedException {
+	Thread.sleep(1000);
 	WebElement tbody = dr.findElement(By.xpath(xpath));
 	List<WebElement> tr = tbody.findElements(By.tagName("tr"));
 	Map<String, String> map = new HashMap();
@@ -34,9 +35,12 @@ public void readFromTable(WebDriver dr,String xpath,String projectname) throws I
 		if(row.getText().contains(projectname))  {
 			dr.findElement(By.linkText("［标的注册］")).click();
 						Thread.sleep(2000);
-//						dr.findElement(By.linkText("确认")).click();
-//						Thread.sleep(2000);
-						dr.findElement(By.linkText("［上线］")).click();
+					
+						dr.findElement(By.linkText("确认")).click();
+						Thread.sleep(1000);
+						dr.navigate().refresh();
+						Thread.sleep(2000);
+						dr.findElement(By.partialLinkText("上线")).click();
 						dr.switchTo().alert().accept();
 						Thread.sleep(2000);
 						break;

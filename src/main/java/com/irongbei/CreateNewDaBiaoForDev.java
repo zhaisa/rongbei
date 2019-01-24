@@ -169,7 +169,7 @@ public class CreateNewDaBiaoForDev {
         dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/index");
         Thread.sleep(2000);
         ReadFromTable rft=new ReadFromTable();
-        rft.readFromTable(dr, "//table/tbody", user);
+        rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", user);
         Thread.sleep(4000);
 		dr.close();
 		dr.quit();

@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.irongbeitest.NewRegisterTest">
+      <class name="com.irongbei.CreateZZSPlan">
         <methods>
-          <include name="register"/>
+          <include name="createZzsPlan"/>
         </methods>
-      </class> <!-- com.irongbeitest.NewRegisterTest -->
+      </class> <!-- com.irongbei.CreateZZSPlan -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,16 +1,11 @@
 package com.irongbei;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,7 +25,7 @@ public class KaiTongCunGan {
 		Thread.sleep(2000);
 		dr.findElement(By.linkText("开通银行存管账户")).click();
 		dr.navigate().to("http://testhf.irongbei.com/UserCenter/jxaccount");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		dr.findElement(By.id("realname")).clear();
 		dr.findElement(By.id("realname")).sendKeys("测试翟");
 
@@ -39,8 +34,8 @@ public class KaiTongCunGan {
         dr.findElement(By.id("xy_checkbox")).click();
 		dr.findElement(By.linkText("同意并开通银行存管账户")).click();
 
-//		dr.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-Thread.sleep(4000);
+		dr.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//Thread.sleep(4000);
 		String currentWindow = dr.getWindowHandle();
 		// 得到所有窗口的句柄
 		Set<String> handles = dr.getWindowHandles();
@@ -52,9 +47,11 @@ Thread.sleep(4000);
 			WebDriver window = dr.switchTo().window(handle);
 			System.out.println("title,url = " + window.getTitle() + "," + window.getCurrentUrl());
 			String sss = window.getCurrentUrl();
+			if(sss.contains("url_seq_no")) {
 			dr.navigate().to(sss);
 			Thread.sleep(3000);
-
+			
+			
 //			if (dr.findElement(By.id("smsBtn")).isDisplayed()) {
 
 				dr.findElement(By.id("BIND_CARD_NO")).clear();
@@ -79,10 +76,10 @@ Thread.sleep(4000);
 					dr.findElement(By.id("mainAcceptIpt")).click();
 					dr.findElement(By.id("sub")).click();
 					Thread.sleep(8000);
-				} 
-//				else {
-//					return;
-//				}
+				} }else {
+					return;
+				}
+
 
 				// fr.close();
 				dr.close();

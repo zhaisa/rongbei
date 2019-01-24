@@ -27,7 +27,7 @@ public class KaiHuTest {
 			ReadTxt rt = new ReadTxt();
 			String readname = rt.readFS("D:\\users\\user.txt", i);
 			String phone = readname;
-			// String phone="17409080100";
+//			String phone="17409050009";
 			String usercard = nc.Calculate();
 			String bankcard = nc.getBankAccount();
 			logger.info("手机号码：" + phone);

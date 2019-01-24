@@ -77,9 +77,13 @@ public class CreateNewDaBiao {
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
+		List<WebElement> list11=dr.findElements(By.name("is_lock"));
+		
+		list11.get(0).click();
         Select s1=new Select(dr.findElement(By.name("real_payment")));
         s1.selectByValue("2");
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]")).click();
+		//*[@id="right-box"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 
@@ -151,6 +155,7 @@ public class CreateNewDaBiao {
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dt);
 		System.out.println(endDate);
 		String changereadonly1 = "$('input[name=end_time]').attr(\"readonly\",false)";
+		dr.findElement(By.name("credit_number")).sendKeys(startDate);
 		((JavascriptExecutor) dr).executeScript(changereadonly1);
 		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
@@ -169,7 +174,7 @@ public class CreateNewDaBiao {
         dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/index");
         Thread.sleep(2000);
         ReadFromTable rft=new ReadFromTable();
-        rft.readFromTable(dr, "//table/tbody", user);
+        rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", user);
         Thread.sleep(4000);
 		dr.close();
 		dr.quit();
