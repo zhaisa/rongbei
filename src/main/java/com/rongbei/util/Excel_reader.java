@@ -59,7 +59,7 @@ public class Excel_reader {
 	@SuppressWarnings("deprecation")
 	private static String getValue(XSSFCell xssfRow) {
 		Object value = "";
-		switch (xssfRow.getCachedFormulaResultType()) {
+		if (xssfRow != null) {	switch (xssfRow.getCellTypeEnum()) {
 		case NUMERIC:
 			double cur = xssfRow.getNumericCellValue();
 			long longVal = Math.round(cur);
@@ -74,7 +74,7 @@ public class Excel_reader {
 			value = String.valueOf(xssfRow.getStringCellValue());
 			break;
 		case FORMULA:
-			value = String.valueOf(xssfRow.getCellFormula());
+//			value = String.valueOf(xssfRow.getCellFormula());
 			break;
 		case BLANK:
 			value= "---";
@@ -88,17 +88,17 @@ public class Excel_reader {
 		default:
 			value = String.valueOf(xssfRow.getStringCellValue());
 			break;
-
+		}
 		}
 		return value.toString();
-
+		
 	}
 
 	// 判断后缀为xls的excel文件的数据类型
 	@SuppressWarnings("deprecation")
 	private static String getValue(HSSFCell hssfCell) {
 		Object value = "";
-		switch(hssfCell.getCachedFormulaResultType()) {
+		switch(hssfCell.getCellTypeEnum()) {
 		   case NUMERIC:
 			   double cur = hssfCell.getNumericCellValue();
 				long longVal = Math.round(cur);
@@ -113,7 +113,7 @@ public class Excel_reader {
         	   value= String.valueOf(hssfCell.getStringCellValue());
                break;
            case FORMULA:
-        	   value = String.valueOf(hssfCell.getCellFormula());
+ //       	   value = String.valueOf(hssfCell.getCellFormula());
                break;
            case BLANK:
         	   value= "---";
