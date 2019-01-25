@@ -2,38 +2,38 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1866" started-at="2019-01-25T07:01:41Z" finished-at="2019-01-25T07:01:42Z">
+  <suite name="Default suite" duration-ms="1934" started-at="2019-01-25T09:56:02Z" finished-at="2019-01-25T09:56:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1866" started-at="2019-01-25T07:01:41Z" finished-at="2019-01-25T07:01:42Z">
+    <test name="Default test" duration-ms="1934" started-at="2019-01-25T09:56:02Z" finished-at="2019-01-25T09:56:04Z">
       <class name="com.irongbeitest.GetExcelDataTest">
-        <test-method status="PASS" signature="testConnection(java.util.Map)[pri:0, instance:com.irongbeitest.GetExcelDataTest@6f1fba17]" name="testConnection" duration-ms="14" started-at="2019-01-25T15:01:42Z" data-provider="data01" finished-at="2019-01-25T15:01:42Z">
+        <test-method status="PASS" signature="testConnection(java.util.Map)[pri:0, instance:com.irongbeitest.GetExcelDataTest@6f1fba17]" name="testConnection" duration-ms="17" started-at="2019-01-25T17:56:03Z" data-provider="data01" finished-at="2019-01-25T17:56:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{bankcard=6222027341121503141, phone=17409040644, usercard=412702199010079366}]]>
+                <![CDATA[{usercard=412702199010079366, phone=17409040644, bankcard=6222027341121503141}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testConnection -->
-        <test-method status="PASS" signature="testConnection(java.util.Map)[pri:0, instance:com.irongbeitest.GetExcelDataTest@6f1fba17]" name="testConnection" duration-ms="1" started-at="2019-01-25T15:01:42Z" data-provider="data01" finished-at="2019-01-25T15:01:42Z">
+        <test-method status="PASS" signature="testConnection(java.util.Map)[pri:0, instance:com.irongbeitest.GetExcelDataTest@6f1fba17]" name="testConnection" duration-ms="2" started-at="2019-01-25T17:56:03Z" data-provider="data01" finished-at="2019-01-25T17:56:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{bankcard=6222027341121503141, phone=17409040644, usercard=412702199010079366}]]>
+                <![CDATA[{usercard=412702199010079366, phone=17409040644, bankcard=6222027341121503141}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testConnection -->
-        <test-method status="PASS" signature="testConnection(java.util.Map)[pri:0, instance:com.irongbeitest.GetExcelDataTest@6f1fba17]" name="testConnection" duration-ms="1" started-at="2019-01-25T15:01:42Z" data-provider="data01" finished-at="2019-01-25T15:01:42Z">
+        <test-method status="PASS" signature="testConnection(java.util.Map)[pri:0, instance:com.irongbeitest.GetExcelDataTest@6f1fba17]" name="testConnection" duration-ms="4" started-at="2019-01-25T17:56:04Z" data-provider="data01" finished-at="2019-01-25T17:56:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{bankcard=6222027341121503141, phone=17409040644, usercard=412702199010079366}]]>
+                <![CDATA[{usercard=412702199010079366, phone=17409040644, bankcard=6222027341121503141}]]>
               </value>
             </param>
           </params>

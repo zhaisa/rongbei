@@ -3,6 +3,7 @@ package com.irongbei;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -54,16 +55,15 @@ public class KaiHuForTestNG {
 		Excel_reader er = new Excel_reader();
 		ArrayList<ArrayList<String>> arr = er.xlsx_reader("D:\\users\\mydata.xlsx", 0, 1, 2);
 		Map<String, String> map = new HashMap<String, String>();
+		List<String> list=new ArrayList<String>();
 		for (int i = 1; i < arr.size(); i++) {
 			ArrayList<String> row = arr.get(i);
 			for (int j = 0; j < row.size(); j++) {
 				System.out.print(row.get(j) + " ");
-				map.put("phone", row.get(0));
-				map.put("usercard", row.get(1));
-				map.put("bankcard", row.get(2));
+			list.add(row.get(j));
 			}
 			System.out.println("");
-			break;
+			
 		}
 
 		return new Object[][] { { map } };

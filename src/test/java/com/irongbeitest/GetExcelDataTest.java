@@ -3,6 +3,8 @@ package com.irongbeitest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.testng.annotations.DataProvider;
@@ -23,19 +25,23 @@ public Object[][] getdata01() throws IOException{
 public  Map<String, String> getData() throws IOException {
 	Excel_reader er=new Excel_reader();
 	  ArrayList<ArrayList<String>> arr= er.xlsx_reader("D:\\users\\mydata.xlsx", 0,1,2);
-	  Map<String,String> map=new HashMap();
+	  Map<String,String> map=new IdentityHashMap();
+	  List<String> list=new ArrayList<String>();
 	  for(int i=1;i<arr.size();i++){
 			ArrayList<String> row=arr.get(i);
 			for(int j=0;j<row.size();j++){
-				System.out.print(row.get(j)+" ");
-				map.put("phone", row.get(0));
-				map.put("usercard", row.get(1));
-				map.put("bankcard", row.get(2));
-				
+//				System.out.print(row.get(j)+" ");
+				map.put("phone",row.get(0));
+				map.put("usercard",row.get(1));
+				map.put("bankcard",row.get(2));
+				break;
 			}
-			System.out.println("");
+			
+//			System.out.println("");
+			continue;
 		
 		}
+
 	return map;
 }
 
