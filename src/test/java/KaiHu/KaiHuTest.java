@@ -3,8 +3,6 @@ package KaiHu;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 import com.fengkong.NewUserCardAndBankCard;
 import com.irongbei.CePing;
 import com.irongbei.ChangePhone;
@@ -28,8 +26,8 @@ public class KaiHuTest {
 			String readname = rt.readFS("D:\\users\\user.txt", i);
 			String phone = readname;
 //			String phone="17409050009";
-			String usercard = nc.Calculate();
-			String bankcard = nc.getBankAccount();
+			String usercard = NewUserCardAndBankCard.Calculate();
+			String bankcard = NewUserCardAndBankCard.getBankAccount();
 			logger.info("手机号码：" + phone);
 			logger.info("身份证号码：" + usercard);
 			logger.info("银行卡号：" + bankcard);

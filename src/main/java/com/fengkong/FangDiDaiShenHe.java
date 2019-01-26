@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -72,7 +71,7 @@ public class FangDiDaiShenHe {
 		System.out.println(listmap.keySet());
 		for (WebElement row : trlist) {
 			String trText1 = row.getText();
-			if (trText1.contains((CharSequence) listmap.get("姓名"))) {
+			if (trText1.contains(listmap.get("姓名"))) {
 				String url = row.findElement(By.linkText("查看详情")).getAttribute("href");
 				url2.add(url);
 

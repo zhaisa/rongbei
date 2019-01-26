@@ -2,8 +2,6 @@ package com.irongbeitest;
 
 import java.io.IOException;
 
-import org.testng.annotations.Test;
-
 import com.irongbei.SitAndUat;
 
 public class SitAndUatTest {

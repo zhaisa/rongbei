@@ -32,8 +32,8 @@ public class KaiHuTestYushangx {
 			String readname = rt.readFS("D:\\users\\useryushangx.txt", i);
 			String phone = readname;
 //			String phone="17409040081";
-			String usercard = nc.Calculate();
-			String bankcard = nc.getBankAccount();
+			String usercard = NewUserCardAndBankCard.Calculate();
+			String bankcard = NewUserCardAndBankCard.getBankAccount();
 			logger.info("手机号码：" + phone);
 			logger.info("身份证号码：" + usercard);
 			logger.info("银行卡号：" + bankcard);

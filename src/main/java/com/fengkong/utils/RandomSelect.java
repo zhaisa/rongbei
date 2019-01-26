@@ -1,8 +1,6 @@
 package com.fengkong.utils;
 
 import java.util.List;
-import java.util.Random;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 

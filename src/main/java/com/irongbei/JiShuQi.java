@@ -16,7 +16,7 @@ public class JiShuQi {
 	}
 
 	public void setCount(int count) {
-		this.count = count;
+		JiShuQi.count = count;
 	}
 
 	public int getSum() {
@@ -24,7 +24,7 @@ public class JiShuQi {
 	}
 
 	public void setSum(int sum) {
-		this.sum = sum;
+		JiShuQi.sum = sum;
 	}
 
 	public static int jiShuQi() {

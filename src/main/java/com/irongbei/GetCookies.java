@@ -8,13 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.irongbeipages.LoginPage;
 
 public class GetCookies {
 	static WebDriver dr;
@@ -24,7 +19,7 @@ public WebDriver getDr() {
 		return dr;
 	}
 	public void setDr(WebDriver dr) {
-		this.dr = dr;
+		GetCookies.dr = dr;
 	}
 public  void getCookies(WebDriver dr) throws InterruptedException, IOException {
 	

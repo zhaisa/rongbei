@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.irongbeitest.GetExcelDataTest">
+      <class name="com.irongbei.KaiHuForTestNG">
         <methods>
-          <include name="testConnection"/>
+          <include name="kaiHu" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- com.irongbeitest.GetExcelDataTest -->
+      </class> <!-- com.irongbei.KaiHuForTestNG -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

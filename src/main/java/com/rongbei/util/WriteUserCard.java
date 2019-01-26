@@ -13,7 +13,7 @@ public class WriteUserCard {
 	@Test(invocationCount=1000)
 	public void writeUserCard() throws IOException {
 		NewUserCardAndBankCard nc = new NewUserCardAndBankCard();
-		String usercard = nc.Calculate();
+		String usercard = NewUserCardAndBankCard.Calculate();
 		File ff = new File("D:\\users\\usercard.txt");
 		FileWriter fw = new FileWriter(ff, true);
 		BufferedWriter bw = new BufferedWriter(fw);

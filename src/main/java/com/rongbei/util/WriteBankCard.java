@@ -13,7 +13,7 @@ public class WriteBankCard {
 	@Test(invocationCount=1000)
 	public void writeUserCard() throws IOException {
 		NewUserCardAndBankCard nc = new NewUserCardAndBankCard();
-		String bankcard = nc.getBankAccount();
+		String bankcard = NewUserCardAndBankCard.getBankAccount();
 		File ff = new File("D:\\users\\bankcard.txt");
 		FileWriter fw = new FileWriter(ff, true);
 		BufferedWriter bw = new BufferedWriter(fw);

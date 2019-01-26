@@ -1,6 +1,5 @@
 package com.fengkongtest;
 
-import com.fengkong.XiaoFeiDaiLuRu;
 import com.fengkong.XiaoFeiDaiTongShanLuRu;
 
 public class XiaoFeiDaiTongShanLuRuTest {

@@ -1,12 +1,7 @@
 package com.fengkong.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LoginRisk {
 	public void loginRisk(String name,String passw) {
