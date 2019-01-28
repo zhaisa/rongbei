@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
     <classes>
-      <class name="com.irongbei.KaiHuForTestNG">
+      <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
+        <parameter name="date" value="29"/>
+        <parameter name="year" value="2019"/>
+        <parameter name="zq" value="6"/>
+        <parameter name="danw" value="1"/>
+        <parameter name="jiange" value="6"/>
+        <parameter name=" month" value="3"/>
         <methods>
-          <include name="kaiHu" invocation-numbers="0 1"/>
+          <include name="createDb"/>
         </methods>
-      </class> <!-- com.irongbei.KaiHuForTestNG -->
+      </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

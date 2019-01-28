@@ -3,11 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="com.irongbei.NewCreateZhiTou">
+      <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
+        <parameter name="date" value="29"/>
+        <parameter name="year" value="2019"/>
+        <parameter name="zq" value="6"/>
+        <parameter name="danw" value="1"/>
+        <parameter name="jiange" value="6"/>
+        <parameter name=" month" value="3"/>
         <methods>
-          <include name="createZhiTou"/>
+          <include name="createDb"/>
         </methods>
-      </class> <!-- com.irongbei.NewCreateZhiTou -->
+      </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -20,8 +20,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-@Test
+
 public class CreateDaBiao {
+	@Test
 	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少

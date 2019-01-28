@@ -1,123 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="2" ignored="0" total="2" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3026" started-at="2019-01-26T00:25:21Z" finished-at="2019-01-26T00:25:24Z">
+  <suite name="Suite" duration-ms="78215" started-at="2019-01-28T10:24:43Z" finished-at="2019-01-28T10:26:01Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3026" started-at="2019-01-26T00:25:21Z" finished-at="2019-01-26T00:25:24Z">
-      <class name="com.irongbei.KaiHuForTestNG">
-        <test-method status="FAIL" signature="kaiHu(java.util.Map)[pri:0, instance:com.irongbei.KaiHuForTestNG@20322d26]" name="kaiHu" duration-ms="485" started-at="2019-01-26T08:25:23Z" data-provider="mydata" finished-at="2019-01-26T08:25:23Z">
+    <test name="Test" duration-ms="58822" started-at="2019-01-28T10:24:43Z" finished-at="2019-01-28T10:25:42Z">
+      <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
+        <test-method status="PASS" signature="createDb(java.lang.String, int, int, int, int, java.lang.String)[pri:0, instance:AboutNewDaBiao.CreateDaBiaoTestNG@1e127982]" name="createDb" duration-ms="58788" started-at="2019-01-28T18:24:43Z" finished-at="2019-01-28T18:25:42Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{bankcard=987654321, phone=123, usercard=123456}]]>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[29]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[1]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.IllegalStateException">
-            <message>
-              <![CDATA[The driver executable does not exist: C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalStateException: The driver executable does not exist: C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
-	at com.irongbei.ChangePhone.changePhone(ChangePhone.java:16)
-	at com.irongbei.KaiHuForTestNG.kaiHu(KaiHuForTestNG.java:38)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:756)
-	at org.testng.TestRunner.run(TestRunner.java:610)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
-	at org.testng.TestNG.runSuites(TestNG.java:1133)
-	at org.testng.TestNG.run(TestNG.java:1104)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalStateException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- kaiHu -->
-        <test-method status="FAIL" signature="kaiHu(java.util.Map)[pri:0, instance:com.irongbei.KaiHuForTestNG@20322d26]" name="kaiHu" duration-ms="31" started-at="2019-01-26T08:25:23Z" data-provider="mydata" finished-at="2019-01-26T08:25:24Z">
+        </test-method> <!-- createDb -->
+      </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
+    </test> <!-- Test -->
+    <test name="test2" duration-ms="19339" started-at="2019-01-28T10:25:42Z" finished-at="2019-01-28T10:26:01Z">
+      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
+        <test-method status="PASS" signature="createPlan(int, int, int)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@3e9b1010]" name="createPlan" duration-ms="19330" started-at="2019-01-28T18:25:42Z" data-provider="mydata1" finished-at="2019-01-28T18:26:01Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{bankcard=87654321, phone=456, usercard=234567}]]>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[29]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.IllegalStateException">
-            <message>
-              <![CDATA[The driver executable does not exist: C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalStateException: The driver executable does not exist: C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
-	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
-	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
-	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
-	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
-	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
-	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
-	at com.irongbei.ChangePhone.changePhone(ChangePhone.java:16)
-	at com.irongbei.KaiHuForTestNG.kaiHu(KaiHuForTestNG.java:38)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:756)
-	at org.testng.TestRunner.run(TestRunner.java:610)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
-	at org.testng.TestNG.runSuites(TestNG.java:1133)
-	at org.testng.TestNG.run(TestNG.java:1104)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalStateException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- kaiHu -->
-      </class> <!-- com.irongbei.KaiHuForTestNG -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- createPlan -->
+      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
+    </test> <!-- test2 -->
+  </suite> <!-- Suite -->
 </testng-results>
