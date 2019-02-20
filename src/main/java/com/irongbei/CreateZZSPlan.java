@@ -10,11 +10,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class CreateZZSPlan {
-
-	@Test(dataProvider="mydata",invocationCount=10,threadPoolSize=2)//从data获取数据，执行10次，3个线程同时跑，超时10000豪秒
+	@Parameters({"year","month","date"})
+//	@Test(dataProvider="mydata")//从data获取数据，执行10次，3个线程同时跑，超时10000豪秒
+	@Test
 	public void createZzsPlan(int myyear, int mymonth, int myday) throws InterruptedException {
 		WebDriver dr = CreateDriver.getDriver("chrome");
 		dr.get("http://dev-admin.irongbei.com");
@@ -26,11 +28,11 @@ public class CreateZZSPlan {
 		// action.perform();
 		Thread.sleep(3000);
 
-		dr.get("http://alpha_backend.api.irongbei.com");
+		dr.get("http://dev_backend.api.irongbei.com");
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://alpha_backend.api.irongbei.com/product/index");
-		dr.navigate().to("http://alpha_backend.api.irongbei.com/product/create");
+		dr.get("http://dev_backend.api.irongbei.com/product/index");
+		dr.navigate().to("http://dev_backend.api.irongbei.com/product/create");
 		
 		String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 		String name = "测试周周升计划-翟" + userunder;
@@ -43,10 +45,11 @@ public class CreateZZSPlan {
 
 		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(c.getTime());// 对日期进行格式化
 		System.out.println(startDate);
-		String changereadonly = "$('input[id=product_info_expect_online_datetime]').attr(\"readonly\",false)";
-		((JavascriptExecutor) dr).executeScript(changereadonly);
-		// dr.findElement(By.name("online_time")).click();
-		dr.findElement(By.id("product_info_expect_online_datetime")).sendKeys(startDate);
+
+		 JavascriptExecutor js= (JavascriptExecutor) dr;
+         //输入时间
+         js.executeScript("arguments[0].value=\""+startDate+"\"",dr.findElement(By.id("product_info_expect_online_datetime")));
+		
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.findElement(By.id("product_info_increase_interest_rate")).sendKeys("1");
 		Thread.sleep(1000);
@@ -58,7 +61,7 @@ public class CreateZZSPlan {
 	}
 	@DataProvider(name="mydata")
 	public 	Object[][] getdata(){
-		Object[][] value= {{2019,0,24}};
+		Object[][] value= {{2019,0,29}};
 		
 		return value;
 		

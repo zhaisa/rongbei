@@ -12,14 +12,14 @@ public void shouQuan(String phone) throws InterruptedException {
 	System.setProperty("webdriver.chrome.driver",
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 	WebDriver dr = new ChromeDriver();
-	dr.get("http://testhf.irongbei.com/UserLogin/index");
+	dr.get("http://dev-test.irongbei.com/UserLogin/index");
 	dr.findElement(By.id("user_name")).sendKeys(phone);
 	dr.findElement(By.id("user_password")).sendKeys("123456");
 	dr.findElement(By.id("qianlogin")).click();
 	Thread.sleep(1000);
-	dr.navigate().to("http://testhf.irongbei.com/UserCenter/index");
+	dr.navigate().to("http://dev-test.irongbei.com/UserCenter/index");
 //	dr.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/div[1]/div[2]/ul/li[5]/dt/a")).click();
-//	dr.navigate().to("http://testhf.irongbei.com/UserCenter/autoauth");
+//	dr.navigate().to("http://dev-test.irongbei.com/UserCenter/autoauth");
 //	dr.findElement(By.linkText("开通自动投标授权")).click();
 //	dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //	 System.out.println("请输入验证码：");
@@ -28,7 +28,7 @@ public void shouQuan(String phone) throws InterruptedException {
 //	    	
 //			String str1 = scan.next();
 //			System.out.println("输入的数据为：" + str1);
-	dr.navigate().to("http://testhf.irongbei.com/UserCenter/autoauth");
+	dr.navigate().to("http://dev-test.irongbei.com/UserCenter/autoauth");
 //	dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	Thread.sleep(3000);
 	dr.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div/div[1]/div[4]/span/img")).click();
@@ -51,10 +51,10 @@ public void shouQuan(String phone) throws InterruptedException {
 			
 			dr.findElement(By.id("sub")).click();
 //			Thread.sleep(4000);
-//			dr.navigate().to("http://testhf.irongbei.com/JxAuthorization/jxAutoAssignAuthBackstagePlus");
+//			dr.navigate().to("http://dev-test.irongbei.com/JxAuthorization/jxAutoAssignAuthBackstagePlus");
 //			dr.findElement(By.linkText("立即关闭")).click();
 //			Thread.sleep(1000);
-//			dr.navigate().to("http://testhf.irongbei.com/UserCenter/autoauth");
+//			dr.navigate().to("http://dev-test.irongbei.com/UserCenter/autoauth");
 //			dr.findElement(By.linkText("开通自动债转授权")).click();
 //			 System.out.println("请输入验证码：");
 //			    Scanner scan1=new Scanner(System.in);
@@ -85,10 +85,10 @@ public void shouQuan(String phone) throws InterruptedException {
 //					dr.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("121121");
 //					dr.findElement(By.id("sub")).click();
 //					Thread.sleep(3000);
-//					dr.navigate().to("http://testhf.irongbei.com/JxAuthorization/jxAutoAssignAuthBackstagePlus");
+//					dr.navigate().to("http://dev-test.irongbei.com/JxAuthorization/jxAutoAssignAuthBackstagePlus");
 //					dr.findElement(By.linkText("立即关闭")).click();
 //					Thread.sleep(1000);
-//					dr.navigate().to("http://testhf.irongbei.com/UserCenter/autoauth");
+//					dr.navigate().to("http://dev-test.irongbei.com/UserCenter/autoauth");
 //					dr.findElement(By.linkText("开通自动缴费授权")).click();
 //					   String currentWindow2 = dr.getWindowHandle();
 //					    Set<String> handles2 = dr.getWindowHandles();
@@ -106,10 +106,10 @@ public void shouQuan(String phone) throws InterruptedException {
 //							dr.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("121121");
 //							dr.findElement(By.id("sub")).click();
 //							Thread.sleep(3000);
-//							dr.navigate().to("http://testhf.irongbei.com/JxAuthorization/jxAutoAssignAuthBackstagePlus");
+//							dr.navigate().to("http://dev-test.irongbei.com/JxAuthorization/jxAutoAssignAuthBackstagePlus");
 //							dr.findElement(By.linkText("立即关闭")).click();
 							Thread.sleep(2000);
-							dr.navigate().to("http://testhf.irongbei.com/JxAuthorization/newJxTermsAuthPageReturl");
+							dr.navigate().to("http://dev-test.irongbei.com/JxAuthorization/newJxTermsAuthPageReturl");
 							if(dr.findElement(By.linkText("去出借")).isDisplayed()) {
 								System.out.println(phone+":授权成功");
 							}

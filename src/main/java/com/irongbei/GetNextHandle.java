@@ -17,7 +17,8 @@ public void getNextHandle(WebDriver dr) throws InterruptedException {
 			WebDriver window = dr.switchTo().window(handle);
 			System.out.println("title,url = " + window.getTitle() + "," + window.getCurrentUrl());
 			String sss1 = window.getCurrentUrl();
+			Thread.sleep(1000);
 			dr.navigate().to(sss1);}
-	        Thread.sleep(1000);
+	        Thread.sleep(2000);
 }
 }

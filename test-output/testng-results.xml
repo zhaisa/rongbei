@@ -2,73 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="78215" started-at="2019-01-28T10:24:43Z" finished-at="2019-01-28T10:26:01Z">
+  <suite name="Suite" duration-ms="85961" started-at="2019-02-20T07:40:58Z" finished-at="2019-02-20T07:42:24Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="58822" started-at="2019-01-28T10:24:43Z" finished-at="2019-01-28T10:25:42Z">
-      <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
-        <test-method status="PASS" signature="createDb(java.lang.String, int, int, int, int, java.lang.String)[pri:0, instance:AboutNewDaBiao.CreateDaBiaoTestNG@1e127982]" name="createDb" duration-ms="58788" started-at="2019-01-28T18:24:43Z" finished-at="2019-01-28T18:25:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[6]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[6]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[2019]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[29]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-          </params>
+    <test name="Test" duration-ms="85961" started-at="2019-02-20T07:40:58Z" finished-at="2019-02-20T07:42:24Z">
+      <class name="KaiHu.JieKuanRenKaiHu">
+        <test-method status="PASS" signature="jieKuanKaiHu()[pri:0, instance:KaiHu.JieKuanRenKaiHu@5a56cdac]" name="jieKuanKaiHu" duration-ms="85265" started-at="2019-02-20T15:40:58Z" finished-at="2019-02-20T15:42:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createDb -->
-      </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
+        </test-method> <!-- jieKuanKaiHu -->
+        <test-method status="PASS" signature="updateSql()[pri:0, instance:KaiHu.JieKuanRenKaiHu@5a56cdac]" name="updateSql" duration-ms="661" started-at="2019-02-20T15:42:24Z" finished-at="2019-02-20T15:42:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateSql -->
+      </class> <!-- KaiHu.JieKuanRenKaiHu -->
     </test> <!-- Test -->
-    <test name="test2" duration-ms="19339" started-at="2019-01-28T10:25:42Z" finished-at="2019-01-28T10:26:01Z">
-      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
-        <test-method status="PASS" signature="createPlan(int, int, int)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@3e9b1010]" name="createPlan" duration-ms="19330" started-at="2019-01-28T18:25:42Z" data-provider="mydata1" finished-at="2019-01-28T18:26:01Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[2019]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[29]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createPlan -->
-      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
-    </test> <!-- test2 -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.irongbei.KaiHuForTestNG">
+      <class name="KaiHu.JieKuanRenKaiHu">
         <methods>
-          <include name="kaiHu" invocation-numbers="0 1"/>
+          <include name="jieKuanKaiHu"/>
         </methods>
-      </class> <!-- com.irongbei.KaiHuForTestNG -->
+      </class> <!-- KaiHu.JieKuanRenKaiHu -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

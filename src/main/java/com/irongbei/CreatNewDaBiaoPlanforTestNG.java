@@ -9,10 +9,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class CreatNewDaBiaoPlanforTestNG {
-	 @Test(dataProvider="mydata1")
+	@Parameters({"year","month","date"})
+//	 @Test(dataProvider="mydata1")
+	@Test
 	  public void createPlan(int myyear, int mymonth, int myday) throws InterruptedException {
 		  WebDriver dr = CreateDriver.getDriver("chrome");
 			dr.get("http://dev-admin.irongbei.com");
@@ -21,13 +24,13 @@ public class CreatNewDaBiaoPlanforTestNG {
 			dr.findElement(By.linkText("登录")).click();
 			Thread.sleep(3000);
 
-			dr.get("http://alpha_backend.api.irongbei.com");
+			dr.get("http://dev_backend.api.irongbei.com");
 			Calendar c = new GregorianCalendar();
 			c.set(myyear, mymonth, myday);
 			dr.findElement(By.linkText("省心投")).click();
 			Thread.sleep(1000);
 			dr.findElement(By.linkText("添加计划")).click();
-			dr.navigate().to("http://alpha_backend.api.irongbei.com/financialplan/create");
+			dr.navigate().to("http://dev_backend.api.irongbei.com/financialplan/create");
 			String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 			String name = "测试省心投计划-翟" + userunder;
 			dr.findElement(By.id("product_info_name")).sendKeys(name);
@@ -60,7 +63,7 @@ public class CreatNewDaBiaoPlanforTestNG {
 	  }
 	  @DataProvider(name="mydata1")
 	  public Object[][] getdata(){
-		  Object[][] value= {{2019,3,29}};
+		  Object[][] value= {{2019,0,29}};
 		  return value;
 		  
 	  }

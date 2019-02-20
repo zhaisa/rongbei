@@ -24,13 +24,13 @@ import com.rongbei.util.ReadFromTable;
 
 @Test
 public class CreateNewDaBiao {
-	public void createNewDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money) throws Exception {
+	public void createNewDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String way) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -42,7 +42,7 @@ public class CreateNewDaBiao {
 		WebElement element2 = dr.findElement(By.className("login-btn"));
 		element2.click();
 		Thread.sleep(2000);
-		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
+		// dr.get("http://dev-admin.irongbei.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 		// WebElement
 		// element3=dr.findElement(By.xpath(".//*[@id='header']/div[2]/div[2]/div/span[5]/a/b[1]"));
@@ -73,7 +73,7 @@ public class CreateNewDaBiao {
 		String user = "新省心投债权底层" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject?pjType=xxhb");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/editProject?pjType=xxhb");
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
@@ -81,7 +81,7 @@ public class CreateNewDaBiao {
 		
 		list11.get(0).click();
         Select s1=new Select(dr.findElement(By.name("real_payment")));
-        s1.selectByValue("2");
+        s1.selectByValue(way);//1是先息后本，2是等额本息
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]")).click();
 		//*[@id="right-box"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]
 		Thread.sleep(2000);
@@ -171,7 +171,7 @@ public class CreateNewDaBiao {
 		Thread.sleep(2000);
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
-        dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/index");
+        dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/index");
         Thread.sleep(2000);
         ReadFromTable rft=new ReadFromTable();
         rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", user);

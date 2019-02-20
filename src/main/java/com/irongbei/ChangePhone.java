@@ -15,7 +15,7 @@ public void changePhone(String phone,String distphone) throws Exception {
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 	WebDriver dr = new ChromeDriver();
 	Calendar cc = new GregorianCalendar();
-	dr.get("http://rongbeiadmin.51dmoz.com/admin/Login");
+	dr.get("http://dev-admin.irongbei.com/admin/Login");
 	LoginPage lp=new LoginPage(dr);
 	lp.login("测试专用管理员", "123456");
 	Thread.sleep(2000);

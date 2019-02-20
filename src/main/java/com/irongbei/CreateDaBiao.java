@@ -78,7 +78,7 @@ public class CreateDaBiao {
 		dr.findElement(By.id("project_num")).sendKeys(user);
         Select s1=new Select(dr.findElement(By.name("real_payment")));
         s1.selectByValue("2");
-		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]")).click();
+		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]")).click();
 		Thread.sleep(2000);
 		WebElement we = dr.findElement(By.className("select2-search__field"));
 
@@ -154,6 +154,8 @@ public class CreateDaBiao {
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.switchTo().defaultContent();
+		dr.findElement(By.name("credit_number")).sendKeys(startDate);
+		Thread.sleep(1000);
 		// dr.findElement(By.xpath("//id[@value='']")).click();
 		// dr.findElement(By.id("wrap")).findElement(By.className("qyzj-bm-btn")).click();
 		// dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();

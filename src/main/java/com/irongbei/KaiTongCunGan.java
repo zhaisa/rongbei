@@ -14,16 +14,16 @@ public class KaiTongCunGan {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://testhf.irongbei.com/UserLogin/index");
+		dr.get("http://dev-test.irongbei.com/UserLogin/index");
 
 		dr.findElement(By.id("user_name")).sendKeys(userphone);
 		dr.findElement(By.id("user_password")).sendKeys("123456");
 		dr.findElement(By.id("qianlogin")).click();
 		Thread.sleep(2000);
-		dr.navigate().to("http://testhf.irongbei.com/UserCenter/index");
+		dr.navigate().to("http://dev-test.irongbei.com/UserCenter/index");
 		Thread.sleep(2000);
 		dr.findElement(By.linkText("开通银行存管账户")).click();
-		dr.navigate().to("http://testhf.irongbei.com/UserCenter/jxaccount");
+		dr.navigate().to("http://dev-test.irongbei.com/UserCenter/jxaccount");
 		Thread.sleep(3000);
 		dr.findElement(By.id("realname")).clear();
 		dr.findElement(By.id("realname")).sendKeys("测试翟");
