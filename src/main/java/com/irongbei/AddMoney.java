@@ -4,14 +4,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class AddMoney {
-	public void addMoney(int varzhai) throws Exception {
+import com.rongbei.util.ReadTxtForOne;
+
+import base.WebSingle;
+
+public class AddMoney{
+	@Test(invocationCount=20)
+	public void addMoney() throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get("http://dev-admin.irongbei.com/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -23,7 +29,7 @@ public class AddMoney {
 		WebElement element2 = dr.findElement(By.className("login-btn"));
 		element2.click();
 		Thread.sleep(2000);
-		// dr.get("http://rongbeiadmin.51dmoz.com/admin/Index/index");
+		// dr.get("http://dev-admin.irongbei.com/admin/Index/index");
 		WebElement element3 = dr.findElement(By.xpath(".//*[@id='right-box']/p"));
 
 		String obj1 = element3.getText().trim();
@@ -38,20 +44,19 @@ public class AddMoney {
 		dr.findElement(By.linkText("平台数据统计")).click();
 
 		// dr.findElement(By.xpath("//*[@id=\"left-nav\"]/ul/li[11]/ul/li[6]/a")).click();
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Statistics/jxUserCapitalManage");
+		dr.navigate().to("http://dev-admin.irongbei.com/admin/Statistics/jxUserCapitalManage");
 		dr.findElement(By.id("operatepwd")).sendKeys("123456");
 		dr.findElement(By.linkText("确定")).click();
 		dr.navigate().to(
-				"http://rongbeiadmin.51dmoz.com/admin/Statistics/jxUserCapitalManage?sign=bf042569ae6d7d6bfeb78a2c4560d8af");
+				"http://dev-admin.irongbei.com/admin/Statistics/jxUserCapitalManage?sign=bf042569ae6d7d6bfeb78a2c4560d8af");
 		Thread.sleep(2000);
-		int lineNo = varzhai;
-		ReadTxt rt = new ReadTxt();
-		String a = rt.readFS("D:/users/usertext1.txt", lineNo);
+		ReadTxtForOne rt = new ReadTxtForOne();
+		String a = rt.readline();//("D:\\users\\user.txt");
 
 		dr.findElement(By.id("username")).sendKeys(a);
 		dr.findElement(By.id("userlistbutton")).click();
 		Thread.sleep(2000);
-		String url = "http://rongbeiadmin.51dmoz.com/admin/Statistics/jxUserCapitalManage?username=";
+		String url = "http://dev-admin.irongbei.com/admin/Statistics/jxUserCapitalManage?username=";
 		String url2 = a;
 		String url3 = "&mobile=&usercode=&orderStyle=1&sign=bf042569ae6d7d6bfeb78a2c4560d8af";
 		dr.navigate().to(url + url2 + url3);
@@ -61,7 +66,7 @@ public class AddMoney {
 		Thread.sleep(2000);
 
 		dr.findElement(By.xpath("//*[@id=\"money\"]")).clear();
-		dr.findElement(By.xpath("//*[@id=\"money\"]")).sendKeys("50000");
+		dr.findElement(By.xpath("//*[@id=\"money\"]")).sendKeys("10000");
 		dr.findElement(By.xpath("//*[@id=\"operaPwd\"]")).clear();
 		dr.findElement(By.xpath("//*[@id=\"operaPwd\"]")).sendKeys("123456");
 		dr.findElement(By.xpath("//*[@id=\"moneyBtn\"]")).click();

@@ -7,7 +7,7 @@ public class AddMoneyTest {
 		AddMoney am = new AddMoney();
 		for (int i = 0; i < 10; i++) {
 			try {
-				am.addMoney(i);
+				am.addMoney();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

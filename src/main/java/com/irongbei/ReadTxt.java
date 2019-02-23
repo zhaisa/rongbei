@@ -85,6 +85,7 @@ public class ReadTxt {
 	public String readFS(String path) throws IOException {
 		FileReader fr = null;
 		int line=1;
+		String aaa=null;
 		try {
 			fr = new FileReader(path);
 		} catch (FileNotFoundException e) {
@@ -92,7 +93,7 @@ public class ReadTxt {
 		}
 		BufferedReader br = new BufferedReader(fr);
 		List<String> list=new ArrayList();
-		
+		List<String> list2=new ArrayList();
 		while (null != br.readLine()) {
 		list.add(br.readLine());
 		line++;
@@ -100,7 +101,10 @@ public class ReadTxt {
 
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i));
+			list2.add(list.get(i));
+			break;
 		}
+		
 		br.close();
 		return line+">>>>>>>>>>>>>>>>>>>>>";
 		
