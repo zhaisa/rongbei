@@ -34,7 +34,7 @@
 		<userName>zhaisa21</userName>
 
 		<!--发件人邮箱密码 -->
-		<password>182049</password>
+		<password>.</password>
 
 		<!--收件人邮箱地址，多个地址时以英文逗号分隔 -->
 		<setTo>shangxinjue_84220@163.com</setTo>
