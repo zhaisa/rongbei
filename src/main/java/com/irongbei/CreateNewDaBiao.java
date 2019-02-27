@@ -90,7 +90,7 @@ public class CreateNewDaBiao {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("汪汪迁移企业测试有限公司");//汪汪迁移企业测试有限公司 //uat测试账户壹
+		action.sendKeys("20319");//汪汪迁移企业测试有限公司 //uat测试账户壹//20636,20813 	20947 21620 21806 21934 	22115 	
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);

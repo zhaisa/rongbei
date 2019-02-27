@@ -1,21 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="2" total="4" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="85961" started-at="2019-02-20T07:40:58Z" finished-at="2019-02-20T07:42:24Z">
+  <suite name="Suite" duration-ms="72079" started-at="2019-02-27T03:54:21Z" finished-at="2019-02-27T03:55:33Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="85961" started-at="2019-02-20T07:40:58Z" finished-at="2019-02-20T07:42:24Z">
-      <class name="KaiHu.JieKuanRenKaiHu">
-        <test-method status="PASS" signature="jieKuanKaiHu()[pri:0, instance:KaiHu.JieKuanRenKaiHu@5a56cdac]" name="jieKuanKaiHu" duration-ms="85265" started-at="2019-02-20T15:40:58Z" finished-at="2019-02-20T15:42:24Z">
+    <test name="Test" duration-ms="55294" started-at="2019-02-27T03:54:21Z" finished-at="2019-02-27T03:55:17Z">
+      <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
+        <test-method status="PASS" signature="createDb(java.lang.String, int, int, int, int, java.lang.String, java.lang.String)[pri:0, instance:AboutNewDaBiao.CreateDaBiaoTestNG@31dc339b]" name="createDb" duration-ms="55260" started-at="2019-02-27T11:54:21Z" finished-at="2019-02-27T11:55:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[28]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- jieKuanKaiHu -->
-        <test-method status="PASS" signature="updateSql()[pri:0, instance:KaiHu.JieKuanRenKaiHu@5a56cdac]" name="updateSql" duration-ms="661" started-at="2019-02-20T15:42:24Z" finished-at="2019-02-20T15:42:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- updateSql -->
-      </class> <!-- KaiHu.JieKuanRenKaiHu -->
+        </test-method> <!-- createDb -->
+      </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
     </test> <!-- Test -->
+    <test name="test2" duration-ms="16413" started-at="2019-02-27T03:55:17Z" finished-at="2019-02-27T03:55:33Z">
+      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
+        <test-method status="PASS" signature="createPlan(int, int, int, java.lang.String)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@6f1fba17]" name="createPlan" duration-ms="16407" started-at="2019-02-27T11:55:17Z" finished-at="2019-02-27T11:55:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[28]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createPlan -->
+      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
+    </test> <!-- test2 -->
+    <test name="周周升底层" duration-ms="1" started-at="2019-02-27T03:55:33Z" finished-at="2019-02-27T03:55:33Z">
+    </test> <!-- 周周升底层 -->
+    <test name="周周升计划" duration-ms="1" started-at="2019-02-27T03:55:33Z" finished-at="2019-02-27T03:55:33Z">
+    </test> <!-- 周周升计划 -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -13,10 +13,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class CreatNewDaBiaoPlanforTestNG {
-	@Parameters({"year","month","date"})
+	@Parameters({"year","month","date","danw"})
 //	 @Test(dataProvider="mydata1")
-	@Test
-	  public void createPlan(int myyear, int mymonth, int myday) throws InterruptedException {
+	@Test(invocationCount=1)
+	  public void createPlan(int myyear, int mymonth, int myday,String danw) throws InterruptedException {
 		  WebDriver dr = CreateDriver.getDriver("chrome");
 			dr.get("http://dev-admin.irongbei.com");
 			dr.findElement(By.name("username")).sendKeys("测试专用管理员");
@@ -39,7 +39,7 @@ public class CreatNewDaBiaoPlanforTestNG {
 			ss.selectByValue("3");
 			Select ss1 = new Select(dr.findElement(By.id("product_lock_time")));
 			ss1.selectByValue("3");
-			dr.findElement(By.id("product_info_raised_amount")).sendKeys("1");// 融资金额
+			dr.findElement(By.id("product_info_raised_amount")).sendKeys(danw);// 融资金额
 			dr.findElement(By.id("product_info_increase_interest_rate")).clear();
 			dr.findElement(By.id("product_info_increase_interest_rate")).sendKeys("1");//平台加息
 			String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(c.getTime());// 对日期进行格式化

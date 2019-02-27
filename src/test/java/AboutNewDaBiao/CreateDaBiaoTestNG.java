@@ -10,7 +10,7 @@ public class CreateDaBiaoTestNG{
  
   @Parameters({"zq","jiange","year","month","date","danw","way"})
   //@Test(dataProvider="mydata")
-  @Test
+  @Test(invocationCount=1)
   public void createDb(String zq,int jiange,int year,int month,int date,String danw,String way) {
 	  CreateNewDaBiao cdb = new CreateNewDaBiao();
 		try {
