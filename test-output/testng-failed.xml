@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<<<<<<< HEAD
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <parameter name="date" value="17"/>
   <parameter name="month" value="4"/>
@@ -9,12 +10,33 @@
   <parameter name="jiange" value="6"/>
   <parameter name="way" value="2"/>
   <test name="test2(failed)">
+=======
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+>>>>>>> refs/remotes/origin/master
     <classes>
+<<<<<<< HEAD
       <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
+=======
+      <class name="com.irongbei.AddMoney">
+>>>>>>> refs/remotes/origin/master
         <methods>
+<<<<<<< HEAD
           <include name="createPlan" invocation-numbers="0"/>
+=======
+          <include name="addMoney"/>
+>>>>>>> refs/remotes/origin/master
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
+=======
+      </class> <!-- com.irongbei.AddMoney -->
+>>>>>>> refs/remotes/origin/master
     </classes>
+<<<<<<< HEAD
   </test> <!-- test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->
+=======
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
+>>>>>>> refs/remotes/origin/master
