@@ -27,12 +27,13 @@ public class CreateZZSPlan {
 		// action.sendKeys(Keys.CONTROL+"t");
 		// action.perform();
 		Thread.sleep(3000);
-
-		dr.get("http://dev_backend.api.irongbei.com");
+//		MyEnviment me=new MyEnviment();
+//		String url=me.getEvi("test", "test");
+		dr.get("http://alpha_backend.api.irongbei.com");
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://dev_backend.api.irongbei.com/product/index");
-		dr.navigate().to("http://dev_backend.api.irongbei.com/product/create");
+		dr.get("http://alpha_backend.api.irongbei.com/product/index");
+		dr.navigate().to("http://alpha_backend.api.irongbei.com/product/create");
 		
 		String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 		String name = "测试周周升计划-翟" + userunder;

@@ -12,25 +12,31 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.rongbei.util.NoGuiDriver;
+
 public class CreatNewDaBiaoPlanforTestNG {
 	@Parameters({"year","month","date","danw"})
 //	 @Test(dataProvider="mydata1")
 	@Test(invocationCount=1)
 	  public void createPlan(int myyear, int mymonth, int myday,String danw) throws InterruptedException {
 		  WebDriver dr = CreateDriver.getDriver("chrome");
+		  MyEnviment me=new MyEnviment();
+			String url=me.getEvi("test", "testadmin");
+//		NoGuiDriver ngd=new NoGuiDriver();
+//		WebDriver dr=ngd.getDriver();
 			dr.get("http://dev-admin.irongbei.com");
 			dr.findElement(By.name("username")).sendKeys("测试专用管理员");
 			dr.findElement(By.name("password")).sendKeys("123456");
 			dr.findElement(By.linkText("登录")).click();
 			Thread.sleep(3000);
 
-			dr.get("http://dev_backend.api.irongbei.com");
+			dr.get("http://alpha_backend.api.irongbei.com");
 			Calendar c = new GregorianCalendar();
 			c.set(myyear, mymonth, myday);
 			dr.findElement(By.linkText("省心投")).click();
 			Thread.sleep(1000);
 			dr.findElement(By.linkText("添加计划")).click();
-			dr.navigate().to("http://dev_backend.api.irongbei.com/financialplan/create");
+			dr.navigate().to("http://alpha_backend.api.irongbei.com/financialplan/create");
 			String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 			String name = "测试省心投计划-翟" + userunder;
 			dr.findElement(By.id("product_info_name")).sendKeys(name);

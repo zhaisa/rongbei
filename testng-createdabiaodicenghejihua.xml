@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Suite" >
   <!--   <listeners>
        <listener class-name="org.testng.ITestListener" />
 		<listener class-name="org.testng.Reporter" />
@@ -8,9 +8,9 @@
 	<parameter name="zq" value="6"></parameter>
 	<parameter name="jiange" value="6"></parameter> 
 	<parameter name="year" value="2019"></parameter>
-	<parameter name="month" value="3"></parameter>
-	<parameter name="date" value="29"></parameter>
-	<parameter name="danw" value="0.02"></parameter>
+	<parameter name="month" value="5"></parameter>
+	<parameter name="date" value="13"></parameter>
+	<parameter name="danw" value="1"></parameter>
 	<parameter name="way" value="2"></parameter>
 
 	<test name="Test">

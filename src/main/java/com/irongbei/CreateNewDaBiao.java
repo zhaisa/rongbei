@@ -20,17 +20,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.rongbei.util.NoGuiDriver;
 import com.rongbei.util.ReadFromTable;
 
 @Test
 public class CreateNewDaBiao {
 	public void createNewDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String way) throws Exception {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
-		WebDriver dr = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver",
+//				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
+//		WebDriver dr = new ChromeDriver();
+		NoGuiDriver ngd=new NoGuiDriver();
+		WebDriver dr=ngd.getDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		MyEnviment me=new MyEnviment();
+		String url=me.getEvi("test", "testadmin");
+		
+		dr.get(url+"/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -73,7 +79,7 @@ public class CreateNewDaBiao {
 		String user = "新省心投债权底层" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/editProject?pjType=xxhb");
+		dr.navigate().to(url+"/admin/Project/editProject?pjType=xxhb");
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
@@ -90,7 +96,7 @@ public class CreateNewDaBiao {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("20319");//汪汪迁移企业测试有限公司 //uat测试账户壹//20636,20813 	20947 21620 21806 21934 	22115 	
+		action.sendKeys("20636");//汪汪迁移企业测试有限公司 //uat测试账户壹//20636,20813 	20947 21620 21806 21934 	22115 	
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -171,11 +177,11 @@ public class CreateNewDaBiao {
 		Thread.sleep(2000);
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
-        dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/index");
-        Thread.sleep(2000);
+        dr.navigate().to(url+"/admin/Project/index");
+        Thread.sleep(3000);
         ReadFromTable rft=new ReadFromTable();
         rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", user);
-        Thread.sleep(4000);
+        Thread.sleep(2000);
 		dr.close();
 		dr.quit();
 

@@ -34,7 +34,9 @@ public class AddZhouZhouSheng {
 		WebDriver dr = new ChromeDriver();
 		Calendar cc = new GregorianCalendar();
 		cc.set(myyear, mymonth, myday);
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		MyEnviment me=new MyEnviment();
+		String url=me.getEvi("test", "testadmin");
+		dr.get(url+"/admin/login");
 		LoginPage lp = new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
 		dr.findElement(By.linkText("项目管理")).click();
@@ -43,7 +45,7 @@ public class AddZhouZhouSheng {
 		Thread.sleep(2000);
 		dr.findElement(By.id("Check1")).click();
 		dr.findElement(By.id("pro_bottom_confirm")).click();
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Project/editProject?pjType=weekrise");
+		dr.navigate().to(url+"/admin/Project/editProject?pjType=weekrise");
 		String time = new SimpleDateFormat("HHmmss").format(cc.getTime());
 
 		String name = "测试周周升项目-" + time;
@@ -68,7 +70,7 @@ public class AddZhouZhouSheng {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 
-		action.sendKeys("水火不容18101169572");// 水火不容18101169572 //汪汪迁移企业测试有限公司
+		action.sendKeys("20636");// 水火不容18101169572 //汪汪迁移企业测试有限公司
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
