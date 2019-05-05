@@ -1,9 +1,13 @@
 package com.irongbei;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.rongbei.util.ReadTxtForOne;
@@ -17,7 +21,10 @@ public class AddMoney{
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://dev-admin.irongbei.com/admin/login");
+		Calendar cc = new GregorianCalendar();
+		MyEnviment me=new MyEnviment();
+		String url=me.getEvi("test", "testadmin");
+		dr.get(url+"/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -44,11 +51,11 @@ public class AddMoney{
 		dr.findElement(By.linkText("平台数据统计")).click();
 
 		// dr.findElement(By.xpath("//*[@id=\"left-nav\"]/ul/li[11]/ul/li[6]/a")).click();
-		dr.navigate().to("http://dev-admin.irongbei.com/admin/Statistics/jxUserCapitalManage");
+		dr.navigate().to(url+"/admin/Statistics/jxUserCapitalManage");
 		dr.findElement(By.id("operatepwd")).sendKeys("123456");
 		dr.findElement(By.linkText("确定")).click();
 		dr.navigate().to(
-				"http://dev-admin.irongbei.com/admin/Statistics/jxUserCapitalManage?sign=bf042569ae6d7d6bfeb78a2c4560d8af");
+				url+"/admin/Statistics/jxUserCapitalManage?sign=bf042569ae6d7d6bfeb78a2c4560d8af");
 		Thread.sleep(2000);
 		ReadTxtForOne rt = new ReadTxtForOne();
 		String a = rt.readline();//("D:\\users\\user.txt");
@@ -56,10 +63,10 @@ public class AddMoney{
 		dr.findElement(By.id("username")).sendKeys(a);
 		dr.findElement(By.id("userlistbutton")).click();
 		Thread.sleep(2000);
-		String url = "http://dev-admin.irongbei.com/admin/Statistics/jxUserCapitalManage?username=";
+		String url1 = url+"/admin/Statistics/jxUserCapitalManage?username=";
 		String url2 = a;
 		String url3 = "&mobile=&usercode=&orderStyle=1&sign=bf042569ae6d7d6bfeb78a2c4560d8af";
-		dr.navigate().to(url + url2 + url3);
+		dr.navigate().to(url1 + url2 + url3);
 		Thread.sleep(1000);
 	//dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[2]/table/tbody/tr[2]/td[13]/a[1]")).click();
 		dr.findElement(By.linkText("[平台奖励]")).click();
@@ -72,7 +79,7 @@ public class AddMoney{
 		dr.findElement(By.xpath("//*[@id=\"moneyBtn\"]")).click();
 
 		Thread.sleep(3000);
-
+		Assert.assertEquals("操作成功", dr.switchTo().alert().getText());
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
 

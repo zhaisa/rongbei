@@ -25,16 +25,17 @@ import com.rongbei.util.ReadFromTable;
 
 @Test
 public class CreateNewDaBiao {
-	public void createNewDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String way) throws Exception {
-//		System.setProperty("webdriver.chrome.driver",
-//				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
-//		WebDriver dr = new ChromeDriver();
-		NoGuiDriver ngd=new NoGuiDriver();
-		WebDriver dr=ngd.getDriver();
+	public void createNewDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String way,String env) throws Exception {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
+		WebDriver dr = new ChromeDriver();
+//		NoGuiDriver ngd=new NoGuiDriver();
+//		WebDriver dr=ngd.getDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
 		MyEnviment me=new MyEnviment();
-		String url=me.getEvi("test", "testadmin");
+		String beorback=env+"admin";
+		String url=me.getEvi(env, beorback);
 		
 		dr.get(url+"/admin/login");
 
@@ -95,8 +96,11 @@ public class CreateNewDaBiao {
 
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
+		if(env.equals("dev")) {
+			action.sendKeys("21620");
+		}else {action.sendKeys("44807");}
 		
-		action.sendKeys("20636");//汪汪迁移企业测试有限公司 //uat测试账户壹//20636,20813 	20947 21620 21806 21934 	22115 	
+		//汪汪迁移企业测试有限公司 //uat测试账户壹//20636,20813 	20947 21620 21806 21934 	22115 	
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -161,7 +165,8 @@ public class CreateNewDaBiao {
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dt);
 		System.out.println(endDate);
 		String changereadonly1 = "$('input[name=end_time]').attr(\"readonly\",false)";
-		dr.findElement(By.name("credit_number")).sendKeys(startDate);
+		String startDate1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(c.getTime());
+		dr.findElement(By.name("credit_number")).sendKeys(startDate1);
 		((JavascriptExecutor) dr).executeScript(changereadonly1);
 		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);

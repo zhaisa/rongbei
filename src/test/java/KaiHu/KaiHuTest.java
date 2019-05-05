@@ -23,9 +23,9 @@ public class KaiHuTest {
 		for (int i = 0; i < 100; i++) {
 			NewUserCardAndBankCard nc = new NewUserCardAndBankCard();
 			ReadTxt rt = new ReadTxt();
-			String readname = rt.readFS("D:\\users\\user.txt", i);
+			String readname = rt.readFS("D:\\users\\user-dev.txt", i);
 			String phone = readname;
-//			String phone="17409050009";
+	//		String phone="17409180003";
 			String usercard = NewUserCardAndBankCard.Calculate();
 			String bankcard = NewUserCardAndBankCard.getBankAccount();
 			logger.info("手机号码：" + phone);

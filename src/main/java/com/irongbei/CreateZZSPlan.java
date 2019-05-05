@@ -14,10 +14,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class CreateZZSPlan {
-	@Parameters({"year","month","date"})
+	@Parameters({"year","month","date","env"})
 //	@Test(dataProvider="mydata")//从data获取数据，执行10次，3个线程同时跑，超时10000豪秒
 	@Test
-	public void createZzsPlan(int myyear, int mymonth, int myday) throws InterruptedException {
+	public void createZzsPlan(int myyear, int mymonth, int myday,String env) throws InterruptedException {
+		String url=null;
 		WebDriver dr = CreateDriver.getDriver("chrome");
 		dr.get("http://dev-admin.irongbei.com");
 		dr.findElement(By.name("username")).sendKeys("测试专用管理员");
@@ -29,11 +30,19 @@ public class CreateZZSPlan {
 		Thread.sleep(3000);
 //		MyEnviment me=new MyEnviment();
 //		String url=me.getEvi("test", "test");
-		dr.get("http://alpha_backend.api.irongbei.com");
+		MyEnviment me=new MyEnviment();
+		String befororback=env+"admin";
+		if(env.equals("test")) {
+		url="http://alpha_backend.api.irongbei.com";
+		}else {
+			url="http://dev_backend.api.irongbei.com";
+		}
+		
+		dr.get(url);
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://alpha_backend.api.irongbei.com/product/index");
-		dr.navigate().to("http://alpha_backend.api.irongbei.com/product/create");
+		dr.get(url+"/product/index");
+		dr.navigate().to(url+"/product/create");
 		
 		String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 		String name = "测试周周升计划-翟" + userunder;

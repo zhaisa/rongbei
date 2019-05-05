@@ -40,7 +40,7 @@ public class ReadFromTable {
 				Thread.sleep(1000);
 				dr.navigate().refresh();
 				Thread.sleep(2000);
-				dr.findElement(By.partialLinkText("上线")).click();
+				dr.findElement(By.linkText("［上线］")).click();
 				dr.switchTo().alert().accept();
 				Thread.sleep(2000);
 				break;

@@ -12,7 +12,7 @@ public class ThreeMoreCreate {
 		for (int i = 0; i < 2; i++) {
 
 			try {
-				cdb.createDaBiao("3", 3, 2018, 3, 25, "1");
+				cdb.createDaBiao("3", 3, 2018, 3, 25, "1","dev");
 			} catch (Exception e) {
 
 				e.printStackTrace();

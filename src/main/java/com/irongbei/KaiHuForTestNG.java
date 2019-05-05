@@ -50,7 +50,7 @@ public class KaiHuForTestNG {
 
 
 	public Object[][] getmydata() throws IOException {
-		Logger logger = Logger.getLogger(KaiHuTest.class);
+		Logger logger = Logger.getLogger(KaiHuForTestNG.class);
 		BasicConfigurator.configure();
 		logger.setLevel(Level.INFO);
 		Excel_reader er = new Excel_reader();

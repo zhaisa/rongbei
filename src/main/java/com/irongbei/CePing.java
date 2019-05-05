@@ -12,14 +12,16 @@ public void cePing(String phone) throws InterruptedException {
 	System.setProperty("webdriver.chrome.driver",
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 	WebDriver dr = new ChromeDriver();
-	dr.get("http://dev-test.irongbei.com/UserLogin/index");
+	MyEnviment me=new MyEnviment();
+	String url=me.getEvi("dev", "dev");
+	dr.get(url+"/UserLogin/index");
 	dr.findElement(By.id("user_name")).sendKeys(phone);
 	dr.findElement(By.id("user_password")).sendKeys("123456");
 	dr.findElement(By.id("qianlogin")).click();
 	Thread.sleep(1000);
-	dr.navigate().to("http://dev-test.irongbei.com/UserCenter/index");
+	dr.navigate().to(url+"/UserCenter/index");
 	Thread.sleep(1000);
-	dr.navigate().to("http://dev-test.irongbei.com/UserCenter/userinfo");
+	dr.navigate().to(url+"/UserCenter/userinfo");
 	Thread.sleep(2000);
 	dr.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div/div[5]/ul/li[10]/span[3]/a")).click();
 	Thread.sleep(1000);

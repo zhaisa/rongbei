@@ -9,7 +9,7 @@ public class CreateDaBiaoTest {
 		for (int i = 0; i < 1; i++) {
 			CreateDaBiao cdb = new CreateDaBiao();
 			try {
-				cdb.createDaBiao("6", 6, 2019, 0, 29,"1");// 周期为3个月，时间间隔设置为3,2018年3月5号 最后一位为万元一
+				cdb.createDaBiao("6", 6, 2019, 03, 30,"1","dev");// 周期为3个月，时间间隔设置为3,2018年3月5号 最后一位为万元一
 			} catch (Exception e) {
 				e.printStackTrace();
 			

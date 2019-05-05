@@ -37,9 +37,9 @@ public class AddUerCredit {
 			ss1.selectByVisibleText(credit);
 			Select ss2 = new Select(dr.findElement(By.name("vId")));
 			List<WebElement> list2 = ss2.getOptions();
-			ss2.selectByVisibleText("翟专用加息券");
+			ss2.selectByVisibleText("2%加息券");
 			dr.findElement(By.name("value")).clear();
-			dr.findElement(By.name("value")).sendKeys("3");
+			dr.findElement(By.name("value")).sendKeys("2");
 			
 		
 		}
@@ -47,7 +47,7 @@ public class AddUerCredit {
 			ss1.selectByVisibleText(credit);
 			Select ss2 = new Select(dr.findElement(By.name("vId")));
 			List<WebElement> list2 = ss2.getOptions();
-			ss2.selectByVisibleText("test-测试");
+			ss2.selectByVisibleText("测试24月优惠券");
 			dr.findElement(By.name("value")).clear();
 			dr.findElement(By.name("value")).sendKeys("20");
 		
@@ -56,7 +56,7 @@ public class AddUerCredit {
 			ss1.selectByVisibleText(credit);
 			Select ss3 = new Select(dr.findElement(By.name("vId")));
 			List<WebElement> list3 = ss3.getOptions();
-			ss3.selectByVisibleText("翟-限时加息券");
+			ss3.selectByVisibleText("10天限时加息券");
 			Thread.sleep(1000);
 			dr.findElement(By.name("value")).clear();
 			dr.findElement(By.name("value")).sendKeys("3");

@@ -14,7 +14,7 @@ public class BuyDaBiao {
 		WebDriver dr = new ChromeDriver();
 		MyEnviment me=new MyEnviment();
 		String url=	me.getEvi("test", "test");
-		dr.get(url+"/?version=2");
+		dr.get(url+"/?version=1");
 		dr.get(url+"/UserLogin/index");
 		// ReadTxt rt = new ReadTxt();
 		// String username = rt.readFS("D:\\users\\usertext1.txt", lineNo);
@@ -59,8 +59,8 @@ public class BuyDaBiao {
 			dr.findElement(By.className("magBtn")).click();
 			Thread.sleep(1000);
 //}
-
-		dr.close();
-		dr.quit();
+//
+//		dr.close();
+//		dr.quit();
 	}
 }

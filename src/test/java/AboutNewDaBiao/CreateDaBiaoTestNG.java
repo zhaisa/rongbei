@@ -8,13 +8,13 @@ import com.irongbei.CreateNewDaBiao;
 
 public class CreateDaBiaoTestNG{
  
-  @Parameters({"zq","jiange","year","month","date","danw","way"})
+  @Parameters({"zq","jiange","year","month","date","danw","way","env"})
   //@Test(dataProvider="mydata")
   @Test(invocationCount=1)
-  public void createDb(String zq,int jiange,int year,int month,int date,String danw,String way) {
+  public void createDb(String zq,int jiange,int year,int month,int date,String danw,String way,String env) {
 	  CreateNewDaBiao cdb = new CreateNewDaBiao();
 		try {
-			cdb.createNewDaBiao(zq,jiange,year,month,date,danw,way);// 周期为3个月，时间间隔设置为3,2018年3月5号 最后一位为万元一
+			cdb.createNewDaBiao(zq,jiange,year,month,date,danw,way,env);// 周期为3个月，时间间隔设置为3,2018年3月5号 最后一位为万元一
 		} catch (Exception e) {
 			e.printStackTrace();
 		

@@ -23,13 +23,17 @@ import org.testng.annotations.Test;
 
 public class CreateDaBiao {
 	@Test
-	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money) throws Exception {
+	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String env) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		MyEnviment me=new MyEnviment();
+		String beorback=env+"admin";
+		String url=me.getEvi(env, beorback);
+		
+		dr.get(url+"/admin/login");
 
 		// dr.manage().window().maximize();
 
@@ -61,18 +65,18 @@ public class CreateDaBiao {
 //		dr.findElement(By.xpath(".//*[@id='right-box']/div[1]/span/a[1]")).click();
 		dr.findElement(By.linkText("项目管理")).click();
 		Thread.sleep(1000);
-		dr.findElement(By.partialLinkText("添加项目")).click();
-		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check3")).click();
-		Thread.sleep(1000); // 停止1秒钟
-		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
-
-		String userunder = new SimpleDateFormat("yyMMddss").format(c.getTime());
+//		dr.findElement(By.partialLinkText("添加项目")).click();
+//		dr.findElement(By.id("project_type_pop")).findElement(By.id("Check3")).click();
+//		Thread.sleep(1000); // 停止1秒钟
+//		dr.findElement(By.id("project_type_pop")).findElement(By.id("pro_bottom_confirm")).click();
+        dr.navigate().to(url+"/admin/Project/editProject");
+		String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 		System.out.println(userunder);
 
-		String user = "1.0省心投底层" + userunder;//测试大标底层-翟
+		String user = "1.0省心投底层-翟" + userunder;//测试大标底层-翟
 
 		System.out.println(user);
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/editProject");
+		dr.navigate().to(url+"/admin/Project/editProject");
 		Thread.sleep(2000);
 		dr.findElement(By.name("project_name")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
@@ -84,8 +88,11 @@ public class CreateDaBiao {
 
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
+		if(env.equals("dev")) {action.sendKeys("21620");}
+		else {
+			action.sendKeys("35958");
+		}
 		
-		action.sendKeys("汪汪迁移企业测试有限公司");
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);

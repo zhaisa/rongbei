@@ -74,7 +74,7 @@ public class Excel_reader {
 			value = String.valueOf(xssfRow.getStringCellValue());
 			break;
 		case FORMULA:
-//			value = String.valueOf(xssfRow.getCellFormula());
+			value = String.valueOf(xssfRow.getCellFormula());
 			break;
 		case BLANK:
 			value= "---";
@@ -95,7 +95,7 @@ public class Excel_reader {
 	}
 
 	// 判断后缀为xls的excel文件的数据类型
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unused" })
 	private static String getValue(HSSFCell hssfCell) {
 		Object value = "";
 		switch(hssfCell.getCellTypeEnum()) {

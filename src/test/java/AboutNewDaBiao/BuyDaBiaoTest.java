@@ -5,11 +5,11 @@ import com.irongbei.BuyDaBiao;
 public class BuyDaBiaoTest {
 
 	public static void main(String[] args) {
-		int Projectid=1917;
+		int Projectid=174;
 //		int Projectid2=1595;
 //		int Projectid3=1596;
 //		String user="17409160006";
-		String user1="17409040293";
+		String user1="17409040298";
 //		String user2="17409040274";
 //		String price="300";
 		String price1="400";

@@ -23,10 +23,10 @@ import org.testng.annotations.Test;
 import com.irongbeipages.LoginPage;
 
 public class AddZhouZhouSheng {
-	@Parameters({"zq","danw","jiange","year","month","date"})
+	@Parameters({"zq","danw","jiange","year","month","date","way","env"})
 //	@Test(dataProvider = "getdata")
 	@Test
-	public void addZhouZhouSheng(String zq, String money, int mylength, int myyear, int mymonth, int myday)
+	public void addZhouZhouSheng(String zq, String money, int mylength, int myyear, int mymonth, int myday,String way,String env)
 			throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
@@ -35,7 +35,8 @@ public class AddZhouZhouSheng {
 		Calendar cc = new GregorianCalendar();
 		cc.set(myyear, mymonth, myday);
 		MyEnviment me=new MyEnviment();
-		String url=me.getEvi("test", "testadmin");
+		String befororback=env+"admin";
+		String url=me.getEvi(env, befororback);
 		dr.get(url+"/admin/login");
 		LoginPage lp = new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
@@ -59,7 +60,7 @@ public class AddZhouZhouSheng {
 		List<WebElement> list = ss1.getOptions();
 		ss1.selectByVisibleText(list.get(0).getText());
 		Select ss2 = new Select(dr.findElement(By.name("real_payment")));// 还款方式
-		ss2.selectByValue("2");
+		ss2.selectByValue(way);
 //		List<WebElement> list2 = ss2.getOptions();
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]")).click();
 		// *[@id="right-box"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]
@@ -70,7 +71,7 @@ public class AddZhouZhouSheng {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 
-		action.sendKeys("20636");// 水火不容18101169572 //汪汪迁移企业测试有限公司
+		action.sendKeys("赵新信心17733674147");// 水火不容18101169572 //汪汪迁移企业测试有限公司
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -113,7 +114,6 @@ public class AddZhouZhouSheng {
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		dr.switchTo().defaultContent();
 		cc.add(Calendar.MONTH, mylength);
-
 		Date dt = cc.getTime();// date就是你需要的时间
 
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dt);

@@ -124,7 +124,7 @@ public class CreateXiaoBiao {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("汪汪迁移企业测试有限公司");
+		action.sendKeys("21620");
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -167,6 +167,7 @@ public class CreateXiaoBiao {
 		dr.findElement(By.name("fixed_invest")).clear();
 		dr.findElement(By.name("fixed_invest")).sendKeys("0");// 输入定投金额
 		Thread.sleep(1000);
+		dr.findElement(By.name("credit_number")).sendKeys(startDate);
 
 		JavascriptExecutor jse = (JavascriptExecutor) dr;
 		Boolean loaded;

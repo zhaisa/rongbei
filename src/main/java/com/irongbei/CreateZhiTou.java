@@ -84,7 +84,7 @@ public class CreateZhiTou {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("汪汪迁移企业测试有限公司");
+		action.sendKeys("30428");
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -109,7 +109,7 @@ public class CreateZhiTou {
 		dr.findElement(By.linkText("确定")).click();
 		Thread.sleep(1000);
          dr.findElement(By.id("cycle")).sendKeys(zq);
-		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
+		dr.findElement(By.id("p_sum")).sendKeys("0.1");// 输入金额1万
 	//	dr.findElement(By.id("rate")).clear();
 		Thread.sleep(1000);
 	//	dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
@@ -147,6 +147,7 @@ public class CreateZhiTou {
 		((JavascriptExecutor) dr).executeScript(endattr);
 		dr.findElement(By.name("end_time")).clear();
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
+		dr.findElement(By.name("credit_number")).sendKeys(startDate);
 		Thread.sleep(1000);
 		String changereadonly2 = "$('#sub').click()";
 		((JavascriptExecutor) dr).executeScript(changereadonly2);

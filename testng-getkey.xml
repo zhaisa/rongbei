@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <parameter name="user" value="17409040300"></parameter>
+	<parameter name="projectid" value="176"></parameter> 
+	<parameter name="value" value="3"></parameter><!-- 3位一次性还本付息 -->
+	<parameter name="account" value="100"></parameter>
+	<parameter name="version" value="1"></parameter>
+
+  <test name="Test">
+      <classes>
+          <class name="com.rongbei.util.GetKey">
+              
+              <methods>
+                  <include name="getKey"></include>
+              </methods>
+          </class>
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

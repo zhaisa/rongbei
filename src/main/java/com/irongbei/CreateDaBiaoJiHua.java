@@ -14,14 +14,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateDaBiaoJiHua {
-	public void createDaBiaoJiHua(String zq, int myyear, int mymonth, int myday) throws Exception {
+	public void createDaBiaoJiHua(String zq, int myyear, int mymonth, int myday,String env) throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
+		MyEnviment me=new MyEnviment();
+		String beorback=env+"admin";
+		String url=me.getEvi(env, beorback);
 		WebDriver dr = new ChromeDriver();
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		dr.get(url+"/admin/login");
 
 		WebElement element = dr.findElement(By.name("username"));
 
@@ -47,11 +50,11 @@ public class CreateDaBiaoJiHua {
 		dr.findElement(By.linkText("省心投管理")).click();
 		String aaa = "$('#计划列表').click";
 		((JavascriptExecutor) dr).executeScript(aaa);
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/index");
+		dr.navigate().to(url+"/admin/FinancialPlan/index");
 		dr.findElement(By.linkText("添加计划")).click();
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/FinancialPlan/addFinancialPlan");
+		dr.navigate().to(url+"/admin/FinancialPlan/addFinancialPlan");
 
-		String userunder = new SimpleDateFormat("yyMMddSS").format(c.getTime());
+		String userunder = new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 		System.out.println(userunder);
 
 		String user = "1.0省心投" + userunder;//省心投理财计划-翟

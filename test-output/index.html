@@ -49,12 +49,12 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>C:\Users\Administrator\git\rongbei\testng-createdabiaodicenghejihua.xml</span>
+                    <span>C:\Users\Administrator\git\rongbei\testng-dabiaodicenghejihua.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite">
-                    <span class="test-stats">4 tests</span>
+                    <span class="test-stats">2 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.irongbei.CreatNewDaBiaoPlanforTestNG" hash-for-method="createPlan(2019, 2, 7, 1)">createPlan(2019, 2, 7, 1)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="AboutNewDaBiao.CreateDaBiaoTestNG" hash-for-method="createDb(6, 6, 2019, 4, 5, 1, 2, dev)">createDb(6, 6, 2019, 4, 5, 1, 2, dev)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.irongbei.CreatNewDaBiaoPlanforTestNG" hash-for-method="createPlan(2019, 4, 5, 1, dev, 6)">createPlan(2019, 4, 5, 1, dev, 6)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -120,15 +125,31 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
+              <span class="class-name">AboutNewDaBiao.CreateDaBiaoTestNG</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createDb(6, 6, 2019, 4, 5, 1, 2, dev)">
+                  </a> <!-- createDb(6, 6, 2019, 4, 5, 1, 2, dev) -->
+                  <span class="method-name">createDb</span>
+                  <span class="parameters">(6, 6, 2019, 4, 5, 1, 2, dev)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
               <span class="class-name">com.irongbei.CreatNewDaBiaoPlanforTestNG</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createPlan(2019, 2, 7, 1)">
-                  </a> <!-- createPlan(2019, 2, 7, 1) -->
+                  <a name="createPlan(2019, 4, 5, 1, dev, 6)">
+                  </a> <!-- createPlan(2019, 4, 5, 1, dev, 6) -->
                   <span class="method-name">createPlan</span>
-                  <span class="parameters">(2019, 2, 7, 1)</span>
+                  <span class="parameters">(2019, 4, 5, 1, dev, 6)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,25 +157,26 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Administrator\git\rongbei\testng-createdabiaodicenghejihua.xml</span>
+            <span class="header-content">C:\Users\Administrator\git\rongbei\testng-dabiaodicenghejihua.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
-  &lt;parameter name=&quot;date&quot; value=&quot;7&quot;/&gt;
-  &lt;parameter name=&quot;month&quot; value=&quot;2&quot;/&gt;
+  &lt;parameter name=&quot;date&quot; value=&quot;5&quot;/&gt;
+  &lt;parameter name=&quot;month&quot; value=&quot;4&quot;/&gt;
   &lt;parameter name=&quot;year&quot; value=&quot;2019&quot;/&gt;
   &lt;parameter name=&quot;zq&quot; value=&quot;6&quot;/&gt;
   &lt;parameter name=&quot;danw&quot; value=&quot;1&quot;/&gt;
+  &lt;parameter name=&quot;env&quot; value=&quot;dev&quot;/&gt;
   &lt;parameter name=&quot;jiange&quot; value=&quot;6&quot;/&gt;
   &lt;parameter name=&quot;way&quot; value=&quot;2&quot;/&gt;
   &lt;test name=&quot;Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;AboutNewDaBiao.CreateDaBiaoTestNG&quot;&gt;
         &lt;methods&gt;
-          &lt;exclude name=&quot;createDb&quot;/&gt;
+          &lt;include name=&quot;createDb&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- AboutNewDaBiao.CreateDaBiaoTestNG --&gt;
     &lt;/classes&gt;
@@ -168,24 +190,6 @@
       &lt;/class&gt; &lt;!-- com.irongbei.CreatNewDaBiaoPlanforTestNG --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- test2 --&gt;
-  &lt;test name=&quot;周周升底层&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.irongbei.AddZhouZhouSheng&quot;&gt;
-        &lt;methods&gt;
-          &lt;exclude name=&quot;addZhouZhouSheng&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.irongbei.AddZhouZhouSheng --&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- 周周升底层 --&gt;
-  &lt;test name=&quot;周周升计划&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.irongbei.CreateZZSPlan&quot;&gt;
-        &lt;methods&gt;
-          &lt;exclude name=&quot;createZzsPlan&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.irongbei.CreateZZSPlan --&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- 周周升计划 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -201,12 +205,6 @@
               </li>
               <li>
                 <span class="test-name">test2 (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">周周升底层 (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">周周升计划 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -232,16 +230,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createPlan')
-data.setCell(0, 2, 'com.irongbei.CreatNewDaBiaoPlanforTestNG')
-data.setCell(0, 3, 29415);
+data.setCell(0, 1, 'createDb')
+data.setCell(0, 2, 'AboutNewDaBiao.CreateDaBiaoTestNG')
+data.setCell(0, 3, 54933);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'createPlan')
+data.setCell(1, 2, 'com.irongbei.CreatNewDaBiaoPlanforTestNG')
+data.setCell(1, 3, 16347);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 29 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -256,30 +258,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.irongbei.CreateZZSPlan</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">createZzsPlan</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">AboutNewDaBiao.CreateDaBiaoTestNG</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">createDb</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.irongbei.AddZhouZhouSheng</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">addZhouZhouSheng</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -288,10 +269,17 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
+              <div class="chronological-class-name">AboutNewDaBiao.CreateDaBiaoTestNG</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">createDb(6, 6, 2019, 4, 5, 1, 2, dev)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
               <div class="chronological-class-name">com.irongbei.CreatNewDaBiaoPlanforTestNG</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">createPlan(2019, 2, 7, 1)</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-name">createPlan(2019, 4, 5, 1, dev, 6)</span>
+                <span class="method-start">55117 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

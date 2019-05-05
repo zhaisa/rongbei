@@ -1,0 +1,6 @@
+2019-04-11 17:58:29,077 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:31) 手机号码：17409180001
+2019-04-11 17:58:29,089 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:32) 身份证号码：412702195210079629
+2019-04-11 17:58:29,090 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:33) 银行卡号：6222020446014788312
+2019-04-11 18:01:00,772 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:31) 手机号码：17409180001
+2019-04-11 18:01:00,774 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:32) 身份证号码：412702195210072515
+2019-04-11 18:01:00,774 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:33) 银行卡号：6222025577190343671
