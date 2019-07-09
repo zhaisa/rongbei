@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="71495" started-at="2019-05-05T01:55:36Z" finished-at="2019-05-05T01:56:47Z">
+  <suite name="Suite" duration-ms="68149" started-at="2019-07-05T02:22:53Z" finished-at="2019-07-05T02:24:01Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="54968" started-at="2019-05-05T01:55:36Z" finished-at="2019-05-05T01:56:31Z">
+    <test name="Test" duration-ms="44973" started-at="2019-07-05T02:22:53Z" finished-at="2019-07-05T02:23:38Z">
       <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
-        <test-method status="PASS" signature="createDb(java.lang.String, int, int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:AboutNewDaBiao.CreateDaBiaoTestNG@3632be31]" name="createDb" duration-ms="54933" started-at="2019-05-05T09:55:36Z" finished-at="2019-05-05T09:56:31Z">
+        <test-method status="PASS" signature="createDb(java.lang.String, int, int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:AboutNewDaBiao.CreateDaBiaoTestNG@3632be31]" name="createDb" duration-ms="44945" started-at="2019-07-05T10:22:53Z" finished-at="2019-07-05T10:23:38Z">
           <params>
             <param index="0">
               <value>
@@ -26,7 +26,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[4]]>
+                <![CDATA[6]]>
               </value>
             </param>
             <param index="4">
@@ -46,7 +46,7 @@
             </param>
             <param index="7">
               <value>
-                <![CDATA[dev]]>
+                <![CDATA[test]]>
               </value>
             </param>
           </params>
@@ -55,9 +55,9 @@
         </test-method> <!-- createDb -->
       </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
     </test> <!-- Test -->
-    <test name="test2" duration-ms="16351" started-at="2019-05-05T01:56:31Z" finished-at="2019-05-05T01:56:47Z">
+    <test name="test2" duration-ms="23143" started-at="2019-07-05T02:23:38Z" finished-at="2019-07-05T02:24:01Z">
       <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
-        <test-method status="PASS" signature="createPlan(int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@67b92f0a]" name="createPlan" duration-ms="16347" started-at="2019-05-05T09:56:31Z" finished-at="2019-05-05T09:56:47Z">
+        <test-method status="PASS" signature="createPlan(int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@67b92f0a]" name="createPlan" duration-ms="23139" started-at="2019-07-05T10:23:38Z" finished-at="2019-07-05T10:24:01Z">
           <params>
             <param index="0">
               <value>
@@ -66,7 +66,7 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[4]]>
+                <![CDATA[6]]>
               </value>
             </param>
             <param index="2">
@@ -81,7 +81,7 @@
             </param>
             <param index="4">
               <value>
-                <![CDATA[dev]]>
+                <![CDATA[test]]>
               </value>
             </param>
             <param index="5">

@@ -10,13 +10,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.irongbeipages.LoginPage;
 
 public class ChangePhone {
-public void changePhone(String phone,String distphone) throws Exception {
+public void changePhone(String phone,String distphone,String env) throws Exception {
 	System.setProperty("webdriver.chrome.driver",
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 	WebDriver dr = new ChromeDriver();
 	Calendar cc = new GregorianCalendar();
 	MyEnviment me=new MyEnviment();
-	String url=me.getEvi("dev", "devadmin");
+	String beorba=env+"admin";
+	String url=me.getEvi(env, beorba);
 	dr.get(url+"/admin/Login");
 	LoginPage lp=new LoginPage(dr);
 	lp.login("测试专用管理员", "123456");

@@ -10,13 +10,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.irongbeipages.LoginPage;
 
 public class ChangePhoneBack {
-public void changePhoneBack(String phone) throws InterruptedException {
+public void changePhoneBack(String phone,String env) throws InterruptedException {
 	System.setProperty("webdriver.chrome.driver",
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 	WebDriver dr = new ChromeDriver();
 	Calendar cc = new GregorianCalendar();
 	MyEnviment me=new MyEnviment();
-	String url=me.getEvi("dev", "devadmin");
+	String admin=env+"admin";
+	String url=me.getEvi(env, admin);
 	dr.get(url+"/admin/Login");
 	LoginPage lp=new LoginPage(dr);
 	lp.login("测试专用管理员", "123456");

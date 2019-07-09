@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class ShengXinTouTuiChu2 {
 	@Parameters({"user","env","datetime"})
-	@Test(invocationCount=10)
+	@Test(invocationCount=1)
 	public void sxttc(String user, String env,String datetime) throws InterruptedException {
 		CreateDriver cd = new CreateDriver();
 		WebDriver dr = cd.getDriver("chrome");
@@ -31,14 +31,27 @@ public class ShengXinTouTuiChu2 {
 		System.out.println(url1);
 		dr.navigate().to(url1);
 		Thread.sleep(1000);
-		List<WebElement> list1=dr.findElements(By.linkText("退出"));
-		List<String> list2=new ArrayList<String>();
-		for(WebElement webele:list1) {
-			String url2=webele.getAttribute("href");
-			System.out.println(url2);
-			if(url2.contains("mixSetDebtXxhb?plan_id")) {
-			list2.add(url2);}
-		}
+		String url11 = dr.findElement(By.linkText("尾页")).getAttribute("href");
+		String[] page = url11.split("page=");
+		String pages = page[1];
+		System.out.println(pages);
+		int allpage = Integer.parseInt(pages);
+
+		List<String> list2 = new ArrayList<String>();
+		for (int i = 1; i <= allpage; i++) {
+			String url22="http://testhf.irongbei.com/UserCenter/newfinplann?status=1&page="+i;
+			dr.navigate().to(url22);
+			List<WebElement> list1=dr.findElements(By.linkText("退出"));
+			
+			for(WebElement webele:list1) {
+				String url2=webele.getAttribute("href");
+				System.out.println(url2);
+				if(url2.contains("mixSetDebtXxhb?plan_id")) {
+				list2.add(url2);}
+			}
+			}
+		
+		
 		
 		for(String myurl:list2) {
 			System.out.println(myurl);

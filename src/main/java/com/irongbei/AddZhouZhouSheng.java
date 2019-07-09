@@ -21,23 +21,24 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.irongbeipages.LoginPage;
+import com.rongbei.util.ReadFromTable;
 
 public class AddZhouZhouSheng {
-	@Parameters({"zq","danw","jiange","year","month","date","way","env"})
-//	@Test(dataProvider = "getdata")
+	@Parameters({ "zq", "danw", "jiange", "year", "month", "date", "way", "env","jiekuanren" })
+	// @Test(dataProvider = "getdata")
 	@Test
-	public void addZhouZhouSheng(String zq, String money, int mylength, int myyear, int mymonth, int myday,String way,String env)
-			throws InterruptedException {
+	public void addZhouZhouSheng(String zq, String money, int mylength, int myyear, int mymonth, int myday, String way,
+			String env,String jiekuanren) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar cc = new GregorianCalendar();
 		cc.set(myyear, mymonth, myday);
-		MyEnviment me=new MyEnviment();
-		String befororback=env+"admin";
-		String url=me.getEvi(env, befororback);
-		dr.get(url+"/admin/login");
+		MyEnviment me = new MyEnviment();
+		String befororback = env + "admin";
+		String url = me.getEvi(env, befororback);
+		dr.get(url + "/admin/login");
 		LoginPage lp = new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
 		dr.findElement(By.linkText("项目管理")).click();
@@ -46,7 +47,7 @@ public class AddZhouZhouSheng {
 		Thread.sleep(2000);
 		dr.findElement(By.id("Check1")).click();
 		dr.findElement(By.id("pro_bottom_confirm")).click();
-		dr.navigate().to(url+"/admin/Project/editProject?pjType=weekrise");
+		dr.navigate().to(url + "/admin/Project/editProject?pjType=weekrise");
 		String time = new SimpleDateFormat("HHmmss").format(cc.getTime());
 
 		String name = "测试周周升项目-" + time;
@@ -61,7 +62,7 @@ public class AddZhouZhouSheng {
 		ss1.selectByVisibleText(list.get(0).getText());
 		Select ss2 = new Select(dr.findElement(By.name("real_payment")));// 还款方式
 		ss2.selectByValue(way);
-//		List<WebElement> list2 = ss2.getOptions();
+		// List<WebElement> list2 = ss2.getOptions();
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]")).click();
 		// *[@id="right-box"]/div[2]/div[3]/div[11]/span/span[1]/span/span[2]
 		// *[@id="right-box"]/div[2]/div[3]/div[12]/span/span[1]/span/span[2]/b
@@ -70,8 +71,12 @@ public class AddZhouZhouSheng {
 
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
+		if (env.equals("dev")) {
+			action.sendKeys("贝塔06");// 水火不容18101169572 //汪汪迁移企业测试有限公司
+		} else {
+			action.sendKeys(jiekuanren);
+		}
 
-		action.sendKeys("赵新信心17733674147");// 水火不容18101169572 //汪汪迁移企业测试有限公司
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -111,7 +116,7 @@ public class AddZhouZhouSheng {
 		((JavascriptExecutor) dr).executeScript(changereadonly);
 		dr.findElement(By.name("online_time")).clear();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
-		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	Thread.sleep(1000);
 		dr.switchTo().defaultContent();
 		cc.add(Calendar.MONTH, mylength);
 		Date dt = cc.getTime();// date就是你需要的时间
@@ -138,7 +143,13 @@ public class AddZhouZhouSheng {
 		// dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Thread.sleep(2000);
 		dr.switchTo().alert().accept();
-
+		  dr.navigate().to(url+"/admin/Project/index");
+	        Thread.sleep(3000);
+	        dr.navigate().refresh();
+	        Thread.sleep(1000);
+	        ReadFromTable rft=new ReadFromTable();
+	        rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", name);
+	        Thread.sleep(2000);
 		// assertEaquls("添加成功";dr.findElement(By));
 		Thread.sleep(3000);
 

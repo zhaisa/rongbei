@@ -36,7 +36,7 @@ public class Actions {
 		locator.linkTo("http://www.huicewang.com/ecshop/user.php?act=order_list");
 		locator.wait(2);
 		List<WebElement> orders = locator.elements("订单页", "订单");
-		Map<String, String> results = new LinkedHashMap<>();
+		Map<String, String> results = new LinkedHashMap<String, String>();
 		if (orders.size() > 0) {
 			for (int i = 2; i <= orders.size(); i++) {
 				List<WebElement> orderInfos = driver.findElements(

@@ -7,8 +7,8 @@ public class MyEnviment {
 public String getEvi(String envi,String beforafter) {
 //String[] qianduan= {"http://testhf.irongbei.com","http://dev-test.irongbei.com"};
 //String[] houtai= {"http://rongbeiadmin.51dmoz.com","http://dev-admin.irongbei.com"};
-List<String> qianduan=new ArrayList<>();
-List<String> houtai=new ArrayList<>();
+List<String> qianduan=new ArrayList<String>();
+List<String> houtai=new ArrayList<String>();
 qianduan.add("http://testhf.irongbei.com");
 qianduan.add("http://dev-test.irongbei.com");
 houtai.add("http://rongbeiadmin.51dmoz.com");

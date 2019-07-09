@@ -183,7 +183,6 @@ public class API {
 
 	private ExpectedCondition<Boolean> elementsIs(final By by) {
 		return new ExpectedCondition<Boolean>() {
-			@Override
 			public Boolean apply(WebDriver driver) {
 				if (driver.findElements(by).size() > 0) {
 					return true;

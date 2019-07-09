@@ -48,7 +48,7 @@ public class ExcelData {
 		// 对数组中所有元素hashmap进行初始化
 		if (rows > 1) {
 			for (int i = 0; i < rows - 1; i++) {
-				arrmap[i][0] = new HashMap<>();
+				arrmap[i][0] = new HashMap<String, String>();
 			}
 		} else {
 			System.out.println("excel中没有数据");

@@ -18,12 +18,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
 public class CreateDaBiao {
+	@Parameters({"zq","mylength","myyear","mymonth","myday","money","env","jiekuanren"})
 	@Test
-	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String env) throws Exception {
+	public void createDaBiao(String zq, int mylength, int myyear, int mymonth, int myday,String money,String env,String jiekuanren) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
@@ -90,7 +92,7 @@ public class CreateDaBiao {
 		action.moveToElement(we).click();
 		if(env.equals("dev")) {action.sendKeys("21620");}
 		else {
-			action.sendKeys("35958");
+			action.sendKeys(jiekuanren);
 		}
 		
 		action.moveToElement(we).perform();

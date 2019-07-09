@@ -20,8 +20,10 @@ import org.testng.annotations.Test;
 
 import com.rongbei.util.ReadFromTable;
 
+import config.RBConfig;
+
 @Test
-public class CreateXiaoBiao {
+public class CreateXiaoBiao extends RBConfig{
 
 	public void createXiaoBiao(String zq, int mylength, int myyear, int mymonth, int myday)
 			throws Exception {
@@ -124,7 +126,7 @@ public class CreateXiaoBiao {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("21620");
+		action.sendKeys(this.jiekuanren);
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);

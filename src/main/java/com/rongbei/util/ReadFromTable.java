@@ -41,6 +41,7 @@ public class ReadFromTable {
 				dr.navigate().refresh();
 				Thread.sleep(2000);
 				dr.findElement(By.linkText("［上线］")).click();
+				Thread.sleep(1000);
 				dr.switchTo().alert().accept();
 				Thread.sleep(2000);
 				break;

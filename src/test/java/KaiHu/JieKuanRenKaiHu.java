@@ -2,9 +2,13 @@ package KaiHu;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -20,9 +24,13 @@ import com.irongbeipages.LoginPage;
 import com.rongbei.util.ConectMysql;
 
 public class JieKuanRenKaiHu {
-	WebDriver dr = CreateDriver.getDriver("chrome");
-	@Test
+	
+	@Test(invocationCount=1)
 	public void jieKuanKaiHu() throws InterruptedException {
+		WebDriver dr = CreateDriver.getDriver("chrome");
+		String username=null;
+		int id;
+		String sss1=null;
 		String usercard = NewUserCardAndBankCard.Calculate();
 		String bankcard = NewUserCardAndBankCard.getBankAccount();
 	
@@ -60,7 +68,10 @@ public class JieKuanRenKaiHu {
 		action.perform();
 		Calendar c = new GregorianCalendar();
 //		c.set(myyear, mymonth, myday);
-		String username=new SimpleDateFormat("hhmmss").format(c.getTime());
+		
+		String nameparam=new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
+		username="testzhai"+nameparam;
+		
 		dr.findElement(By.name("name")).sendKeys(username);
 		dr.findElement(By.name("userCode")).sendKeys(usercard);
 		dr.findElement(By.name("mobile")).sendKeys("18701473018");
@@ -68,9 +79,23 @@ public class JieKuanRenKaiHu {
 		Thread.sleep(1000);
 		dr.findElement(By.id("getplans")).click();
 		Thread.sleep(2000);
-		GetNextHandle gnh = new GetNextHandle();
-		gnh.getNextHandle(dr);
-		Thread.sleep(3000);
+		  String currentWindow = dr.getWindowHandle();
+		    Set<String> handles = dr.getWindowHandles();
+			Iterator<String> it= handles.iterator();
+			while (it.hasNext()) {
+				String handle = it.next();
+				if (currentWindow.equals(handle))
+					continue;
+				Thread.sleep(2000);
+				WebDriver window = dr.switchTo().window(handle);
+				System.out.println("title,url = " + window.getTitle() + "," + window.getCurrentUrl());
+			    sss1 = window.getCurrentUrl();
+				
+				
+			}
+	
+		Thread.sleep(1000);
+		dr.navigate().to(sss1);
 		dr.findElement(By.id("BIND_CARD_NO")).clear();
 		dr.findElement(By.id("BIND_CARD_NO")).sendKeys(bankcard);
 		dr.findElement(By.id("IDNO")).clear();
@@ -97,8 +122,12 @@ public class JieKuanRenKaiHu {
 		}
 		String url1="http://corporateadmin.irongbei.com/Index/index?charger="+username;
 		dr.navigate().to(url1);
-		dr.findElement(By.linkText("［授权］")).click();
+		Thread.sleep(2000);
+		dr.navigate().refresh();
+//		dr.findElement(By.id("userlistbutton")).click();
 		Thread.sleep(1000);
+		dr.findElement(By.linkText("［授权］")).click();
+		dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		GetNextHandle gnh1 = new GetNextHandle();
 		gnh1.getNextHandle(dr);
 		Thread.sleep(3000);
@@ -106,21 +135,21 @@ public class JieKuanRenKaiHu {
 		dr.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("121121");
 		Thread.sleep(1000);
 		dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();
-		Thread.sleep(2000);
-		dr.get("http://2rongbeiadmin.irongbei.com");
+		Thread.sleep(3000);
+		dr.get("http://rongbeiadmin.51dmoz.com");
 		LoginPage lp=new LoginPage(dr);
 		lp.login("测试专用管理员", "123456");
 		Thread.sleep(1000);
 		dr.findElement(By.linkText("借款人管理")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.partialLinkText("借款人列表")).click();
-		dr.navigate().to("http://2rongbeiadmin.irongbei.com/admin/Company/index");
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Company/index");
 		dr.findElement(By.name("charger")).sendKeys(username);
 		Thread.sleep(1000);
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div/form/p[3]/a/input")).click();
 		//*[@id="right-box"]/div[2]/div[1]/div/form/p[3]/a/input
 //		dr.findElement(By.linkText("[补充资料]")).click();
-		
+		Thread.sleep(1000);
 		String url2 =dr.findElement(By.linkText("[补充资料]")).getAttribute("href");
 		System.out.println(url2);
 		dr.navigate().to(url2);
@@ -131,12 +160,13 @@ public class JieKuanRenKaiHu {
 		dr.findElement(By.name("charemail")).sendKeys("aaaaa@163.com");
 		dr.findElement(By.id("sub")).click();
 		Thread.sleep(1000);
-		dr.switchTo().alert().accept();
+		dr.switchTo().alert();
 		Thread.sleep(1000);
-		dr.navigate().to("http://2rongbeiadmin.irongbei.com/admin/Company/index");
+		dr.switchTo().alert().accept();
+		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Company/index");
 		dr.findElement(By.name("charger")).sendKeys(username);
 //		dr.findElement(By.linkText("查找")).click();
-//		dr.findElement(By.linkText("[审核]")).click();
+		dr.findElement(By.linkText("[审核]")).click();
 		Thread.sleep(1000);
 		dr.switchTo().alert().accept();
 		Thread.sleep(1000);

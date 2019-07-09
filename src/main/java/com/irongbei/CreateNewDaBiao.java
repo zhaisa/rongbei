@@ -98,7 +98,7 @@ public class CreateNewDaBiao {
 		action.moveToElement(we).click();
 		if(env.equals("dev")) {
 			action.sendKeys("21620");
-		}else {action.sendKeys("44807");}
+		}else {action.sendKeys("testzhai190606064758");}
 		
 		//汪汪迁移企业测试有限公司 //uat测试账户壹//20636,20813 	20947 21620 21806 21934 	22115 	
 		action.moveToElement(we).perform();
@@ -183,7 +183,7 @@ public class CreateNewDaBiao {
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
         dr.navigate().to(url+"/admin/Project/index");
-        Thread.sleep(3000);
+        Thread.sleep(10000);//因为这块有bug，添加完成，马上去标的注册，会造成掉单，也就是标的重复，江西可能还没创建完成
         ReadFromTable rft=new ReadFromTable();
         rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", user);
         Thread.sleep(2000);

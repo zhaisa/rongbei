@@ -60,7 +60,7 @@ public class BuyDaBiao {
 			Thread.sleep(1000);
 //}
 //
-//		dr.close();
-//		dr.quit();
+		dr.close();
+		dr.quit();
 	}
 }

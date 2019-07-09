@@ -14,7 +14,7 @@ public static void main(String[] args) throws InterruptedException, IOException 
 //	String phone = readname;
 //	System.out.println(phone);
 //	String phone="17409040084";
-	cp.cePing("17409040302");
+	cp.cePing("17409040302","test");
 	
 }
 }

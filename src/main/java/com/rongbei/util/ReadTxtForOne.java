@@ -30,7 +30,7 @@ public class ReadTxtForOne {
 				System.out.println("文件存在并且有内容");
 
 				try {
-					ArrayList<String> list = new ArrayList<>();
+					ArrayList<String> list = new ArrayList<String>();
 					// BufferedReader是可以按行读取文件
 					FileInputStream inputStream = new FileInputStream(filed);
 					BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

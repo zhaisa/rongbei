@@ -92,7 +92,7 @@ public class ConectMysql {
 		
 		psql.executeUpdate();}	
 		finally {
-			System.out.println("数据库数据成功修改！！");
+			System.out.println("数据库修改成功------>!");
 	}
 
 }

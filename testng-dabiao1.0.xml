@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <listeners>
+        <listener class-name="listener.RetryListener"></listener>
+    </listeners>
+    <parameter name="zq" value="3"></parameter>
+    <parameter name="mylength" value="3"></parameter>
+    <parameter name="myyear" value="2019"></parameter>
+    <parameter name="mymonth" value="4"></parameter>
+    <parameter name="myday" value="9"></parameter>
+    <parameter name="money" value="1"></parameter>
+    <parameter name="env" value="test"></parameter>
+    <parameter name="jiekuanren" value="40329"></parameter>
+  <test name="Test1">
+      <classes>
+          <class name="com.irongbei.CreateDaBiao">
+              <methods>
+                  <include name="createDaBiao"></include>
+              </methods>
+          </class>
+      </classes>
+  </test> <!-- Test -->
+  <test name="Test2">
+      <classes>
+          <class name="com.irongbei.CreateDaBiaoJiHua">
+              <methods>
+                  <include name="createDaBiaoJiHua"></include>
+              </methods>
+          </class>
+      </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->

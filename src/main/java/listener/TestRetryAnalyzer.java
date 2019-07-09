@@ -13,7 +13,6 @@ public class TestRetryAnalyzer implements IRetryAnalyzer {
 	private int retryCount = 1;// 设一个重跑统计次数为1
 	private int maxRetryTimes = 3;// 设一个最大重试次数为3
 
-	@Override
 	public boolean retry(ITestResult result) {
 		if (retryCount <= maxRetryTimes) {
 			result.setAttribute("RETRY", retryCount);// 这行是为了把失败重跑次数写到一个全局的属性，方便别地儿调用（一般没什么用）

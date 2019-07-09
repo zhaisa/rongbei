@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class ZZSTuiChu {
 
 	@Parameters({"user","env"})
-	@Test(threadPoolSize=1)
+	@Test(threadPoolSize=2)
 	public void zzsTuiChu(String user, String env) throws InterruptedException {
 		CreateDriver cd = new CreateDriver();
 		WebDriver dr = cd.getDriver("chrome");
@@ -28,8 +28,9 @@ public class ZZSTuiChu {
 		dr.findElement(By.linkText("周周升")).click();
 		String url1 = dr.findElement(By.linkText("周周升")).getAttribute("href");
 		dr.navigate().to(url1);
-		Thread.sleep(1000);
-		for(int i=0;i<100;i++) {
+		Thread.sleep(100);
+		for(int i=0;i<2000;i++) {
+			if(dr.findElement(By.linkText("申请退出")).isDisplayed()) {
 			dr.findElement(By.linkText("申请退出")).click();
 			Thread.sleep(100);
 			dr.findElement(By.linkText("确认退出")).click();
@@ -37,8 +38,11 @@ public class ZZSTuiChu {
 		
 			dr.findElement(By.linkText("确定")).click();
 			Thread.sleep(1000);
+		}else {
+			System.out.println("沒有可退出的週週升数据了！！！");
+			break;
 		}
-		
+		}
 		dr.close();
 		dr.quit();
 

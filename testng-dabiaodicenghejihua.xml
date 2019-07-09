@@ -8,11 +8,11 @@
 	<parameter name="zq" value="6"></parameter>
 	<parameter name="jiange" value="6"></parameter> 
 	<parameter name="year" value="2019"></parameter>
-	<parameter name="month" value="4"></parameter>
+	<parameter name="month" value="6"></parameter>
 	<parameter name="date" value="5"></parameter>
 	<parameter name="danw" value="1"></parameter>
 	<parameter name="way" value="2"></parameter>
-	<parameter name="env" value="dev"></parameter>
+	<parameter name="env" value="test"></parameter>
 	<test name="Test">
 
 		<classes>

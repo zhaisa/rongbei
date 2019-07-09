@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <parameter name="user" value="17409170020"></parameter>
-    <parameter name="env" value="dev"></parameter>
+    <parameter name="user" value="17409040309"></parameter>
+    <parameter name="env" value="test"></parameter>
   <test name="Test1">
       <classes>
           <class name="com.irongbei.ZZSTuiChu">

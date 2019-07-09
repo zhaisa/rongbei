@@ -35,7 +35,6 @@ public class Screenshot {
 	// 判断页面是否加载完成
 	public static boolean waitForPageLoad() {
 		return new WebDriverWait(driver, 100).until(new ExpectedCondition<Boolean>() {
-			@Override
 			public Boolean apply(WebDriver driver) {
 				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 			}

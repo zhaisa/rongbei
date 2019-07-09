@@ -35,17 +35,17 @@ public class KaiHuForTestNG {
 		ChangePhoneBack cp1 = new ChangePhoneBack();
 		CePing cp11 = new CePing();
 		// 融贝后台修改成手机号
-		cp.changePhone(phone, "18701473018");
+		cp.changePhone(phone, "18701473018","test");
 		Thread.sleep(1000);
 		// 开通存管
-		KaiTongCunGan.testPlan(phone, usercard, bankcard);// 手机号，身份证，银行卡号j
+		KaiTongCunGan.testPlan(phone, usercard, bankcard,"test");// 手机号，身份证，银行卡号j
 		Thread.sleep(1000);
 		// 解放原来的手机号
 		ShouQuan sq = new ShouQuan();
-		sq.shouQuan(phone);
-		cp1.changePhoneBack(phone);
+		sq.shouQuan(phone,"test");
+		cp1.changePhoneBack(phone,"test");
 		System.out.println(phone);
-		cp11.cePing(phone);
+		cp11.cePing(phone,"test");
 	}
 
 

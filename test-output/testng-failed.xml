@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test2(failed)">
-    <parameter name="datetime" value="051519"/>
-    <parameter name="env" value="dev"/>
-    <parameter name="user" value="17409170028"/>
+  <test name="Test(failed)">
     <classes>
-      <class name="com.irongbei.ShengXinTouTuiChuMingLing">
+      <class name="KaiHu.JieKuanRenKaiHu">
         <methods>
-          <include name="sxttcml" invocation-numbers="0"/>
+          <include name="jieKuanKaiHu"/>
         </methods>
-      </class> <!-- com.irongbei.ShengXinTouTuiChuMingLing -->
+      </class> <!-- KaiHu.JieKuanRenKaiHu -->
     </classes>
-  </test> <!-- Test2(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -22,20 +22,20 @@ public class BuyXiaoBiao {
 		dr.findElement(By.id("user_password")).sendKeys("123456");
 		dr.findElement(By.id("qianlogin")).click();
 		Thread.sleep(1000);
-
+for(int i=0;i<10;i++) {
 		String aaa="http://testhf.irongbei.com/index/pdetail?id=";
 		dr.navigate().to(aaa+id);
 		
 		dr.findElement(By.id("invest_account")).clear();
 		dr.findElement(By.id("invest_account")).click();
 		dr.findElement(By.id("invest_account")).sendKeys(money);
+		dr.findElement(By.xpath("/html/body/div/div[3]/div[1]/div[1]/div/div/div[2]/div/div[5]/div/img")).click();
 		dr.findElement(By.id("investSubmit")).click();
 		GetNextHandle gn=new GetNextHandle();
 		gn.getNextHandle(dr);
 		Thread.sleep(2000);
 		dr.findElement(By.className("magBtn")).click();
-		dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
+		Thread.sleep(1000);
 		String currentWindow = dr.getWindowHandle();
 		// 得到所有窗口的句柄
 		Set<String> handles = dr.getWindowHandles();
@@ -54,6 +54,7 @@ public class BuyXiaoBiao {
 			dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();
 			Thread.sleep(3000);
 		}
+}
 		dr.close();
 		dr.quit();
 

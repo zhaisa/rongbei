@@ -27,7 +27,6 @@ import base.WebSuite;
 public class Reporter implements IReporter {
 
 	//重写的生成报告的方法，得到了项目名、结束时间、用例通过数、失败数、跳过数、总数、通过率等
-	@Override
 	public void generateReport(List<XmlSuite> xmlsuites, List<ISuite> suites, String arg2) {
 		// 1.一开始就把我需要的数据初始化一下
 		String PROJECTNAME = "";// 项目名

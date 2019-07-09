@@ -16,14 +16,15 @@ import base.WebSingle;
 
 public class AddMoney{
 	@Test(invocationCount=20)
-	public void addMoney() throws Exception {
+	public void addMoney(String env) throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar cc = new GregorianCalendar();
 		MyEnviment me=new MyEnviment();
-		String url=me.getEvi("test", "testadmin");
+		String beorba=env+"admin";
+		String url=me.getEvi(env, beorba);
 		dr.get(url+"/admin/login");
 
 		// dr.manage().window().maximize();
@@ -57,9 +58,10 @@ public class AddMoney{
 		dr.navigate().to(
 				url+"/admin/Statistics/jxUserCapitalManage?sign=bf042569ae6d7d6bfeb78a2c4560d8af");
 		Thread.sleep(2000);
+		for(int i=0;i<100;i++) {
 		ReadTxtForOne rt = new ReadTxtForOne();
 		String a = rt.readline();//("D:\\users\\user.txt");
-
+		dr.findElement(By.id("username")).clear();
 		dr.findElement(By.id("username")).sendKeys(a);
 		dr.findElement(By.id("userlistbutton")).click();
 		Thread.sleep(2000);
@@ -79,10 +81,10 @@ public class AddMoney{
 		dr.findElement(By.xpath("//*[@id=\"moneyBtn\"]")).click();
 
 		Thread.sleep(3000);
-		Assert.assertEquals("操作成功", dr.switchTo().alert().getText());
+		Assert.assertEquals("操作成功!", dr.switchTo().alert().getText());
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
-
+		}
 		dr.close();
 		dr.quit();
 

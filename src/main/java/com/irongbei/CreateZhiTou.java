@@ -21,17 +21,23 @@ import org.testng.annotations.Test;
 
 import com.rongbei.util.ReadFromTable;
 
-@Test
-public class CreateZhiTou {
+import config.RBConfig;
 
-	public void createZhiTou(String zq, int mylengh, int myyear, int mymonth, int myday) throws Exception {
+@Test
+public class CreateZhiTou extends RBConfig {
+
+	public void createZhiTou(String zq, int mylengh, int myyear, int mymonth, int myday,String env) throws Exception {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		Calendar c = new GregorianCalendar();
 		c.set(myyear, mymonth, myday);
-		dr.get("http://rongbeiadmin.51dmoz.com/admin/login");
+		MyEnviment me=new MyEnviment();
+		String beorback=env+"admin";
+		String url=me.getEvi(env, beorback);
+		
+		dr.get(url+"/admin/login");
 		// dr.manage().window().maximize();
 		WebElement element = dr.findElement(By.name("username"));
 
@@ -64,7 +70,7 @@ public class CreateZhiTou {
 
 		System.out.println(user);
 
-		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Project/create");
+		dr.navigate().to(url+"/admin/Project/create");
 		dr.findElement(By.xpath("//*[@id=\"right-box\"]/div[2]/div[1]/div[1]/input")).sendKeys(user);
 		dr.findElement(By.id("project_num")).sendKeys(user);
 		Select sn = new Select(dr.findElement(By.id("xuanzh")));
@@ -84,7 +90,7 @@ public class CreateZhiTou {
 		Actions action = new Actions(dr);
 		action.moveToElement(we).click();
 		
-		action.sendKeys("30428");
+		action.sendKeys(this.jiekuanren);
 		action.moveToElement(we).perform();
 
 		Thread.sleep(3000);
@@ -109,7 +115,7 @@ public class CreateZhiTou {
 		dr.findElement(By.linkText("确定")).click();
 		Thread.sleep(1000);
          dr.findElement(By.id("cycle")).sendKeys(zq);
-		dr.findElement(By.id("p_sum")).sendKeys("0.1");// 输入金额1万
+		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
 	//	dr.findElement(By.id("rate")).clear();
 		Thread.sleep(1000);
 	//	dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
@@ -149,8 +155,8 @@ public class CreateZhiTou {
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 		dr.findElement(By.name("credit_number")).sendKeys(startDate);
 		Thread.sleep(1000);
-		String changereadonly2 = "$('#sub').click()";
-		((JavascriptExecutor) dr).executeScript(changereadonly2);
+//		String changereadonly2 = "$('#sub').click()";
+//		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		// dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		dr.switchTo().alert().accept();
@@ -162,14 +168,15 @@ public class CreateZhiTou {
 		} else {
 			System.out.println("----->添加失败！");
 		}
+		Thread.sleep(2000);
 		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
-		   dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/project/index");
+		   dr.navigate().to(url+"/admin/project/index");
 	        ReadFromTable rft=new ReadFromTable();
 	        rft.readFromTable(dr, "//table/tbody", user);
 	        Thread.sleep(3000);
-		dr.close();
-		dr.quit();
+//		dr.close();
+//		dr.quit();
 	}
 
 	private static void jQueryLoaded() {

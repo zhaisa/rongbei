@@ -30,7 +30,6 @@ public class ExecutionListener implements ITestListener {
 	protected static ExtentTest test;
 
 	// 1.此方法可以去掉重复的统计（如失败重跑次数），使通过、失败、跳过的用例数统计准确
-	@Override
 	public void onFinish(ITestContext context) {// onFinish：这个是指在整个test（suite.xml文件中的test）结束时的操作
 		// 因为是迭代器，所以使用while循环
 		Iterator<ITestResult> listOfFailedTests = context.getFailedTests().getAllResults().iterator();
@@ -47,7 +46,6 @@ public class ExecutionListener implements ITestListener {
 	}
 
 	// 测试开始执行,为所有测试用例添加失败重跑机制
-	@Override
 	public void onStart(ITestContext context) {
 		report = TestBase.getExtent();// 此方法就是得到ExtentReports类型的报告
 
@@ -59,11 +57,9 @@ public class ExecutionListener implements ITestListener {
 		}
 	}
 
-	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
 	}
 
-	@Override
 	public void onTestFailure(ITestResult result) {// onTestFailure：这个是指在用例（即case）失败时的操作
 		String image = test.addScreenCapture("../test-output/snapshot/" + CheckPoint.screenName);
 		test.log(LogStatus.FAIL, image);// 失败时截图并将图片嵌到报告页面内
@@ -73,14 +69,12 @@ public class ExecutionListener implements ITestListener {
 	}
 
 	// 当用例跳过时的操作
-	@Override
 	public void onTestSkipped(ITestResult result) {
 		report.endTest(test);
 		report.flush();
 	}
 
 	// 当用例开始时的操作
-	@Override
 	public void onTestStart(ITestResult arg0) {
 		System.out.println("TestStart!");
 		Log.info("TestStart!");
@@ -88,7 +82,6 @@ public class ExecutionListener implements ITestListener {
 	}
 
 	// 当用例成功时的操作
-	@Override
 	public void onTestSuccess(ITestResult result) {
 		test.log(LogStatus.PASS, Reporter.getOutput(result).get(0));
 		report.endTest(test);

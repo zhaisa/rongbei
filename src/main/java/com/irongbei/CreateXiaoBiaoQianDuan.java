@@ -118,7 +118,7 @@ public class CreateXiaoBiaoQianDuan {
 		for (WebElement row : tr) {
 			if(row.getText().contains(project)&&map.get("操作").equals("未审核"))  {
 				dr.findElement(By.linkText("[审核]")).click();
-				//			Thread.sleep(2000);
+							Thread.sleep(2000);
 							dr.switchTo().alert().accept();
 							Thread.sleep(2000);
 							dr.switchTo().alert().accept();
@@ -127,7 +127,7 @@ public class CreateXiaoBiaoQianDuan {
 				
 			}
 		}
-
+		dr.close();
 		 dr.quit();
 		
 	}

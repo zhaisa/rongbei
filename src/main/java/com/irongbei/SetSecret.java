@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SetSecret {
-	public void setSecret(String userphone,String usercard,String backtime,String bankcard) throws InterruptedException {
+	public void setSecret(String userphone,String usercard,String backtime,String bankcard,String env) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 		WebDriver dr = new ChromeDriver();
 		MyEnviment me=new MyEnviment();
-		String url=me.getEvi("dev", "dev");
+		String url=me.getEvi(env, env);
 		dr.get(url+"/UserLogin/index");
 		dr.findElement(By.id("user_name")).sendKeys(userphone);
 		dr.findElement(By.id("user_password")).sendKeys("123456");

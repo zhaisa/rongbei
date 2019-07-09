@@ -14,7 +14,7 @@ import com.irongbei.ShouQuan;
 
 public class KaiHuTest {
 	public static void main(String[] args) throws Exception {
-
+		String env="test";
 		Logger logger = Logger.getLogger(KaiHuTest.class);
 		BasicConfigurator.configure();
 		// PropertyConfigurator.configure("./src/main/resources/log4j.properties");
@@ -23,7 +23,7 @@ public class KaiHuTest {
 		for (int i = 0; i < 100; i++) {
 			NewUserCardAndBankCard nc = new NewUserCardAndBankCard();
 			ReadTxt rt = new ReadTxt();
-			String readname = rt.readFS("D:\\users\\user-dev.txt", i);
+			String readname = rt.readFS("D:\\users\\user.txt", i);
 			String phone = readname;
 	//		String phone="17409180003";
 			String usercard = NewUserCardAndBankCard.Calculate();
@@ -37,17 +37,17 @@ public class KaiHuTest {
 			ChangePhoneBack cp1 = new ChangePhoneBack();
 			CePing cp11 = new CePing();
 			// 融贝后台修改成手机号
-			cp.changePhone(phone, "18701473018");
+			cp.changePhone(phone, "18701473018",env);
 			Thread.sleep(1000);
 			// 开通存管
-			KaiTongCunGan.testPlan(phone, usercard, bankcard);// 手机号，身份证，银行卡号j
+			KaiTongCunGan.testPlan(phone, usercard, bankcard,env);// 手机号，身份证，银行卡号j
 			Thread.sleep(1000);
 			// 解放原来的手机号
 			ShouQuan sq = new ShouQuan();
-			sq.shouQuan(phone);
-			cp1.changePhoneBack(phone);
+			sq.shouQuan(phone,env);
+			cp1.changePhoneBack(phone,env);
 			System.out.println(phone);
-			cp11.cePing(phone);
+			cp11.cePing(phone,env);
 
 		}
 
