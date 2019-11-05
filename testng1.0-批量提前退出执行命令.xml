@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <parameter name="user" value="17409040304"></parameter>
+    <parameter name="user" value="17409040335"></parameter>
 		<parameter name="env" value="test"></parameter>
-		<parameter name="datetime" value="052819"></parameter>
+		<parameter name="datetime" value="092119"></parameter>
 	<test name="Test2">
 		
 		<classes>

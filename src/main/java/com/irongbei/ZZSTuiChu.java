@@ -29,6 +29,7 @@ public class ZZSTuiChu {
 		String url1 = dr.findElement(By.linkText("周周升")).getAttribute("href");
 		dr.navigate().to(url1);
 		Thread.sleep(100);
+//		dr.navigate().to("http://testhf.irongbei.com/UserCenter/weekjoinlist?page=11");
 		for(int i=0;i<2000;i++) {
 			if(dr.findElement(By.linkText("申请退出")).isDisplayed()) {
 			dr.findElement(By.linkText("申请退出")).click();

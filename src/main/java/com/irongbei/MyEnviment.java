@@ -9,7 +9,7 @@ public String getEvi(String envi,String beforafter) {
 //String[] houtai= {"http://rongbeiadmin.51dmoz.com","http://dev-admin.irongbei.com"};
 List<String> qianduan=new ArrayList<String>();
 List<String> houtai=new ArrayList<String>();
-qianduan.add("http://testhf.irongbei.com");
+qianduan.add("http://rbtest.irongbei.com");
 qianduan.add("http://dev-test.irongbei.com");
 houtai.add("http://rongbeiadmin.51dmoz.com");
 houtai.add("http://dev-admin.irongbei.com");

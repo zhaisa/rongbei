@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="68149" started-at="2019-07-05T02:22:53Z" finished-at="2019-07-05T02:24:01Z">
+  <suite name="Suite" duration-ms="61332" started-at="2019-10-31T08:19:08Z" finished-at="2019-10-31T08:20:10Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="44973" started-at="2019-07-05T02:22:53Z" finished-at="2019-07-05T02:23:38Z">
-      <class name="AboutNewDaBiao.CreateDaBiaoTestNG">
-        <test-method status="PASS" signature="createDb(java.lang.String, int, int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:AboutNewDaBiao.CreateDaBiaoTestNG@3632be31]" name="createDb" duration-ms="44945" started-at="2019-07-05T10:22:53Z" finished-at="2019-07-05T10:23:38Z">
+    <test name="Test" duration-ms="61332" started-at="2019-10-31T08:19:08Z" finished-at="2019-10-31T08:20:10Z">
+      <class name="com.irongbei.CreateZhiTouNew">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.irongbei.CreateZhiTouNew@210366b4]" name="beforeMethod" is-config="true" duration-ms="24" started-at="2019-10-31T16:19:09Z" finished-at="2019-10-31T16:19:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="createZhiTou(java.lang.String, int, int, int, int, java.lang.String)[pri:0, instance:com.irongbei.CreateZhiTouNew@210366b4]" name="createZhiTou" duration-ms="61215" started-at="2019-10-31T16:19:09Z" finished-at="2019-10-31T16:20:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[6]]>
+                <![CDATA[3]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[6]]>
+                <![CDATA[3]]>
               </value>
             </param>
             <param index="2">
@@ -26,25 +30,15 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[6]]>
+                <![CDATA[9]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[31]]>
               </value>
             </param>
             <param index="5">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="7">
               <value>
                 <![CDATA[test]]>
               </value>
@@ -52,48 +46,12 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createDb -->
-      </class> <!-- AboutNewDaBiao.CreateDaBiaoTestNG -->
+        </test-method> <!-- createZhiTou -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.irongbei.CreateZhiTouNew@210366b4]" name="afterMethod" is-config="true" duration-ms="1" started-at="2019-10-31T16:20:10Z" finished-at="2019-10-31T16:20:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.irongbei.CreateZhiTouNew -->
     </test> <!-- Test -->
-    <test name="test2" duration-ms="23143" started-at="2019-07-05T02:23:38Z" finished-at="2019-07-05T02:24:01Z">
-      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
-        <test-method status="PASS" signature="createPlan(int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@67b92f0a]" name="createPlan" duration-ms="23139" started-at="2019-07-05T10:23:38Z" finished-at="2019-07-05T10:24:01Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[2019]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[6]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[5]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[test]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[6]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createPlan -->
-      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
-    </test> <!-- test2 -->
   </suite> <!-- Suite -->
 </testng-results>

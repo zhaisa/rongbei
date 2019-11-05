@@ -34,7 +34,7 @@ public class NewUserCardAndBankCard {
 	//随机合法的身份证号
 	 public static String Calculate() {
 		 String areaCode = "412702"; // 用于存放用户输入的区域编号
-	     String birthday = "19801007"; // 用户存放用户输入的出生日期
+	     String birthday = "19811007"; // 用户存放用户输入的出生日期
 	     Random random = new Random();
 	     int a = random.nextInt(10);
 	     String sex = String.valueOf(a); // 用户存放用户输入的性别

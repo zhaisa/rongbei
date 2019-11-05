@@ -23,12 +23,14 @@ import org.testng.annotations.Test;
 import com.irongbeipages.LoginPage;
 import com.rongbei.util.ReadFromTable;
 
-public class AddZhouZhouSheng {
-	@Parameters({ "zq", "danw", "jiange", "year", "month", "date", "way", "env","jiekuanren" })
+import config.RBConfig;
+
+public class AddZhouZhouSheng extends RBConfig {
+	@Parameters({ "zq", "danw", "jiange", "year", "month", "date", "way", "env" })
 	// @Test(dataProvider = "getdata")
 	@Test
 	public void addZhouZhouSheng(String zq, String money, int mylength, int myyear, int mymonth, int myday, String way,
-			String env,String jiekuanren) throws InterruptedException {
+			String env) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
@@ -74,7 +76,7 @@ public class AddZhouZhouSheng {
 		if (env.equals("dev")) {
 			action.sendKeys("贝塔06");// 水火不容18101169572 //汪汪迁移企业测试有限公司
 		} else {
-			action.sendKeys(jiekuanren);
+			action.sendKeys(this.jiekuanren);
 		}
 
 		action.moveToElement(we).perform();
@@ -147,11 +149,11 @@ public class AddZhouZhouSheng {
 	        Thread.sleep(3000);
 	        dr.navigate().refresh();
 	        Thread.sleep(1000);
-	        ReadFromTable rft=new ReadFromTable();
-	        rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", name);
-	        Thread.sleep(2000);
-		// assertEaquls("添加成功";dr.findElement(By));
-		Thread.sleep(3000);
+//	        ReadFromTable rft=new ReadFromTable();
+//	        rft.readFromTable(dr, "/html/body/div[3]/div[2]/div[2]/div[2]/table/tbody", name);
+//	        Thread.sleep(2000);
+//		// assertEaquls("添加成功";dr.findElement(By));
+//		Thread.sleep(3000);
 
 		dr.close();
 		dr.quit();

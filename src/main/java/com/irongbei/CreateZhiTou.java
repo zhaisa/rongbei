@@ -115,7 +115,7 @@ public class CreateZhiTou extends RBConfig {
 		dr.findElement(By.linkText("确定")).click();
 		Thread.sleep(1000);
          dr.findElement(By.id("cycle")).sendKeys(zq);
-		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
+		dr.findElement(By.id("p_sum")).sendKeys("0.1");// 输入金额1万
 	//	dr.findElement(By.id("rate")).clear();
 		Thread.sleep(1000);
 	//	dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
@@ -144,7 +144,7 @@ public class CreateZhiTou extends RBConfig {
 		dr.findElement(By.name("online_time")).click();
 		dr.findElement(By.name("online_time")).clear();
 		dr.findElement(By.name("online_time")).sendKeys(startDate);
-		dr.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		dr.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		c.add(Calendar.MONTH, mylengh);
 
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(c.getTime());
@@ -155,8 +155,8 @@ public class CreateZhiTou extends RBConfig {
 		dr.findElement(By.name("end_time")).sendKeys(endDate);
 		dr.findElement(By.name("credit_number")).sendKeys(startDate);
 		Thread.sleep(1000);
-//		String changereadonly2 = "$('#sub').click()";
-//		((JavascriptExecutor) dr).executeScript(changereadonly2);
+		String changereadonly2 = "$('#sub').click()";
+		((JavascriptExecutor) dr).executeScript(changereadonly2);
 		// dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		dr.switchTo().alert().accept();
@@ -168,15 +168,15 @@ public class CreateZhiTou extends RBConfig {
 		} else {
 			System.out.println("----->添加失败！");
 		}
-		Thread.sleep(2000);
-		dr.switchTo().alert().accept();
-		Thread.sleep(2000);
-		   dr.navigate().to(url+"/admin/project/index");
-	        ReadFromTable rft=new ReadFromTable();
-	        rft.readFromTable(dr, "//table/tbody", user);
-	        Thread.sleep(3000);
-//		dr.close();
-//		dr.quit();
+//		Thread.sleep(2000);
+//		dr.switchTo().alert().accept();
+//		Thread.sleep(2000);
+//		   dr.navigate().to(url+"/admin/project/index");
+//	        ReadFromTable rft=new ReadFromTable();
+//	        rft.readFromTable(dr, "//table/tbody", user);
+//	        Thread.sleep(3000);
+		dr.close();
+		dr.quit();
 	}
 
 	private static void jQueryLoaded() {

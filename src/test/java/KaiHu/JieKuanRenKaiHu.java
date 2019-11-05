@@ -10,6 +10,9 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +31,9 @@ public class JieKuanRenKaiHu {
 	@Test(invocationCount=1)
 	public void jieKuanKaiHu() throws InterruptedException {
 		WebDriver dr = CreateDriver.getDriver("chrome");
+		Logger logger = Logger.getLogger(JieKuanRenKaiHu.class);
+		BasicConfigurator.configure();
+		logger.setLevel(Level.INFO);
 		String username=null;
 		int id;
 		String sss1=null;
@@ -71,7 +77,9 @@ public class JieKuanRenKaiHu {
 		
 		String nameparam=new SimpleDateFormat("yyMMddhhmmss").format(c.getTime());
 		username="testzhai"+nameparam;
-		
+		logger.info(username);
+		logger.info(bankcard);
+		logger.info(usercard);
 		dr.findElement(By.name("name")).sendKeys(username);
 		dr.findElement(By.name("userCode")).sendKeys(usercard);
 		dr.findElement(By.name("mobile")).sendKeys("18701473018");
@@ -86,7 +94,8 @@ public class JieKuanRenKaiHu {
 				String handle = it.next();
 				if (currentWindow.equals(handle))
 					continue;
-				Thread.sleep(2000);
+				Thread.sleep(5000);
+	//			dr.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 				WebDriver window = dr.switchTo().window(handle);
 				System.out.println("title,url = " + window.getTitle() + "," + window.getCurrentUrl());
 			    sss1 = window.getCurrentUrl();
@@ -159,7 +168,7 @@ public class JieKuanRenKaiHu {
 		dr.findElement(By.name("address")).sendKeys("AAAAAAAA");
 		dr.findElement(By.name("charemail")).sendKeys("aaaaa@163.com");
 		dr.findElement(By.id("sub")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		dr.switchTo().alert();
 		Thread.sleep(1000);
 		dr.switchTo().alert().accept();

@@ -2,12 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test(failed)">
+    <parameter name="mymonth" value="9"/>
+    <parameter name="zq" value="3"/>
+    <parameter name="myyear" value="2019"/>
+    <parameter name="myday" value="29"/>
+    <parameter name="mylengh" value="3"/>
+    <parameter name="env" value="test"/>
     <classes>
-      <class name="KaiHu.JieKuanRenKaiHu">
+      <class name="com.irongbei.CreateZhiTouNew">
         <methods>
-          <include name="jieKuanKaiHu"/>
+          <include name="afterMethod"/>
+          <include name="createZhiTou" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- KaiHu.JieKuanRenKaiHu -->
+      </class> <!-- com.irongbei.CreateZhiTouNew -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

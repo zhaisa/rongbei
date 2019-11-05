@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+      <parameter name="zq" value="3"></parameter>
+      <parameter name="mylengh" value="3"></parameter>
+      <parameter name="myyear" value="2019"></parameter>
+      <parameter name="mymonth" value="9"></parameter>
+      <parameter name="myday" value="31"></parameter>
+      <parameter name="env" value="test"></parameter>
+      <classes>
+          <class name="com.irongbei.CreateZhiTouNew">
+              <methods>
+                  <include name="createZhiTou"></include>
+              </methods>
+          </class>
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

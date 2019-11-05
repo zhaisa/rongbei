@@ -7,7 +7,7 @@ public class CreateXiaoBiaoQianDuanTest {
 		
 		for(int i=0;i<1;i++) {
 			CreateXiaoBiaoQianDuan cxb=new CreateXiaoBiaoQianDuan();
-		cxb.createXiaoBiaoQianDuan(2019,06,8,3,"小标埋点-翟20190708");//int myyear, int mymonth, int mydate, int mylen
+		cxb.createXiaoBiaoQianDuan(2019,9,12,3,"小标埋点-翟20191012");//int myyear, int mymonth, int mydate, int mylen
 	}
 	
 	}

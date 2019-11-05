@@ -30,13 +30,13 @@ public class ShengXinTouTuiChu2 {
 		String url1 = dr.findElement(By.linkText("省心投")).getAttribute("href");
 		System.out.println(url1);
 		dr.navigate().to(url1);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		String url11 = dr.findElement(By.linkText("尾页")).getAttribute("href");
 		String[] page = url11.split("page=");
 		String pages = page[1];
 		System.out.println(pages);
 		int allpage = Integer.parseInt(pages);
-
+//int allpage=1;//如何只有1页的情况下，则用改行
 		List<String> list2 = new ArrayList<String>();
 		for (int i = 1; i <= allpage; i++) {
 			String url22="http://testhf.irongbei.com/UserCenter/newfinplann?status=1&page="+i;

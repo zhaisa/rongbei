@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="KaiHu.JieKuanRenKaiHu">
+      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
         <methods>
-          <include name="jieKuanKaiHu"/>
+          <include name="createPlan"/>
         </methods>
-      </class> <!-- KaiHu.JieKuanRenKaiHu -->
+      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

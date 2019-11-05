@@ -2,26 +2,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" >
 <!--     <listeners>
-       <listener class-name="listener.Reporter" />
-	
+       <listener class-name="listener.Reporter" />	
     </listeners>-->
-	<parameter name="zq" value="6"></parameter>
-	<parameter name="jiange" value="6"></parameter> 
+	<parameter name="zq" value="3"></parameter>
+	<parameter name="jiange" value="3"></parameter> 
 	<parameter name="year" value="2019"></parameter>
-	<parameter name="month" value="6"></parameter>
-	<parameter name="date" value="5"></parameter>
-	<parameter name="danw" value="1"></parameter>
+	<parameter name="month" value="9"></parameter>
+	<parameter name="date" value="25"></parameter>
+	<parameter name="danw" value="0.1"></parameter>
 	<parameter name="way" value="2"></parameter>
 	<parameter name="env" value="test"></parameter>
 	<test name="Test">
 
 		<classes>
 			<class name="AboutNewDaBiao.CreateDaBiaoTestNG">
-
 				<methods>
-
 					<include name="createDb"></include>
-
 				</methods>
 			</class>
 

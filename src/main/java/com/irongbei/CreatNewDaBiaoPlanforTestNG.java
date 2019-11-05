@@ -30,7 +30,7 @@ public class CreatNewDaBiaoPlanforTestNG {
 		dr.findElement(By.name("username")).sendKeys("测试专用管理员");
 		dr.findElement(By.name("password")).sendKeys("123456");
 		dr.findElement(By.linkText("登录")).click();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		if (env.equals("dev")) {
 			url1 = "http://dev_backend.api.irongbei.com";
 		}

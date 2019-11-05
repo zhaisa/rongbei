@@ -6,12 +6,15 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-public class BuyXiaoBiao {
+public class BuyXiaoBiao implements Runnable{
 	public void testPlan(String name,int id,String money) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
-		WebDriver dr = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--headless");
+		WebDriver dr = new ChromeDriver(chromeOptions);
 		dr.get("http://testhf.irongbei.com/UserLogin/index");
 
 
@@ -22,9 +25,8 @@ public class BuyXiaoBiao {
 		dr.findElement(By.id("user_password")).sendKeys("123456");
 		dr.findElement(By.id("qianlogin")).click();
 		Thread.sleep(1000);
-for(int i=0;i<10;i++) {
 		String aaa="http://testhf.irongbei.com/index/pdetail?id=";
-		dr.navigate().to(aaa+id);
+		dr.get(aaa+id);
 		
 		dr.findElement(By.id("invest_account")).clear();
 		dr.findElement(By.id("invest_account")).click();
@@ -54,10 +56,27 @@ for(int i=0;i<10;i++) {
 			dr.findElement(By.xpath("//*[@id=\"sub\"]")).click();
 			Thread.sleep(3000);
 		}
-}
+
 		dr.close();
 		dr.quit();
 
+	}
+
+	@Override
+	public void run() {
+		BuyXiaoBiao bxb=new BuyXiaoBiao();
+		String phone="17409040330";
+		int projectid=15838;
+		String price1="1000";
+		for(int i=0;i<40;i++) {
+			try {
+				bxb.testPlan(phone, projectid, price1);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 }

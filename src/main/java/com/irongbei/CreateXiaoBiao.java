@@ -162,7 +162,7 @@ public class CreateXiaoBiao extends RBConfig{
         Actions action2 =new Actions(dr);
         action2.moveToElement(dr.findElement(By.name("end_time"))).click();
         action2.perform();
-		dr.findElement(By.id("p_sum")).sendKeys("1");// 输入金额1万
+		dr.findElement(By.id("p_sum")).sendKeys("10");// 输入金额1万
 //		dr.findElement(By.id("rate")).sendKeys("8");// 年利率8%
 		dr.findElement(By.id("cre_rate")).clear();
 		dr.findElement(By.id("cre_rate")).sendKeys("15");

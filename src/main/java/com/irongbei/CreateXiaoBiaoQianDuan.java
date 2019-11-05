@@ -76,7 +76,9 @@ public class CreateXiaoBiaoQianDuan {
 		Calendar cc = new GregorianCalendar();
 		cc.set(myyear, mymonth, mydate);
 		cc.add(Calendar.MONTH, mylen);
+		cc.add(Calendar.DATE, 1);
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cc.getTime());
+		System.out.println(endDate+"----------->");
          Thread.sleep(2000);
         dr.findElement(By.id("end_time")).clear();
 		dr.findElement(By.id("end_time")).sendKeys(endDate);
