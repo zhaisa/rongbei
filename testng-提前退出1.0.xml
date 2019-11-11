@@ -13,6 +13,7 @@
 			<class name="com.irongbei.ShengXinTouTuiChu">
 				<methods>
 					<include name="sxttc"></include>
+					
 				</methods>
 			</class>
 		</classes>

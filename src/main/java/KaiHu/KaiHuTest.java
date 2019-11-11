@@ -23,7 +23,7 @@ public class KaiHuTest {
 		for (int i = 0; i < 100; i++) {
 			NewUserCardAndBankCard nc = new NewUserCardAndBankCard();
 			ReadTxt rt = new ReadTxt();
-			String readname = rt.readFS("D:\\users\\user.txt", i);
+			String readname = rt.readFS("E:\\users\\user.txt", i);
 			String phone = readname;
 	//		String phone="17409180003";
 			String usercard = NewUserCardAndBankCard.Calculate();

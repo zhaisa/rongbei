@@ -46,6 +46,7 @@ public class KaiTongCunGan {
 			String handle = it.next();
 			if (currentWindow.equals(handle))
 				continue;
+			Thread.sleep(3000);
 			WebDriver window = dr.switchTo().window(handle);
 			System.out.println("title,url = " + window.getTitle() + "," + window.getCurrentUrl());
 			String sss = window.getCurrentUrl();

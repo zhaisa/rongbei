@@ -1,9 +1,0 @@
-2018-12-14 10:54:23,017 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:35) 手机号码：17409040221
-2018-12-14 10:54:23,049 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:36) 身份证号码：412702199010072631
-2018-12-14 10:54:23,049 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:37) 银行卡号：6222029176722475152
-2018-12-14 10:57:31,595 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:35) 手机号码：17409040222
-2018-12-14 10:57:31,595 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:36) 身份证号码：412702199010079956
-2018-12-14 10:57:31,596 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:37) 银行卡号：6222026853852798087
-2018-12-14 11:00:32,960 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:35) 手机号码：17409040223
-2018-12-14 11:00:32,961 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:36) 身份证号码：412702199010076640
-2018-12-14 11:00:32,961 INFO  KaiHu.KaiHuTest.main(KaiHuTest.java:37) 银行卡号：6222024828610917011
