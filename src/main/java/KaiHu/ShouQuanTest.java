@@ -2,7 +2,6 @@ package KaiHu;
 
 import java.io.IOException;
 
-import com.irongbei.ReadTxt;
 import com.irongbei.ShouQuan;
 
 public class ShouQuanTest {

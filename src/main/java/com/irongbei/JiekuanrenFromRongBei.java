@@ -21,7 +21,7 @@ public void crteateJKR(String env) throws InterruptedException {
 	String bankcard = NewUserCardAndBankCard.getBankAccount();
 
 	CreateDriver cd=new CreateDriver();
-	WebDriver dr=cd.getDriver("chrome");
+	WebDriver dr=CreateDriver.getDriver("chrome");
 	MyEnviment me=new MyEnviment();
 	String beorba=env+"admin";
 	String url=me.getEvi(env, beorba);

@@ -25,7 +25,7 @@ public class KaiHuTest {
 			ReadTxt rt = new ReadTxt();
 			String readname = rt.readFS("E:\\users\\user.txt", i);
 			String phone = readname;
-	//		String phone="17409180003";
+//			String phone="17409240049";
 			String usercard = NewUserCardAndBankCard.Calculate();
 			String bankcard = NewUserCardAndBankCard.getBankAccount();
 			logger.info("手机号码：" + phone);
@@ -43,12 +43,13 @@ public class KaiHuTest {
 			KaiTongCunGan.testPlan(phone, usercard, bankcard,env);// 手机号，身份证，银行卡号j
 			Thread.sleep(1000);
 			// 解放原来的手机号
-			ShouQuan sq = new ShouQuan();
-			sq.shouQuan(phone,env);
+			
+			
 			cp1.changePhoneBack(phone,env);
 			System.out.println(phone);
 			cp11.cePing(phone,env);
-
+//			ShouQuan sq = new ShouQuan();
+//			sq.shouQuan(phone,env);
 		}
 
 	}

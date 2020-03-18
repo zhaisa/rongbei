@@ -1,16 +1,10 @@
 package com.irongbei;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -24,7 +18,7 @@ public class PlanQuit {
 		BasicConfigurator.configure();
 		logger.setLevel(Level.INFO);
 		CreateDriver cd = new CreateDriver();
-		WebDriver dr = cd.getDriver("chrome");
+		WebDriver dr = CreateDriver.getDriver("chrome");
 		dr.get("http://testhf.irongbei.com/UserLogin/index");
 		dr.findElement(By.id("user_name")).sendKeys(user);
 		dr.findElement(By.id("user_password")).sendKeys("123456");

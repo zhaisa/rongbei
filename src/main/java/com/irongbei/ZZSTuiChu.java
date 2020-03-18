@@ -11,7 +11,7 @@ public class ZZSTuiChu {
 	@Test(threadPoolSize=2)
 	public void zzsTuiChu(String user, String env) throws InterruptedException {
 		CreateDriver cd = new CreateDriver();
-		WebDriver dr = cd.getDriver("chrome");
+		WebDriver dr = CreateDriver.getDriver("chrome");
 		MyEnviment me = new MyEnviment();
 
 		String url = me.getEvi(env, env);

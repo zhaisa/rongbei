@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test(failed)">
-    <parameter name="mymonth" value="9"/>
-    <parameter name="zq" value="3"/>
-    <parameter name="myyear" value="2019"/>
-    <parameter name="myday" value="29"/>
-    <parameter name="mylengh" value="3"/>
-    <parameter name="env" value="test"/>
+  <parameter name="date" value="15"/>
+  <parameter name="month" value="4"/>
+  <parameter name="year" value="2020"/>
+  <parameter name="zq" value="3"/>
+  <parameter name="danw" value="0.1"/>
+  <parameter name="env" value="test"/>
+  <parameter name="jiange" value="3"/>
+  <parameter name="way" value="2"/>
+  <test thread-count="5" name="test2(failed)">
     <classes>
-      <class name="com.irongbei.CreateZhiTouNew">
+      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
         <methods>
-          <include name="afterMethod"/>
-          <include name="createZhiTou" invocation-numbers="0"/>
-          <include name="beforeMethod"/>
+          <include name="createPlan" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.irongbei.CreateZhiTouNew -->
+      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

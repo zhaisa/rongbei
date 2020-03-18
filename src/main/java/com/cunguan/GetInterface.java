@@ -1,7 +1,6 @@
 package com.cunguan;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
@@ -11,7 +10,7 @@ public class GetInterface {
 @Test
 public void getInterface() throws InterruptedException {
 	CreateDriver gd=new CreateDriver();
-	WebDriver dr=gd.getDriver("chrome");
+	WebDriver dr=CreateDriver.getDriver("chrome");
 	dr.get("http://custody.irongbei.com/admin");
 	dr.findElement(By.name("user_name")).clear();
 	dr.findElement(By.name("user_name")).sendKeys("admin");

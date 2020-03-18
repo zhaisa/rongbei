@@ -1,9 +1,11 @@
 package com.irongbei;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -21,16 +23,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.irongbeipages.LoginPage;
-import com.rongbei.util.ReadFromTable;
-
 import config.RBConfig;
 
 public class AddZhouZhouSheng extends RBConfig {
-	@Parameters({ "zq", "danw", "jiange", "year", "month", "date", "way", "env" })
+	@Parameters({ "zq", "danw", "jiange", "year", "month", "date", "way", "env","prefix","bianhao" })
 	// @Test(dataProvider = "getdata")
 	@Test
 	public void addZhouZhouSheng(String zq, String money, int mylength, int myyear, int mymonth, int myday, String way,
-			String env) throws InterruptedException {
+			String env,String prefix,String bianhao) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
@@ -42,7 +42,7 @@ public class AddZhouZhouSheng extends RBConfig {
 		String url = me.getEvi(env, befororback);
 		dr.get(url + "/admin/login");
 		LoginPage lp = new LoginPage(dr);
-		lp.login("测试专用管理员", "123456");
+		lp.login("研发专用管理员", "123456");
 		dr.findElement(By.linkText("项目管理")).click();
 		Thread.sleep(1000);
 		dr.findElement(By.partialLinkText("添加项目")).click();
@@ -50,18 +50,24 @@ public class AddZhouZhouSheng extends RBConfig {
 		dr.findElement(By.id("Check1")).click();
 		dr.findElement(By.id("pro_bottom_confirm")).click();
 		dr.navigate().to(url + "/admin/Project/editProject?pjType=weekrise");
-		String time = new SimpleDateFormat("HHmmss").format(cc.getTime());
+//		String time = new SimpleDateFormat("HHmmss").format(cc.getTime());
 
-		String name = "测试周周升项目-" + time;
+
+	String prefix1=prefix;
+			
+		
+		String name = "房抵贷1912" + prefix1;
 		System.out.println(name);
 		dr.findElement(By.name("project_name")).sendKeys(name);
-		dr.findElement(By.name("project_num")).sendKeys(name);
+		
+		dr.findElement(By.name("project_num")).sendKeys(bianhao);
 		List<WebElement> list11 = dr.findElements(By.name("is_lock"));
 
 		list11.get(0).click();
 		Select ss1 = new Select(dr.findElement(By.id("xuanzh")));// 项目类型
-		List<WebElement> list = ss1.getOptions();
-		ss1.selectByVisibleText(list.get(0).getText());
+//1企业贷3房抵贷4 消费贷5车抵贷11汽车消费金融
+		List<WebElement> list2 = ss1.getOptions();
+		ss1.selectByVisibleText(list2.get(1).getText());
 		Select ss2 = new Select(dr.findElement(By.name("real_payment")));// 还款方式
 		ss2.selectByValue(way);
 		// List<WebElement> list2 = ss2.getOptions();
@@ -115,12 +121,17 @@ public class AddZhouZhouSheng extends RBConfig {
 		String startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(cc.getTime());// 对日期进行格式化
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
-		((JavascriptExecutor) dr).executeScript(changereadonly);
-		dr.findElement(By.name("online_time")).clear();
-		dr.findElement(By.name("online_time")).sendKeys(startDate);
+		((JavascriptExecutor)dr).executeScript(changereadonly);
+		Thread.sleep(1000);
+		 JavascriptExecutor js= (JavascriptExecutor) dr;
+         //输入时间
+         js.executeScript("arguments[0].value=\""+startDate+"\"",dr.findElement(By.name("online_time")));
+//		dr.findElement(By.name("online_time")).clear();
+//		dr.findElement(By.name("online_time")).sendKeys(startDate);
 	Thread.sleep(1000);
 		dr.switchTo().defaultContent();
 		cc.add(Calendar.MONTH, mylength);
+		cc.add(Calendar.DATE, 1);
 		Date dt = cc.getTime();// date就是你需要的时间
 
 		String endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dt);
@@ -143,6 +154,8 @@ public class AddZhouZhouSheng extends RBConfig {
 		((JavascriptExecutor) dr).executeScript(changereadonly2);
 
 		// dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Thread.sleep(1000);
+		dr.switchTo().alert().accept();
 		Thread.sleep(2000);
 		dr.switchTo().alert().accept();
 		  dr.navigate().to(url+"/admin/Project/index");

@@ -6,9 +6,9 @@
     </listeners>-->
 	<parameter name="zq" value="3"></parameter>
 	<parameter name="jiange" value="3"></parameter> 
-	<parameter name="year" value="2019"></parameter>
-	<parameter name="month" value="9"></parameter>
-	<parameter name="date" value="25"></parameter>
+	<parameter name="year" value="2020"></parameter>
+	<parameter name="month" value="4"></parameter>
+	<parameter name="date" value="15"></parameter>
 	<parameter name="danw" value="0.1"></parameter>
 	<parameter name="way" value="2"></parameter>
 	<parameter name="env" value="test"></parameter>
@@ -17,7 +17,7 @@
 		<classes>
 			<class name="AboutNewDaBiao.CreateDaBiaoTestNG">
 				<methods>
-					<include name="createDb"></include>
+					<exclude name="createDb"></exclude>
 				</methods>
 			</class>
 

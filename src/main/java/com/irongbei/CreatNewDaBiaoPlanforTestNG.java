@@ -12,8 +12,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.rongbei.util.NoGuiDriver;
-
 public class CreatNewDaBiaoPlanforTestNG {
 	@Parameters({ "year", "month", "date", "danw", "env","zq"})
 	// @Test(dataProvider="mydata1")
@@ -27,7 +25,7 @@ public class CreatNewDaBiaoPlanforTestNG {
 		// NoGuiDriver ngd=new NoGuiDriver();
 		// WebDriver dr=ngd.getDriver();
 		dr.get("http://dev-admin.irongbei.com");
-		dr.findElement(By.name("username")).sendKeys("测试专用管理员");
+		dr.findElement(By.name("username")).sendKeys("研发专用管理员");
 		dr.findElement(By.name("password")).sendKeys("123456");
 		dr.findElement(By.linkText("登录")).click();
 		Thread.sleep(4000);

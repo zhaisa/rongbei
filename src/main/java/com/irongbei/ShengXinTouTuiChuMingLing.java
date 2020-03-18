@@ -16,7 +16,7 @@ public class ShengXinTouTuiChuMingLing {
 		List<String> list2 = new ArrayList<String>();
 		List<String> list3 = new ArrayList<String>();
 		CreateDriver cd = new CreateDriver();
-		WebDriver dr = cd.getDriver("chrome");
+		WebDriver dr = CreateDriver.getDriver("chrome");
 		MyEnviment me = new MyEnviment();
 
 		String url = me.getEvi(env, env);

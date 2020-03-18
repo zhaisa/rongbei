@@ -21,7 +21,7 @@ public class CreateZZSPlan {
 		String url=null;
 		WebDriver dr = CreateDriver.getDriver("chrome");
 		dr.get("http://dev-admin.irongbei.com");
-		dr.findElement(By.name("username")).sendKeys("测试专用管理员");
+		dr.findElement(By.name("username")).sendKeys("研发专用管理员");
 		dr.findElement(By.name("password")).sendKeys("123456");
 		dr.findElement(By.linkText("登录")).click();
 		// Actions action=new Actions(dr);
@@ -65,7 +65,7 @@ public class CreateZZSPlan {
 		Thread.sleep(1000);
 		dr.findElement(By.xpath("//*[@id=\"createfrom\"]/div[2]/button")).click();
 		Thread.sleep(3000);
-		dr.close();
+//		dr.close();
 		dr.quit();
 
 	}

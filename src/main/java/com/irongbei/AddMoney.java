@@ -12,8 +12,6 @@ import org.testng.annotations.Test;
 
 import com.rongbei.util.ReadTxtForOne;
 
-import base.WebSingle;
-
 public class AddMoney{
 	@Test(invocationCount=20)
 	public void addMoney(String env) throws Exception {

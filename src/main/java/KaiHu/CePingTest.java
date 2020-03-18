@@ -3,7 +3,6 @@ package KaiHu;
 import java.io.IOException;
 
 import com.irongbei.CePing;
-import com.irongbei.ReadTxt;
 
 public class CePingTest {
 public static void main(String[] args) throws InterruptedException, IOException {

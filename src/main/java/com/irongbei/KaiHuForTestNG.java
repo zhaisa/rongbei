@@ -13,8 +13,6 @@ import org.testng.annotations.Test;
 
 import com.rongbei.util.Excel_reader;
 
-import KaiHu.KaiHuTest;
-
 public class KaiHuForTestNG {
 	@Test(dataProvider = "mydata")
 	public void kaiHu(Map<String, String> map) throws Exception {

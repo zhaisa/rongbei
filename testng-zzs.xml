@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<parameter name="zq" value="3"></parameter>
+<parameter name="danw" value="0.1"></parameter>
+<parameter name="jiange" value="3"></parameter>
+<parameter name="year" value="2020"></parameter>
+<parameter name="month" value="6"></parameter>
+<parameter name="date" value="8"></parameter>
+<parameter name="way" value="1"></parameter>
+<parameter name="env" value="test"></parameter>
+<parameter name="prefix" value="09"></parameter><!-- 项目名称后缀依次加1 -->
+<parameter name="bianhao" value="ZS190400-036"></parameter><!-- 350依次加1 -->
+	<test name="test1">
+		<classes>
+			<class name="com.irongbei.AddZhouZhouSheng">
+
+				<methods>
+					<include name="addZhouZhouSheng"></include>
+				</methods>
+			</class>		
+		</classes>
+	</test> <!-- Test -->
+	<test name="test2">
+	<classes>
+		<class name="com.irongbei.CreateZZSPlan">
+				<methods>
+					<include name="createZzsPlan"></include>
+				</methods>
+			</class>
+	</classes>
+	</test>
+</suite> 

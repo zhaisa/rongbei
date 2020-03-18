@@ -20,9 +20,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.rongbei.util.NoGuiDriver;
-import com.rongbei.util.ReadFromTable;
-
 import config.RBConfig;
 
 @Test
@@ -45,7 +42,7 @@ public class CreateNewDaBiao extends RBConfig{
 
 		WebElement element = dr.findElement(By.name("username"));
 
-		element.sendKeys("测试专用管理员");
+		element.sendKeys("研发专用管理员");
 		WebElement element1 = dr.findElement(By.name("password"));
 		element1.sendKeys("123456");
 		WebElement element2 = dr.findElement(By.className("login-btn"));
@@ -156,8 +153,11 @@ public class CreateNewDaBiao extends RBConfig{
 		System.out.println(startDate);
 		String changereadonly = "$('input[name=online_time]').attr(\"readonly\",false)";
 		((JavascriptExecutor) dr).executeScript(changereadonly);
-		dr.findElement(By.name("online_time")).clear();
-		dr.findElement(By.name("online_time")).sendKeys(startDate);
+//		dr.findElement(By.name("online_time")).clear();
+//		dr.findElement(By.name("online_time")).sendKeys(startDate);
+		 JavascriptExecutor js= (JavascriptExecutor) dr;
+         //输入时间
+         js.executeScript("arguments[0].value=\""+startDate+"\"",dr.findElement(By.name("online_time")));
 		dr.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         dr.switchTo().defaultContent();
 		c.add(Calendar.MONTH, mylength);

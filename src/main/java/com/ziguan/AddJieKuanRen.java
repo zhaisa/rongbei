@@ -18,7 +18,7 @@ public class AddJieKuanRen {
 	@Test(invocationCount=10,threadPoolSize=1)
 	public void addjkr() throws InterruptedException, IOException {
 		CreateDriver cd=new CreateDriver();
-		WebDriver dr=cd.getDriver("chrome");
+		WebDriver dr=CreateDriver.getDriver("chrome");
 		dr.get("http://alpha.business.irongbei.com");
 		Thread.sleep(2000);
 		dr.findElement(By.name("username")).sendKeys("zsph0001");

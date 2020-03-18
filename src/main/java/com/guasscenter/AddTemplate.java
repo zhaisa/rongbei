@@ -16,7 +16,7 @@ public class AddTemplate {
 @Test(invocationCount=20,threadPoolSize=1)
 public void addTemplate() throws InterruptedException {
 	CreateDriver cd =new CreateDriver();
-	WebDriver dr=cd.getDriver("chrome");
+	WebDriver dr=CreateDriver.getDriver("chrome");
 	dr.get("http://dev.gauss.irongbei.com");
 	dr.findElement(By.name("user_name")).clear();
 	dr.findElement(By.name("user_name")).sendKeys("研发专用管理员");

@@ -14,7 +14,7 @@ public class ShengXinTouTuiChu2 {
 	@Test(invocationCount=1)
 	public void sxttc(String user, String env,String datetime) throws InterruptedException {
 		CreateDriver cd = new CreateDriver();
-		WebDriver dr = cd.getDriver("chrome");
+		WebDriver dr = CreateDriver.getDriver("chrome");
 		MyEnviment me = new MyEnviment();
 
 		String url = me.getEvi(env, env);

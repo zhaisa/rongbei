@@ -77,8 +77,9 @@ public class AddUerCredit {
 		dr.navigate().to("http://rongbeiadmin.51dmoz.com/admin/Voucher/checkUserVoucher");
 		dr.findElement(By.partialLinkText("通过审核")).click();
 		dr.switchTo().alert().accept();
-		Thread.sleep(1000);
-		dr.close();
+		Thread.sleep(2000);
+	
 		dr.quit();
+	//	dr.close();
 	}
 }
