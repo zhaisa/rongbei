@@ -1,11 +1,14 @@
 package com.irongbeitest;
 
+import org.testng.annotations.Test;
+
 import com.irongbei.AddUerCredit;
 
 public class AddUserCreditTest {
+//@Test(dataProvider="myphone")
 public static void main(String[] args) throws InterruptedException {
-String phone="17409040340";
-int j=10;
+String phone="17409240066";
+int j=2;
 AddUerCredit ac=new AddUerCredit();
 	for(int i=0;i<j;i++) {
 	

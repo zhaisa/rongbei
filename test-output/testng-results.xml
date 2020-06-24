@@ -2,50 +2,70 @@
 <testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="25899" started-at="2020-02-14T13:37:02 CST" finished-at="2020-02-14T13:37:28 CST">
+  <suite name="Suite" duration-ms="37300" started-at="2020-06-24T08:48:21Z" finished-at="2020-06-24T08:48:58Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="22" started-at="2020-02-14T13:37:02 CST" finished-at="2020-02-14T13:37:02 CST">
-    </test> <!-- Test -->
-    <test name="test2" duration-ms="25810" started-at="2020-02-14T13:37:02 CST" finished-at="2020-02-14T13:37:28 CST">
-      <class name="com.irongbei.CreatNewDaBiaoPlanforTestNG">
-        <test-method status="PASS" signature="createPlan(int, int, int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.irongbei.CreatNewDaBiaoPlanforTestNG@ba8d91c]" name="createPlan" duration-ms="25755" started-at="2020-02-14T13:37:02 CST" finished-at="2020-02-14T13:37:28 CST">
+    <test name="test1" duration-ms="37274" started-at="2020-06-24T08:48:21Z" finished-at="2020-06-24T08:48:58Z">
+      <class name="com.irongbei.AddZhouZhouSheng">
+        <test-method status="PASS" signature="addZhouZhouSheng(java.lang.String, java.lang.String, int, int, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.irongbei.AddZhouZhouSheng@d706f19]" name="addZhouZhouSheng" duration-ms="37239" started-at="2020-06-24T16:48:21Z" finished-at="2020-06-24T16:48:58Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[2020]]>
+                <![CDATA[6]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[4]]>
+                <![CDATA[0.3]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[15]]>
+                <![CDATA[6]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[0.1]]>
+                <![CDATA[2020]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[test]]>
+                <![CDATA[5]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[3]]>
+                <![CDATA[24]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[test]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[09]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[ZS190400-038]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createPlan -->
-      </class> <!-- com.irongbei.CreatNewDaBiaoPlanforTestNG -->
+        </test-method> <!-- addZhouZhouSheng -->
+      </class> <!-- com.irongbei.AddZhouZhouSheng -->
+    </test> <!-- test1 -->
+    <test name="test2" duration-ms="1" started-at="2020-06-24T08:48:58Z" finished-at="2020-06-24T08:48:58Z">
     </test> <!-- test2 -->
   </suite> <!-- Suite -->
 </testng-results>

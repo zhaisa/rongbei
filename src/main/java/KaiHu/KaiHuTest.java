@@ -45,7 +45,7 @@ public class KaiHuTest {
 			// 解放原来的手机号
 			
 			
-			cp1.changePhoneBack(phone,env);
+			cp1.changePhoneBack(phone,phone,env);
 			System.out.println(phone);
 			cp11.cePing(phone,env);
 //			ShouQuan sq = new ShouQuan();

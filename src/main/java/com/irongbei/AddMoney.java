@@ -29,7 +29,7 @@ public class AddMoney{
 
 		WebElement element = dr.findElement(By.name("username"));
 
-		element.sendKeys("测试专用管理员");
+		element.sendKeys("研发专用管理员");
 		WebElement element1 = dr.findElement(By.name("password"));
 		element1.sendKeys("123456");
 		WebElement element2 = dr.findElement(By.className("login-btn"));

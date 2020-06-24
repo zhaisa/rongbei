@@ -26,7 +26,7 @@ public void kaiHu(String phone,String usercard,String bankcard) throws Exception
 	// 解放原来的手机号
 	ShouQuan sq = new ShouQuan();
 	sq.shouQuan(phone,"test");
-	cp1.changePhoneBack(phone,"test");
+	cp1.changePhoneBack(phone,phone,"test");
 	System.out.println(phone);
 	cp11.cePing(phone,"test");
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.irongbeipages.LoginPage;
 
 public class ChangePhoneBack {
-public void changePhoneBack(String phone,String env) throws InterruptedException {
+public void changePhoneBack(String phone,String distphone,String env) throws InterruptedException {
 	System.setProperty("webdriver.chrome.driver",
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
 	WebDriver dr = new ChromeDriver();
@@ -35,7 +35,7 @@ public void changePhoneBack(String phone,String env) throws InterruptedException
 //	dr.findElement(By.partialLinkText("[修改并认证通过]")).click();
 	dr.findElement(By.xpath("html/body/div[5]/div/div[2]/p[4]/span[3]/a[2]")).click();
 	dr.findElement(By.id("mobile1")).clear();
-	dr.findElement(By.id("mobile1")).sendKeys(phone);
+	dr.findElement(By.id("mobile1")).sendKeys(distphone);
 //	dr.findElement(By.id("resend")).click();
 //	Thread.sleep(2000);
 //	dr.findElement(By.id("yzphone")).sendKeys("111111");

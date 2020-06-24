@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>E:\rongbeiproject\testng-dabiaodicenghejihua.xml</span>
+                    <span>C:\Users\EDZ\git\rongbeitestng\testng-zzs.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.irongbei.CreatNewDaBiaoPlanforTestNG" hash-for-method="createPlan(2020, 4, 15, 0.1, test, 3)">createPlan(2020, 4, 15, 0.1, test, 3)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.irongbei.AddZhouZhouSheng" hash-for-method="addZhouZhouSheng(6, 0.3, 6, 2020, 5, 24, 1, test, 09, ZS190400-038)">addZhouZhouSheng(6, 0.3, 6, 2020, 5, 24, 1, test, 09, ZS190400-038)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -120,15 +120,15 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.irongbei.CreatNewDaBiaoPlanforTestNG</span>
+              <span class="class-name">com.irongbei.AddZhouZhouSheng</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createPlan(2020, 4, 15, 0.1, test, 3)">
-                  </a> <!-- createPlan(2020, 4, 15, 0.1, test, 3) -->
-                  <span class="method-name">createPlan</span>
-                  <span class="parameters">(2020, 4, 15, 0.1, test, 3)</span>
+                  <a name="addZhouZhouSheng(6, 0.3, 6, 2020, 5, 24, 1, test, 09, ZS190400-038)">
+                  </a> <!-- addZhouZhouSheng(6, 0.3, 6, 2020, 5, 24, 1, test, 09, ZS190400-038) -->
+                  <span class="method-name">addZhouZhouSheng</span>
+                  <span class="parameters">(6, 0.3, 6, 2020, 5, 24, 1, test, 09, ZS190400-038)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,37 +136,39 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">E:\rongbeiproject\testng-dabiaodicenghejihua.xml</span>
+            <span class="header-content">C:\Users\EDZ\git\rongbeitestng\testng-zzs.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
-  &lt;parameter name=&quot;date&quot; value=&quot;15&quot;/&gt;
-  &lt;parameter name=&quot;month&quot; value=&quot;4&quot;/&gt;
+  &lt;parameter name=&quot;date&quot; value=&quot;24&quot;/&gt;
+  &lt;parameter name=&quot;month&quot; value=&quot;5&quot;/&gt;
   &lt;parameter name=&quot;year&quot; value=&quot;2020&quot;/&gt;
-  &lt;parameter name=&quot;zq&quot; value=&quot;3&quot;/&gt;
-  &lt;parameter name=&quot;danw&quot; value=&quot;0.1&quot;/&gt;
+  &lt;parameter name=&quot;prefix&quot; value=&quot;09&quot;/&gt;
+  &lt;parameter name=&quot;zq&quot; value=&quot;6&quot;/&gt;
+  &lt;parameter name=&quot;danw&quot; value=&quot;0.3&quot;/&gt;
+  &lt;parameter name=&quot;bianhao&quot; value=&quot;ZS190400-038&quot;/&gt;
   &lt;parameter name=&quot;env&quot; value=&quot;test&quot;/&gt;
-  &lt;parameter name=&quot;jiange&quot; value=&quot;3&quot;/&gt;
-  &lt;parameter name=&quot;way&quot; value=&quot;2&quot;/&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
+  &lt;parameter name=&quot;jiange&quot; value=&quot;6&quot;/&gt;
+  &lt;parameter name=&quot;way&quot; value=&quot;1&quot;/&gt;
+  &lt;test name=&quot;test1&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;AboutNewDaBiao.CreateDaBiaoTestNG&quot;&gt;
+      &lt;class name=&quot;com.irongbei.AddZhouZhouSheng&quot;&gt;
         &lt;methods&gt;
-          &lt;exclude name=&quot;createDb&quot;/&gt;
+          &lt;include name=&quot;addZhouZhouSheng&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- AboutNewDaBiao.CreateDaBiaoTestNG --&gt;
+      &lt;/class&gt; &lt;!-- com.irongbei.AddZhouZhouSheng --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;test2&quot;&gt;
+  &lt;/test&gt; &lt;!-- test1 --&gt;
+  &lt;test name=&quot;test2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.irongbei.CreatNewDaBiaoPlanforTestNG&quot;&gt;
+      &lt;class name=&quot;com.irongbei.CreateZZSPlan&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;createPlan&quot;/&gt;
+          &lt;exclude name=&quot;createZzsPlan&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.irongbei.CreatNewDaBiaoPlanforTestNG --&gt;
+      &lt;/class&gt; &lt;!-- com.irongbei.CreateZZSPlan --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- test2 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -180,7 +182,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">test1 (1 class)</span>
               </li>
               <li>
                 <span class="test-name">test2 (1 class)</span>
@@ -211,14 +213,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createPlan')
-data.setCell(0, 2, 'com.irongbei.CreatNewDaBiaoPlanforTestNG')
-data.setCell(0, 3, 25755);
+data.setCell(0, 1, 'addZhouZhouSheng')
+data.setCell(0, 2, 'com.irongbei.AddZhouZhouSheng')
+data.setCell(0, 3, 37239);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 37 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -237,9 +239,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">AboutNewDaBiao.CreateDaBiaoTestNG</span>
+              <span class="ignored-class-name">com.irongbei.CreateZZSPlan</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">createDb</span>
+                <span class="ignored-method-name">createZzsPlan</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -251,9 +253,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.irongbei.CreatNewDaBiaoPlanforTestNG</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.irongbei.AddZhouZhouSheng</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">createPlan(2020, 4, 15, 0.1, test, 3)</span>
+                <span class="method-name">addZhouZhouSheng(6, 0.3, 6, 2020, 5, 24, 1, test, 09, ZS190400-038)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

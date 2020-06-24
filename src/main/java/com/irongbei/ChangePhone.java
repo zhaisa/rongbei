@@ -13,7 +13,7 @@ public class ChangePhone {
 public void changePhone(String phone,String distphone,String env) throws Exception {
 	System.setProperty("webdriver.chrome.driver",
 			"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");// 这一步必不可少
-	WebDriver dr = new ChromeDriver();
+ WebDriver dr = new ChromeDriver();
 	Calendar cc = new GregorianCalendar();
 	MyEnviment me=new MyEnviment();
 	String beorba=env+"admin";
